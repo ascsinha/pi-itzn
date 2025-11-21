@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/base2.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <section class="container flex">
+            <nav class="flex alinhar-extremidades">
+                <div class="flex">
+                    <a href="{{ url_for('index') }}"><img src="../static/imgs/base/itzn brand.svg" alt=""></a>
+                    <ul class="flex centralizar">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('eventos') }}">Eventos</a></li>
+                        <li><a href="{{ url_for('editais') }}">Editais</a></li>
+                        <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                        <li><a href="{{ url_for('contato') }}">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="flex centralizar">
+                    <a class="flex centralizar" href="{{ url_for('login') }}">
+                        Login
+                    </a>
+                    <a class="flex centralizar" href="{{ url_for('cadastro') }}">
+                        Cadastro
+                    </a>
+                </div>
+            </nav>
+        </section>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <div class="container">
+            <div class="cont-footer flex alinhar-extremidades meio-vertical">
+                <div class="flex coluna">
+                    <a href="{{ url_for('index') }}"><img src="../static/imgs/base/itzn brand white.svg" alt=""></a>
+                    <h3>Incubadora do Campus Natal Zona Norte</h3>
+                </div>
+                <div class="flex esquerda">
+                    <ul class="flex coluna">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('eventos') }}">Eventos</a></li>
+                        <li><a href="{{ url_for('editais') }}">Editais</a></li>
+                        <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                        <li><a href="{{ url_for('contato') }}">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contato</h3>
+                    <div>
+                        <div>
+                            <img src="../static/imgs/base/WhatsApp.svg" alt="">
+                            <span>+55 84 4006-9538</span>
+                        </div>
+                        <div>
+                            <img src="../static/imgs/base/location-pin_svgrepo.com.svg" alt="">
+                            <span>R. Brusque, 2926 - Potengi, Natal - RN, 59112-490</span>
+                        </div>
+                        <div>
+                            <img src="../static/imgs/base/instagram_svgrepo.com.svg" alt="">
+                            <span>itznincubadora</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="../static/imgs/base/logo ifrn.svg" alt="">
+            </div>
+        </div>
+        <div class="copyright flex centralizar">
+            <span>Copyright ©2025 ITZN. All rights reserved</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=SUSE:wght@100..800&display=swap');
+
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 0 109px 0 109px;
+}
+
+header {
+    padding: 11px 0 11px 0px;
+}
+
+header .container nav {
+    width: 100%;
+}
+
+header .container nav div:nth-child(1) {
+    gap: 122px;
+}
+
+header .container nav div:nth-child(1) ul {
+    gap: 60px;
+    padding: 0;
+}
+
+header .container nav div:nth-child(1) ul li,
+footer .container .cont-footer div:nth-child(2) ul {
+    list-style: none;
+}
+
+header .container nav div:nth-child(1) ul li a,
+footer .container .cont-footer div:nth-child(2) ul li a {
+    color: #000000;
+    font-family: Inter;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+header .container nav div:nth-child(1) ul li a:hover {
+    color: #1246B2;
+}
+
+header .container nav div:nth-child(2) {
+    gap: 15px;
+}
+
+header .container nav div:nth-child(2) a {
+    border-radius: 15px;
+    font-family: Inter;
+    font-size: 16px;
+    padding: 10px 0 10px 0;
+    text-decoration: none;
+    width: 119px;
+}
+
+header .container nav div:nth-child(2) a:nth-child(1) {
+    background-color: #0052FB;
+    color: #FFFFFF;
+}
+
+header .container nav div:nth-child(2) a:nth-child(1):hover {
+    background-color: #4985FF;
+}
+
+header .container nav div:nth-child(2) a:nth-child(1):disabled {
+    background-color: rgba(73, 133, 255, 0.5);
+}
+
+header .container nav div:nth-child(2) a:nth-child(2) {
+    border: 1px solid #000000;
+    color: #000000;
+}
+
+header .container nav div:nth-child(2) a:nth-child(2):hover {
+    background-color: #D3D3D3;
+}
+
+header .container nav div:nth-child(2) a:nth-child(2):disabled {
+    background-color: #D3D3D3;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+}
+
+footer {
+    background-color: #174199;
+}
+
+footer .container .cont-footer {
+    padding: 82px 0 82px 0;
+}
+
+footer .container .cont-footer div:nth-child(1) {
+    gap: 16px;
+    width: 271px;
+}
+
+footer .container .cont-footer div:nth-child(1) h3 {
+    color: #FFFFFF;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+footer .container .cont-footer div:nth-child(2) ul {
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+footer .container .cont-footer div:nth-child(2) ul li a {
+    color: #FFFFFF;
+}
+
+footer .copyright {
+    border-top: 1px solid #FFFFFF;
+    padding: 34px 0 34px 0;
+}
+
+footer .copyright span {
+    color: #FFFFFF;
+    font-family: Lato;
+}
