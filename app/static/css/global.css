@@ -2,8 +2,18 @@
     display: flex;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .alinhar-extremidades {
     justify-content: space-between;
+}
+
+.coluna {
+    flex-direction: column;
 }
 
 .centralizar {
@@ -29,4 +39,12 @@
 
 .meio-horizontal {
     justify-content: center;
+}
+
+.cor-principal {
+    color: #0052FB;
+}
+
+.fundo-principal {
+    background-color: #0052FB;
 }

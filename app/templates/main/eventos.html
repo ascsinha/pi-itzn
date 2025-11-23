@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,35 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    
     {% extends 'base2.html' %}
-
     {% block content %}
+    <main class="flex coluna centralizar">
+        <h1 class="cor-principal">Eventos</h1>
+        <section class="flex coluna eventos">
+            <div class="evento-card">
+                <img src="../../static/imgs/eventos/evento1.png" alt="Evento 1">
+                <h2>Evento 1</h2>
+                <p>Descrição do Evento 1</p>
+            </div>
+            <div class=" flex coluna evento-card">
+                <img src="../../static/imgs/eventos/evento2.png" alt="Evento 2">
+                <h2>Evento 2</h2>
+                <p>Descrição do Evento 2</p>
+            </div>
+            <div class="flex coluna evento-card">
+                <img src="../../static/imgs/eventos/evento3.png" alt="Evento 3">
+                <h2>Evento 3</h2>
+                <p>Descrição do Evento 3</p>
+            </div>
+        </section>
+        <div class="buttons flex">
+            <button submit="">1</button>
+            <button submit="">2</button>
+            <button submit="">3</button>
+            <button submit="">></button>
+        </div>
+    </main>
+    
     {% endblock %}
 
 </body>

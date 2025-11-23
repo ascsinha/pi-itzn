@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background: url('Group 107 (1).svg') no-repeat center;
+background-size: contain;
+background-color: #fff;
+}
+
+main {
+    display: flex;
+}
+
+section.left {
+    background-image: url('/static/imgs/cadastro/fundo2.svg');
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* mostra tudo sem cortar */
+}
