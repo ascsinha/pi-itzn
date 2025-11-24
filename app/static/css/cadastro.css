@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    width: 100%;
 }
 
 body {
@@ -16,31 +15,25 @@ main .left {
     background-image: url('/static/imgs/cadastro/fundo3.svg');
     background-position: left;
     background-repeat: no-repeat;
-    background-size: 67%;
+    background-size: 60%;
     height: 100%;
     margin: 0;
     padding: 0;
     /* mostra tudo sem cortar */
 }
 
-main .left .login {
-    padding: 72px 86px 72px 86px;
-}
-
-main .left .login div:nth-child(1) {
-    gap: 01px;
-}
-
-main .left .login .info div {
-    gap: 17px;
-}
-
 main .left .container .login {
     background-color: #FFFFFF;
     border-radius: 15px;
     box-shadow: 0 1px 10px 10px rgba(0, 36, 112, 0.2);
-    width: 507px;
+    padding: 72px 86px 72px 86px;
 }
+
+main .left .login .titulo {
+    gap: 2px;
+    margin-bottom: 39px;
+}
+
 
 main .left .container .login div h1 {
     color: #0052FB;
@@ -54,7 +47,22 @@ main .left .container .login div h3 {
     font-weight: 500;
 }
 
-main .left .container .login .info input {
+main .left .login .info {
+    gap: 36px;
+    margin-bottom: 53px;
+}
+
+main .left .login .info .form {
+    gap: 17px;
+}
+
+main .left .container .login .info label,
+main .left .container .login button {
+    font-family: Inter;
+    font-size: 16px;
+}
+
+main .left .container .login .info .form input {
     border: 1px solid #83ACFF;
     border-radius: 15px;
     color: #83ACFF;
@@ -63,30 +71,42 @@ main .left .container .login .info input {
     width: 298px;
 }
 
-main .left .container .login .info input:hover {
+main .left .container .login .info .form input:hover {
     background: #F2F6FF;
     border: 1px solid #83ACFF;
 }
 
-main .left .container .login .info input:focus {
+main .left .container .login .info .form input:focus {
     border: 2px solid var(--blue-400, #4980F2);
     box-shadow: 0 0 10px 0 #0052FB;
 }
 
-main .left .container .login .info input:invalid {
+main .left .container .login .info .form :invalid {
     border: 1px solid #FF4646;
     color: #FF4646;
 }
 
-main .left .container .login .info input::-webkit-input-placeholder {
+main .left .container .login .info .form input::-webkit-input-placeholder {
     color: #83ACFF;
     font-family: Inter;
     font-size: 16px;
     font-weight: 300;
 }
 
-main .left .container .login .info .l2 div:nth-child(1) input {
-    height: 100%;
+main .left .container .login .info .form span,
+main .left .container .login .info .form a {
+    color: #4D4D4D;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+main .left .container .login .info .form a {
+    color: #1246B2;
+    font-family: Lato;
+    font-weight: 400;
+    text-decoration: none;
 }
 
 main .left .container .login .info button {
@@ -95,7 +115,22 @@ main .left .container .login .info button {
     border-radius: 15px;
     color: #FFFFFF;
     height: 36px;
-    width: 139px;
+    width: 100%;
+}
+
+main .left .container .login h4 {
+    color: #4D4D4D;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+main .left .container .login h4 a {
+    color: #1246B2;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
 }
 
 img {

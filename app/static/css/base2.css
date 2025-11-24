@@ -36,14 +36,6 @@ footer .container .cont-footer div:nth-child(2) ul li a {
     text-decoration: none;
 }
 
-header .container nav div:nth-child(1) ul li a:hover {
-    color: #4980F2;
-}
-
-header .container nav div:nth-child(1) ul li a:active {
-    color: #0052FB;
-}
-
 .nav-link {
     color: #000000;
     text-decoration: none;
@@ -172,7 +164,6 @@ footer .container .cont-footer div:nth-child(3) div div a {
     color: #FFFFFF;
     font-family: Inter;
     text-decoration: none;
-    font-family: Lato, sans-serif;
 }
 
 footer .copyright {
