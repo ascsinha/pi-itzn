@@ -1,7 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Young+Serif&display=swap');
 
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p, h2, h1{
+    margin: 0;
+    padding: 0%;
+}
+main {
+    gap: 24px;
+}
 
 main h1 {
-
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 40px;
 }
 
 main .evento-card {
@@ -10,4 +29,88 @@ main .evento-card {
     padding: 16px;
     margin-bottom: 20px;
     background-color: #f9f9f9;
+}
+
+main .evento-card {
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 2px 2px 8.4px 0 rgba(0, 0, 0, 0.25);
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    max-width: 300px;
+}
+
+.evento-card p {
+    color: var(--gray-700, #4D4D4D);
+    font-family: "Lato", sans-serif;
+}
+main .eventos {
+    flex-wrap: wrap;
+    gap: 38px;
+    justify-content: center;
+}
+
+main .evento-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+main .evento-card {
+    transition: 600ms cubic-bezier(.16,.84,.3,1), box-shadow 600ms cubic-bezier(.16,.84,.3,1);
+    transform-origin: center;
+}
+
+main .evento-card:hover {
+    transform: translateY(15x) scale(1.01);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+    cursor: pointer
+}
+
+main .evento-card img {
+    transition: transform 600ms ease;
+}
+
+main .evento-card:hover img {
+    transform: scale(1.02);
+}
+
+main .buttons {
+    align-self: flex-end;
+    margin-right:120px;
+    margin-bottom: 48px;
+}
+
+main form {
+    display: flex;
+    gap: -3px;
+}
+
+main form .seta {
+    color: #FFF;
+}
+
+button {
+    background: transparent;
+    width: 24px;
+    height: 24px;
+    color: var(--gray-400, #999);
+    border: 1px solid #999;
+    cursor: pointer;
+    transition: color 200ms ease, transform 160ms ease;
+} 
+
+.button:hover,
+.button:focus {
+  color: #0052FB; 
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main .evento-card,
+    main .evento-card img {
+        transition: none !important;
+        transform: none !important;
+    }
 }

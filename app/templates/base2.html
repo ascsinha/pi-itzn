@@ -17,18 +17,18 @@
                 <div class="flex">
                     <a href="{{ url_for('index') }}"><img src="../static/imgs/base/itzn brand.svg" alt=""></a>
                     <ul class="flex centralizar">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li><a href="{{ url_for('eventos') }}">Eventos</a></li>
-                        <li><a href="{{ url_for('editais') }}">Editais</a></li>
-                        <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
-                        <li><a href="{{ url_for('contato') }}">Contato</a></li>
+                        <li><a href="{{ url_for('index') }}" class="nav-link {% if request.path.startswith(url_for('index')) %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ url_for('eventos') }}" class="nav-link {% if request.path.startswith(url_for('eventos')) %}active{% endif %}">Eventos</a></li>
+                        <li><a href="{{ url_for('editais') }}" class="nav-link {% if request.path.startswith(url_for('editais')) %}active{% endif %}">Editais</a></li>
+                        <li><a href="{{ url_for('sobre') }}" class="nav-link {% if request.path.startswith(url_for('sobre')) %}active{% endif %}">Sobre</a></li>
+                        <li><a href="{{ url_for('contato') }}" class="nav-link {% if request.path.startswith(url_for('contato')) %}active{% endif %}">Contato</a></li>
                     </ul>
                 </div>
                 <div class="flex centralizar">
-                    <a class="flex centralizar" href="{{ url_for('login') }}">
+                    <a class="flex centralizar nav-link {% if request.path.startswith(url_for('login')) %}active{% endif %}" href="{{ url_for('login') }}">
                         Login
                     </a>
-                    <a class="flex centralizar" href="{{ url_for('cadastro') }}">
+                    <a class="flex centralizar nav-link {% if request.path.startswith(url_for('cadastro')) %}active{% endif %}" href="{{ url_for('cadastro') }}">
                         Cadastro
                     </a>
                 </div>
@@ -47,11 +47,11 @@
                 </div>
                 <div class="flex esquerda">
                     <ul class="flex coluna">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li><a href="{{ url_for('eventos') }}">Eventos</a></li>
-                        <li><a href="{{ url_for('editais') }}">Editais</a></li>
-                        <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
-                        <li><a href="{{ url_for('contato') }}">Contato</a></li>
+                        <li><a href="{{ url_for('index') }}" class="nav-link {% if request.path.startswith(url_for('index')) %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ url_for('eventos') }}" class="nav-link {% if request.path.startswith(url_for('eventos')) %}active{% endif %}">Eventos</a></li>
+                        <li><a href="{{ url_for('editais') }}" class="nav-link {% if request.path.startswith(url_for('editais')) %}active{% endif %}">Editais</a></li>
+                        <li><a href="{{ url_for('sobre') }}" class="nav-link {% if request.path.startswith(url_for('sobre')) %}active{% endif %}">Sobre</a></li>
+                        <li><a href="{{ url_for('contato') }}" class="nav-link {% if request.path.startswith(url_for('contato')) %}active{% endif %}">Contato</a></li>
                     </ul>
                 </div>
                 <div class="flex coluna">
