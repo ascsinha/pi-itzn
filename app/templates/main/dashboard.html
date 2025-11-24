@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="../../static/css/base2.css">
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
     <title>{{ title }}</title>
 </head>
 <body>
@@ -10,6 +13,62 @@
     {% extends 'base.html' %}
 
     {% block content %}
+    <main class="flex coluna container sobre-main dashboard-main">
+        <div class="dashboard-header" style="width:100%;">
+            <h1 class="cor-principal">Painel ITZN</h1>
+            <p class="muted">Visão geral rápida dos projetos, eventos e atividades.</p>
+        </div>
+
+        <section class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Projetos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Em incubação</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Eventos próximos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Mentores</div>
+            </div>
+        </section>
+
+        <section class="dashboard-actions">
+            <a class="button fundo-principal" href="{{ url_for('cadastro') }}">Novo Projeto</a>
+            <a class="button" href="{{ url_for('eventos') }}">Criar Evento</a>
+            <a class="button" href="{{ url_for('contato') }}">Contatar</a>
+        </section>
+
+        <section class="dashboard-recent">
+            <h2>Eventos recentes</h2>
+            <ul class="recent-list">
+                <li>
+                    <div class="recent-item">
+                        <img src="../../static/imgs/eventos/evento1.png" alt="Evento" />
+                        <div>
+                            <strong>SECITEX 2025</strong>
+                            <div class="muted">05 Nov 2025 — Natal</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="recent-item">
+                        <img src="../../static/imgs/eventos/evento2.png" alt="Evento" />
+                        <div>
+                            <strong>Workshops de Prototipagem</strong>
+                            <div class="muted">10 Out 2025 — IF</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
     {% endblock %}
 
 </body>

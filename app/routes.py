@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for, flash
 from app import app
 
 @app.route('/')
@@ -33,6 +33,21 @@ def sobre():
 @app.route('/contato')
 def contato():
     return render_template('main/contato.html', title = 'Contato')
+
+@app.route('/esqueci-senha', methods=['GET', 'POST'])
+def esqueciSenha():
+    if request.method == 'POST':
+        email = request.form.get('email', '').strip()
+        if not email:
+            flash('Por favor, informe um e-mail válido.', 'error')
+            return render_template('auth/esqueci-senha.html', title='Esqueci a Senha')
+
+        # Aqui você integraria com o serviço de e-mail para enviar o link de recuperação.
+        # Exemplo: send_reset_email(email)
+        flash('Se o e-mail estiver cadastrado, enviamos um link de recuperação.', 'success')
+        return redirect(url_for('login'))
+
+    return render_template('auth/esqueci-senha.html', title='Esqueci a Senha')
 
 if __name__ == '__main__':
     app.run(debug = True)
