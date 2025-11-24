@@ -1,17 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../static/css/global.css">
     <link rel="stylesheet" href="../../static/css/base2.css">
+    <link rel="stylesheet" href="../../static/css/sobre.css">
     <title>{{ title }}</title>
 </head>
 <body>
-    
+
     {% extends 'base2.html' %}
 
     {% block content %}
+    <main class="flex coluna centralizar container sobre-main">
+        <h1 class="cor-principal">Sobre a ITZN</h1>
+
+        <section class="flex coluna sobre-intro">
+            <p>A Incubadora Tecnológica do Campus Natal Zona Norte (ITZN) apoia projetos de empreendedorismo e inovação, conectando estudantes, professores e a comunidade para transformar ideias em soluções práticas.</p>
+            <p>Nossa missão é fomentar o ecossistema local por meio de capacitação, mentoria, infraestrutura e parcerias que promovam o desenvolvimento econômico e social.</p>
+        </section>
+
+        <section class="sobre-cards">
+            <article class="sobre-card">
+                <img src="../../static/imgs/base/itzn brand.svg" alt="ITZN" />
+                <h2>O que fazemos</h2>
+                <p>Oferecemos orientação técnica, apoio à prototipagem, cursos e conexão com o mercado para transformar projetos em negócios sustentáveis.</p>
+            </article>
+
+            <article class="sobre-card">
+                <img src="../../static/imgs/base/location-pin_svgrepo.com.svg" alt="Local" />
+                <h2>Onde estamos</h2>
+                <p>IFRN - Campus Natal Zona Norte. Atuamos com parceiros regionais para ampliar o alcance dos projetos.</p>
+            </article>
+
+            <article class="sobre-card">
+                <img src="../../static/imgs/base/WhatsApp.svg" alt="Contato" />
+                <h2>Contato</h2>
+                <p>Entre em contato via telefone ou redes sociais para saber como participar e apresentar seu projeto.</p>
+            </article>
+        </section>
+
+    </main>
     {% endblock %}
 
 </body>

@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}ITZN{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <style>
+        /* Minimal header centering so templates without CSS still look okay */
+        .base-header { display:flex; justify-content:center; align-items:center; padding:18px 0; }
+        .base-header img { height:44px; }
+    </style>
 </head>
 <body>
-    
-    <header>
-        <section>
-            <div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <a href="">
-                    <img src="../static/imgs/itzn brand.svg" alt="">
-                </a>
-            </div>
-            <img src="" alt="">
-        </section>
+
+    <header class="base-header">
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='imgs/base/itzn brand.svg') }}" alt="ITZN"></a>
     </header>
 
-    <nav class="sidebar">
-        <a href=""><img src="" alt=""></a>
-    </nav>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-container" style="max-width:1200px;margin:12px auto; padding:0 16px;">
+                    {% for category, msg in messages %}
+                        <div class="flash {{ category }}" style="padding:10px 12px; border-radius:8px; margin-bottom:8px;">
+                            {{ msg }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
 
 </body>
 </html>

@@ -39,6 +39,7 @@ main {
 }
 .editais {
     gap: 32px;
+    flex-wrap: wrap;
 }
 .edital {
     border-radius: 10px;
