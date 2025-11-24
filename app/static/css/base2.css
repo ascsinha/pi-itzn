@@ -13,27 +13,15 @@ header {
 
 header .container nav {
     width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 header .container nav div:nth-child(1) {
-    display: flex;
-    align-items: center;
     gap: 122px;
 }
 
-/* center the main menu horizontally across the nav */
 header .container nav div:nth-child(1) ul {
     gap: 60px;
     padding: 0;
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
 }
 
 header .container nav div:nth-child(1) ul li,

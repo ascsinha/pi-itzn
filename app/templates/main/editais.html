@@ -1,18 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../static/css/global.css">
     <link rel="stylesheet" href="../../static/css/base2.css">
+    <link rel="stylesheet" href="editais.css">
     <title>{{ title }}</title>
 </head>
-<body>
-    
-    {% extends 'base2.html' %}
 
+<body>
+
+    {% extends 'base2.html' %}
     {% block content %}
+
+    <main>
+        <section class="container">
+            <div class="paragraph">
+                <h1 class="cor-principal">Editais</h1>
+                <p>Esta página reúne informações sobre os processos seletivos da Incubadora Tecnológica do Campus Natal
+                    Zona-Norte, voltados ao ingresso e acompanhamento de startups, projetos inovadores e empreendimentos
+                    de base tecnológica. Por meio de editais públicos, a incubadora seleciona ideias com potencial de
+                    crescimento e impacto, oferecendo suporte em gestão, capacitações, mentorias especializadas e acesso
+                    a um ambiente colaborativo de inovação. Os processos abrangem desde a pré-incubação, voltada ao
+                    amadurecimento de propostas iniciais, até a incubação completa, destinada ao desenvolvimento e
+                    consolidação dos negócios. Tudo está organizado para que você possa conhecer as oportunidades,
+                    acompanhar as etapas e dar o próximo passo no ecossistema de inovação do IFRN</p>
+            </div>
+
+            <div class="editais">
+                <h2 class="cor-principal">Processos seletivos</h2>
+
+                <div class="cards-editais flex">
+                    <div class="card-edital flex meio-vertical centralizar">
+                        <img src="../imgs/editais/Vector.svg" alt="">
+                        <h3>Edital de Incubação 2024</h3>
+                        <p>Inscrições abertas para o processo seletivo de incubação 2024. Aproveite a oportunidade de
+                            desenvolver sua startup com o suporte da ITZN!</p>
+                        <a href="#">Saiba mais</a>
+                    </div>
+                    <div class="card-edital flex coluna meio-vertical centralizar">
+                        <h3>Edital de Pré-Incubação 2024</h3>
+                        <p>Participe do processo seletivo de pré-incubação 2024 e dê os primeiros passos para
+                            transformar sua ideia em um negócio inovador com o apoio da ITZN!</p>
+                        <a href="#">Saiba mais</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
     {% endblock %}
 
 </body>
+
 </html>

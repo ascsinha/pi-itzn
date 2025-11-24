@@ -11,24 +11,24 @@
 
 <body>
 
-    <header class="flex coluna meio-vertical">
+    <header>
         <section class="container flex">
             <nav class="flex alinhar-extremidades">
                 <div class="flex">
                     <a href="{{ url_for('index') }}"><img src="../static/imgs/base/itzn brand.svg" alt=""></a>
                     <ul class="flex centralizar">
-                        <li><a href="{{ url_for('index') }}" class="nav-link {% if request.path.startswith(url_for('index')) %}active{% endif %}">Home</a></li>
-                        <li><a href="{{ url_for('eventos') }}" class="nav-link {% if request.path.startswith(url_for('eventos')) %}active{% endif %}">Eventos</a></li>
-                        <li><a href="{{ url_for('editais') }}" class="nav-link {% if request.path.startswith(url_for('editais')) %}active{% endif %}">Editais</a></li>
-                        <li><a href="{{ url_for('sobre') }}" class="nav-link {% if request.path.startswith(url_for('sobre')) %}active{% endif %}">Sobre</a></li>
-                        <li><a href="{{ url_for('contato') }}" class="nav-link {% if request.path.startswith(url_for('contato')) %}active{% endif %}">Contato</a></li>
+                        <li><a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint and 'index' in request.endpoint %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ url_for('eventos') }}" class="nav-link {% if request.endpoint and 'eventos' in request.endpoint %}active{% endif %}">Eventos</a></li>
+                        <li><a href="{{ url_for('editais') }}" class="nav-link {% if request.endpoint and 'editais' in request.endpoint %}active{% endif %}">Editais</a></li>
+                        <li><a href="{{ url_for('sobre') }}" class="nav-link {% if request.endpoint and 'sobre' in request.endpoint %}active{% endif %}">Sobre</a></li>
+                        <li><a href="{{ url_for('contato') }}" class="nav-link {% if request.endpoint and 'contato' in request.endpoint %}active{% endif %}">Contato</a></li>
                     </ul>
                 </div>
                 <div class="flex centralizar">
-                    <a class="flex centralizar nav-link {% if request.path.startswith(url_for('login')) %}active{% endif %}" href="{{ url_for('login') }}">
+                    <a class="flex centralizar" href="{{ url_for('login') }}">
                         Login
                     </a>
-                    <a class="flex centralizar nav-link {% if request.path.startswith(url_for('cadastro')) %}active{% endif %}" href="{{ url_for('cadastro') }}">
+                    <a class="flex centralizar" href="{{ url_for('cadastro') }}">
                         Cadastro
                     </a>
                 </div>
@@ -38,7 +38,7 @@
 
     {% block content %}{% endblock %}
 
-    <footer class="flex coluna meio-vertical">
+    <footer>
         <div class="container">
             <div class="cont-footer flex alinhar-extremidades meio-vertical">
                 <div class="flex coluna">
@@ -47,11 +47,11 @@
                 </div>
                 <div class="flex esquerda">
                     <ul class="flex coluna">
-                        <li><a href="{{ url_for('index') }}" class="nav-link {% if request.path.startswith(url_for('index')) %}active{% endif %}">Home</a></li>
-                        <li><a href="{{ url_for('eventos') }}" class="nav-link {% if request.path.startswith(url_for('eventos')) %}active{% endif %}">Eventos</a></li>
-                        <li><a href="{{ url_for('editais') }}" class="nav-link {% if request.path.startswith(url_for('editais')) %}active{% endif %}">Editais</a></li>
-                        <li><a href="{{ url_for('sobre') }}" class="nav-link {% if request.path.startswith(url_for('sobre')) %}active{% endif %}">Sobre</a></li>
-                        <li><a href="{{ url_for('contato') }}" class="nav-link {% if request.path.startswith(url_for('contato')) %}active{% endif %}">Contato</a></li>
+                        <li><a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint and 'index' in request.endpoint %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ url_for('eventos') }}" class="nav-link {% if request.endpoint and 'eventos' in request.endpoint %}active{% endif %}">Eventos</a></li>
+                        <li><a href="{{ url_for('editais') }}" class="nav-link {% if request.endpoint and 'editais' in request.endpoint %}active{% endif %}">Editais</a></li>
+                        <li><a href="{{ url_for('sobre') }}" class="nav-link {% if request.endpoint and 'sobre' in request.endpoint %}active{% endif %}">Sobre</a></li>
+                        <li><a href="{{ url_for('contato') }}" class="nav-link {% if request.endpoint and 'contato' in request.endpoint %}active{% endif %}">Contato</a></li>
                     </ul>
                 </div>
                 <div class="flex coluna">
@@ -59,21 +59,19 @@
                     <div class="flex coluna">
                         <div class="flex meio-vertical">
                             <img src="../static/imgs/base/WhatsApp.svg" alt="">
-                            <a href="">+55 84 4006-9538</a>
+                            <a href=""><span>+55 84 4006-9538</span></a>
                         </div>
                         <div class="flex meio-vertical">
                             <img src="../static/imgs/base/location-pin_svgrepo.com.svg" alt="">
-                            <a href="https://www.google.com/maps/place/IFRN+Campus+Natal-Zona+Norte/@-5.7490661,-35.2604531,20z/data=!4m15!1m8!3m7!1s0x7b3abb568325555:0x68b03628eca728c4!2sR.+Brusque,+2926+-+Potengi,+Natal+-+RN,+59112-490!3b1!8m2!3d-5.7491829!4d-35.2602231!16s%2Fg%2F11mkmpgwq1!3m5!1s0x7b3abb5048b2fcb:0xef4f6c5edaa6d542!8m2!3d-5.7490999!4d-35.2604103!16s%2Fg%2F1tctxs6z?authuser=0&entry=ttu&g_ep=EgoyMDI1MTEyMC4xIKXMDSoASAFQAw%3D%3D">R. Brusque, 2926 - Potengi, Natal - RN, 59112-490</a>
+                            <a href="https://www.google.com/maps/place/IFRN+Campus+Natal-Zona+Norte/@-5.7490661,-35.2604531,20z/data=!4m15!1m8!3m7!1s0x7b3abb568325555:0x68b03628eca728c4!2sR.+Brusque,+2926+-+Potengi,+Natal+-+RN,+59112-490!3b1!8m2!3d-5.7491829!4d-35.2602231!16s%2Fg%2F11mkmpgwq1!3m5!1s0x7b3abb5048b2fcb:0xef4f6c5edaa6d542!8m2!3d-5.7490999!4d-35.2604103!16s%2Fg%2F1tctxs6z?authuser=0&entry=ttu&g_ep=EgoyMDI1MTEyMC4xIKXMDSoASAFQAw%3D%3D"><span>R. Brusque, 2926 - Potengi, Natal - RN, 59112-490</span></a>
                         </div>
                         <div class="flex meio-vertical">
                             <img src="../static/imgs/base/instagram_svgrepo.com.svg" alt="">
-                            <a href="https://www.instagram.com/itznincubadora/">itznincubadora</a>
+                            <a href="https://www.instagram.com/itznincubadora/"><span>itznincubadora</span></a>
                         </div>
                     </div>
                 </div>
-                <a href="https://portal.ifrn.edu.br/">
-                    <img src="../static/imgs/base/logo ifrn.svg" alt="">
-                </a>
+                <img src="../static/imgs/base/logo ifrn.svg" alt="">
             </div>
         </div>
         <div class="copyright flex centralizar">
