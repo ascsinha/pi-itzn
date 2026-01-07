@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,13 @@
     <link rel="stylesheet" href="../../static/css/dashboard.css">
     <title>{{ title }}</title>
 </head>
+
 <body>
 
     {% extends 'base2.html' %}
     <main>
-        <section>
-            <section class="sidebar flex coluna">
+        <section class="container flex alinhar-extremidades">
+            <section class="sidebar flex coluna alinhar-extremidades">
                 <div class="icons flex coluna">
                     <a href=""><img src="../../static/imgs/dashboard/calendario.svg" alt="Agendamentos"></a>
                     <a href=""><img src="../../static/imgs/dashboard/paper.svg" alt="Editais"></a>
@@ -25,10 +27,97 @@
                     <a href=""><img src="../../static/imgs/dashboard/logout.svg" alt=""></a>
                 </div>
             </section>
+
+            <section>
+                <div class="agenda">
+                    <div class="calendario">
+                        <!-- Cabeçalho dinâmico com mês e ano -->
+                        <div class="calendario-header" id="mes-ano">
+                            Carregando...
+                        </div>
+                        <!-- Dias da semana -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Dom</th>
+                                    <th>Seg</th>
+                                    <th>Ter</th>
+                                    <th>Qua</th>
+                                    <th>Qui</th>
+                                    <th>Sex</th>
+                                    <th>Sáb</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dias serão inseridos aqui dinamicamente com o JS - @ASCAGAMEPLAYS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal">
+                        <h3>Deseja agendar para esta semana?</h3>
+                        <a href="#">Agendar</a>
+                    </div>
+                </div>
+
+                <section class="agendamentos">
+                    <div class="title">
+                        <div>
+                            <h2>AGENDAMENTOS RECENTES</h2>
+                            <a href="">+ Novo Agendamento</a>
+                            <div class="filter">
+                                <img src="../../static/imgs/dashboard/filter.svg" alt="filtro">
+                                <span>Filtrar</span>
+                                <img src="../../static/imgs/dashboard/seta-para-baixo.svg" alt="">
+                            </div>
+                            <div class="linha"></div>
+                        </div>
+                    </div>
+                    <div class="cards-agendamentos">
+                        <div class="card-agendamentos">
+                            <div>
+                                <h3>Agendamento da sala - Coworking</h3>
+                                <p>Data: 15/09/2024</p>
+                                <p>Hora: 14:00 - 15:00</p>
+                            </div>
+                            <div class="status">
+                                <span class="confirmado">Confirmado</span>
+                            </div>
+                        </div>
+                        <div class="card-agendamentos">
+                            <div>
+                                <h3>Reunião com Vanessa Desidério</h3>
+                                <p>Data: 18/09/2024</p>
+                                <p>Hora: 10:00 - 11:00</p>
+                            </div>
+                            <div class="status">
+                                <span class="pendente">Pendente</span>
+                            </div>
+                        </div>
+                        <div class="card-agendamentos">
+                            <div>
+                                <h3>Agendamento da sala</h3>
+                                <p>Data: 20/09/2024</p>
+                                <p>Hora: 09:00 - 12:00</p>
+                            </div>
+                            <div class="status">
+                                <span class="confirmado">Confirmado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paginacao">
+                        <button class="seta-izq"><img src="../../static/imgs/dashboard/seta-esquerda.svg" alt="Anterior"></button>
+                        <button class="number ativo">1</button>
+                        <button class="number">2</button>
+                        <button class="number">3</button>
+                        <button class="seta-dir"><img src="../../static/imgs/dashboard/seta-direita.svg" alt="Próximo"></button>
+                    </div>
+                </section>
+            </section>
         </section>
     </main>
     {% block content %}
     {% endblock %}
 
 </body>
+
 </html>
