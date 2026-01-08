@@ -1,2 +1,3 @@
 FLASK_APP = app 
 FLASK_DEBUG = 1
+DB_PASSWORD = 127%fFeHJ$$AGH#*!2$
