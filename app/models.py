@@ -61,8 +61,8 @@ class Professor(Usuario):
     __table_args__ = (
         sa.CheckConstraint(
             or_(
-                and_(Usuario.tipo_usuario == TiposUsuario.PROFESSOR, Usuario.matricula >= 0, Usuario.matricula <= 999999),
-                and_(Usuario.tipo_usuario != TiposUsuario.PROFESSOR, Usuario.matricula == None)
+                and_(Usuario.tipo_usuario == TiposUsuario.PROFESSOR, matricula >= 0, matricula <= 999999),
+                and_(Usuario.tipo_usuario != TiposUsuario.PROFESSOR, matricula == None)
             ),
             name = "ck_matricula_range"
         ),

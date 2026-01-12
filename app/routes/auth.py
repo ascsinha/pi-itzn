@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import current_user, login_user, logout_user
 from ..models import Usuario
 import sqlalchemy as sa
-from ..forms.auth import LoginForm, RegistrationForm
+# from flask_wtf import LoginForm, RegistrationForm
 from app import db
 
 auth = Blueprint('auth', __name__)
