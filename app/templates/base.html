@@ -27,7 +27,7 @@
             <nav>
                 <ul class="flex">
                     <li>
-                        <a href="{{ url_for('agendamentos') }}">
+                        <a href="{{ url_for('main.agendamentos') }}">
                             <i class="bi bi-calendar4-event"></i>
                         </a>
                     </li>
@@ -44,8 +44,8 @@
                 </ul>
             </nav>
             <div class="flex">
-                <a href="{{ url_for('configuracoes') }}"><i class="fa-regular fa-gear"></i></a>
-                <a href="{{ url_for('logout') }}"><i class="fa-regular fa-arrow-right-from-bracket"></i></a>
+                <a href="{{ url_for('usuario.configuracoes') }}"><i class="fa-regular fa-gear"></i></a>
+                <a href="{{ url_for('auth.logout') }}"><i class="fa-regular fa-arrow-right-from-bracket"></i></a>
             </div>
         </aside>
     </main>

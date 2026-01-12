@@ -7,4 +7,6 @@ main = Blueprint('main', __name__)
 def agendamentos():
     return render_template('main/agendamentos.html', title = "Agendamentos")
 
-
+@main.route('/dashboard')
+def agendamentos():
+    return render_template('main/dashboard.html', title = "Agendamentos")
