@@ -1,2 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=SUSE:wght@100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+header {
+    background-color: #fafafa;
+    padding: 24px 110px;
+    border-bottom: 1px solid var(--gray-300, #CCC);
+}
 
+header div {
+    gap: 20px;
+}
+
+header div .menu-icon:hover {
+    cursor: pointer;
+}
+
+header .perfil img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+header .perfil:hover {
+    cursor: pointer;
+}

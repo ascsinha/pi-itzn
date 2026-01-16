@@ -4,54 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <title>{% block title %}ITZN{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <title>Document</title>
 </head>
 
 <body>
 
     <header>
-        <section class="container flex alinhar-extremidades">
-            <div class="flex">
-                <i class="fa-regular fa-bars"></i>
-                <img src="..//../static/imgs/base/itzn brand.svg" alt="">
+        <section class="flex alinhar-extremidades meio-vertical">
+            <div class="flex meio-vertical">
+                <button><img src="../../static/imgs/base/menu.svg" alt="menu" class="menu-icon"></button>
+                <img src="../../static/imgs/base/itzn brand.svg" alt="Logo ITZN">
             </div>
-            <div>
-                <img src="{{ url_for('static', filename = 'imgs/base/default-user.png')}}" alt="">
+            <div class="perfil flex">
+                 <img src="../../static/imgs/base/default-user.png" alt="perfil de usuario">
             </div>
         </section>
     </header>
-
-    <main>
-        <aside>
-            <nav>
-                <ul class="flex">
-                    <li>
-                        <a href="{{ url_for('main.agendamentos') }}">
-                            <i class="bi bi-calendar4-event"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('') }}">
-                            <i class="fa-regular fa-file-lines"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('') }}">
-                            <i class="fa-regular fa-book"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="flex">
-                <a href="{{ url_for('usuario.configuracoes') }}"><i class="fa-regular fa-gear"></i></a>
-                <a href="{{ url_for('auth.logout') }}"><i class="fa-regular fa-arrow-right-from-bracket"></i></a>
-            </div>
-        </aside>
-    </main>
+       
 
     {% block content %}{% endblock %}
-
 </body>
 
 </html>

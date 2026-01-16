@@ -1,3 +1,59 @@
-.sidebar {
-    gap: ;
+body {
+    background-color: #f5f5f5;
+}
+
+body .sidebar {
+    background-color: #FFFFFF;
+    border-right: 1px solid #E0E0E0;
+    padding: 55px 35px;
+}
+
+body .sidebar .menu {
+    gap: 18px;
+}
+
+.sidebar .menu {
+    width: 70px;
+    padding: 10px;
+    transition: width 0.3s ease;
+}
+
+/* item padrão */
+.sidebar .menu a {
+  height: 50px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  position: relative;
+}
+
+/* ícone */
+.sidebar .menu img {
+  width: 26px;
+  height: 26px;
+}
+
+/* MENU ABERTO */
+.menu.open {
+  width: 220px;
+}
+
+/* ITEM QUANDO MENU ABERTO */
+.menu.open a {
+  justify-content: flex-start;
+  padding: 0 16px;
+  gap: 12px;
+}
+
+/* TEXTO (só aparece quando menu está aberto) */
+.menu.open a::after {
+  content: attr(data-text);
+  font-size: 15px;
+  color: #0d6efd;
+  white-space: nowrap;
+}
+
+/* ITEM ATIVO */
+.menu a.active {
+  background: #ededed;
 }

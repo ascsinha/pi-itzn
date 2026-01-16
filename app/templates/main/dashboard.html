@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../static/css/global.css">
-    <link rel="stylesheet" href="../../static/css/base2.css">
+    <link rel="stylesheet" href="../../static/css/base.css">
     <link rel="stylesheet" href="../../static/css/dashboard.css">
     <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
     <title>{{ title }}</title>
@@ -13,20 +13,30 @@
 
 <body>
 
-    {% extends 'base2.html' %}
+    {% extends 'base.html' %}
+    {% block content %}
     <main>
-        <section class="container flex alinhar-extremidades">
+        <section class="flex">
             <section class="sidebar flex coluna alinhar-extremidades">
-                <div class="icons flex coluna">
-                    <a href=""><img src="../../static/imgs/dashboard/calendario.svg" alt="Agendamentos"></a>
-                    <a href=""><img src="../../static/imgs/dashboard/paper.svg" alt="Editais"></a>
-                    <a href=""><img src="../../static/imgs/dashboard/book.svg" alt="Materiais"></a>
-                </div>
 
-                <div class="config flex coluna">
-                    <a href=""><img src="../../static/imgs/dashboard/config.svg" alt=""></a>
-                    <a href=""><img src="../../static/imgs/dashboard/logout.svg" alt=""></a>
-                </div>
+                <nav class="menu flex coluna centralizar" id="menu">
+                    <a href="#" class="active flex centralizar" data-text="Agendamentos">
+                        <img src="../../static/imgs/dashboard/calendario.svg" alt="Agendamentos">
+                    </a>
+
+                    <a href="#" data-text="Editais" class="flex centralizar">
+                        <img src="../../static/imgs/dashboard/paper.svg" alt="Editais">
+                    </a>
+
+                    <a href="#" data-text="Materiais" class="flex centralizar">
+                        <img src="../../static/imgs/dashboard/book.svg" alt="Materiais">
+                    </a>
+
+                    <div class="config flex coluna">
+                        <a href=""><img src="../../static/imgs/dashboard/config.svg" alt=""></a>
+                        <a href=""><img src="../../static/imgs/dashboard/logout.svg" alt=""></a>
+                    </div>
+                </nav>
             </section>
 
             <section>
@@ -106,19 +116,21 @@
                         </div>
                     </div>
                     <div class="paginacao">
-                        <button class="seta-izq"><img src="../../static/imgs/dashboard/seta-esquerda.svg" alt="Anterior"></button>
+                        <button class="seta-izq"><img src="../../static/imgs/dashboard/seta-esquerda.svg"
+                                alt="Anterior"></button>
                         <button class="number ativo">1</button>
                         <button class="number">2</button>
                         <button class="number">3</button>
-                        <button class="seta-dir"><img src="../../static/imgs/dashboard/seta-direita.svg" alt="Próximo"></button>
+                        <button class="seta-dir"><img src="../../static/imgs/dashboard/seta-direita.svg"
+                                alt="Próximo"></button>
                     </div>
                 </section>
             </section>
         </section>
     </main>
-    {% block content %}
-    {% endblock %}
 
 </body>
+
+{% endblock %}
 
 </html>

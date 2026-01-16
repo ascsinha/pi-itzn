@@ -12,19 +12,73 @@
 <body>
 
     <header>
-        <section class="flex alinhar-extremidades meio-vertical">
-            <div class="flex meio-vertical">
-                <img src="../../static/imgs/base/menu.svg" alt="menu" class="menu-icon">
-                <img src="../../static/imgs/base/itzn brand.svg" alt="Logo ITZN">
-            </div>
-            <div class="perfil flex">
-                 <img src="../../static/imgs/base/default-user.png" alt="perfil de usuario">
-            </div>
+        <section class="container flex">
+            <nav class="flex alinhar-extremidades">
+                <div class="flex">
+                    <a href="{{ url_for('index_bp.index') }}"><img src="../static/imgs/base/itzn brand.svg" alt=""></a>
+                    <ul class="flex centralizar">
+                        <li><a href="{{ url_for('index_bp.index') }}" class="nav-link {% if request.endpoint and 'index' in request.endpoint %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ url_for('index_bp.eventos') }}" class="nav-link {% if request.endpoint and 'eventos' in request.endpoint %}active{% endif %}">Eventos</a></li>
+                        <li><a href="{{ url_for('index_bp.editais') }}" class="nav-link {% if request.endpoint and 'editais' in request.endpoint %}active{% endif %}">Editais</a></li>
+                        <li><a href="{{ url_for('index_bp.sobre') }}" class="nav-link {% if request.endpoint and 'sobre' in request.endpoint %}active{% endif %}">Sobre</a></li>
+                        <li><a href="{{ url_for('index_bp.contato') }}" class="nav-link {% if request.endpoint and 'contato' in request.endpoint %}active{% endif %}">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="flex centralizar">
+                    <a class="flex centralizar" href="{{ url_for('auth.login') }}">
+                        Login
+                    </a>
+                    <a class="flex centralizar" href="{{ url_for('auth.cadastro') }}">
+                        Cadastro
+                    </a>
+                </div>
+            </nav>
         </section>
     </header>
-       
 
     {% block content %}{% endblock %}
+
+    <footer>
+        <div class="container">
+            <div class="cont-footer flex alinhar-extremidades meio-vertical">
+                <div class="flex coluna">
+                    <a href="{{ url_for('index_bp.index') }}"><img src="../static/imgs/base/itzn brand white.svg" alt=""></a>
+                    <h3>Incubadora do Campus Natal Zona Norte</h3>
+                </div>
+                <div class="flex esquerda">
+                    <ul class="flex coluna">
+                        <li><a href="{{ url_for('index_bp.index') }}" class="nav-link {% if request.endpoint and 'index' in request.endpoint %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ url_for('index_bp.eventos') }}" class="nav-link {% if request.endpoint and 'eventos' in request.endpoint %}active{% endif %}">Eventos</a></li>
+                        <li><a href="{{ url_for('index_bp.editais') }}" class="nav-link {% if request.endpoint and 'editais' in request.endpoint %}active{% endif %}">Editais</a></li>
+                        <li><a href="{{ url_for('index_bp.sobre') }}" class="nav-link {% if request.endpoint and 'sobre' in request.endpoint %}active{% endif %}">Sobre</a></li>
+                        <li><a href="{{ url_for('index_bp.contato') }}" class="nav-link {% if request.endpoint and 'contato' in request.endpoint %}active{% endif %}">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="flex coluna">
+                    <h3>Contato</h3>
+                    <div class="flex coluna">
+                        <div class="flex meio-vertical">
+                            <img src="../static/imgs/base/WhatsApp.svg" alt="">
+                            <a href=""><span>+55 84 4006-9538</span></a>
+                        </div>
+                        <div class="flex meio-vertical">
+                            <img src="../static/imgs/base/location-pin_svgrepo.com.svg" alt="">
+                            <a href="https://www.google.com/maps/place/IFRN+Campus+Natal-Zona+Norte/@-5.7490661,-35.2604531,20z/data=!4m15!1m8!3m7!1s0x7b3abb568325555:0x68b03628eca728c4!2sR.+Brusque,+2926+-+Potengi,+Natal+-+RN,+59112-490!3b1!8m2!3d-5.7491829!4d-35.2602231!16s%2Fg%2F11mkmpgwq1!3m5!1s0x7b3abb5048b2fcb:0xef4f6c5edaa6d542!8m2!3d-5.7490999!4d-35.2604103!16s%2Fg%2F1tctxs6z?authuser=0&entry=ttu&g_ep=EgoyMDI1MTEyMC4xIKXMDSoASAFQAw%3D%3D"><span>R. Brusque, 2926 - Potengi, Natal - RN, 59112-490</span></a>
+                        </div>
+                        <div class="flex meio-vertical">
+                            <img src="../static/imgs/base/instagram_svgrepo.com.svg" alt="">
+                            <a href="https://www.instagram.com/itznincubadora/"><span>@itznincubadora</span></a>
+                        </div>
+                    </div>
+                </div>
+                <img src="../static/imgs/base/logo ifrn.svg" alt="">
+            </div>
+        </div>
+        <div class="copyright flex centralizar">
+            <span>Copyright ©2025 ITZN. All rights reserved</span>
+        </div>
+    </footer>
+
 </body>
 
 </html>
