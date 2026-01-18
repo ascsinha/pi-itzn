@@ -12,6 +12,8 @@ body {
 
 .container {
     margin: 0 109px 0 109px;
+    max-width: 1400px;
+    width: 100%;
 }
 
 .alinhar-extremidades {
@@ -54,3 +56,4 @@ body {
 .fundo-principal {
     background-color: #0052FB;
 }
+

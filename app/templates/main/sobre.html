@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,41 +10,151 @@
     <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
     <title>{{ title }}</title>
 </head>
+
 <body>
 
     {% extends 'base2.html' %}
 
     {% block content %}
-    <main class="flex coluna centralizar container sobre-main">
-        <h1 class="cor-principal">Sobre a ITZN</h1>
+    <main>
+        <section class="flex coluna centralizar">
+            <section class="flex container inicio alinhar-extremidades">
+                <div class="text">
+                    <h1>Quem somos?</h1>
+                    <p>Fundada com o propósito de fomentar o empreendedorismo inovador, a Incubadora Tecnológica do
+                        Campus Natal Zona-Norte é um ambiente voltado ao desenvolvimento de startups e empreendimentos
+                        de base tecnológica. Sua missão é promover a consolidação de negócios sustentáveis por meio de
+                        capacitação, mentorias e suporte técnico, contribuindo para a geração de conhecimento, emprego e
+                        renda. A incubadora atua como um elo entre a academia e o mercado, estimulando a inovação e
+                        fortalecendo o ecossistema empreendedor da região.</p>
+                </div>
+                <img src="../../static/imgs/sobre/itzn.png" alt="Imagem da Incubadora Tecnológica">
+            </section>
 
-        <section class="flex coluna sobre-intro">
-            <p>A Incubadora Tecnológica do Campus Natal Zona Norte (ITZN) apoia projetos de empreendedorismo e inovação, conectando estudantes, professores e a comunidade para transformar ideias em soluções práticas.</p>
-            <p>Nossa missão é fomentar o ecossistema local por meio de capacitação, mentoria, infraestrutura e parcerias que promovam o desenvolvimento econômico e social.</p>
+            <section class="apresentacao" >
+               <div class="flex container"> 
+                   <img src="../../static/imgs/sobre/vanessa.png" alt="Imagem da Incubadora Tecnológica">
+                   <div class="flex coluna">
+                    <h2>Vanessa Desidério</h2>
+                    <h3>Orientadora do projeto ITZN</h3>
+                    <p>Nossa orientadora se chama Vanessa Desidério, formada em Administração, com ampla experiência na área de gestão e desenvolvimento de negócios. Sua atuação é marcada pelo compromisso em promover o aprendizado prático e estratégico, orientando os incubados na aplicação de ferramentas de planejamento, organização e tomada de decisão. Com uma visão voltada para a inovação e o crescimento sustentável, Vanessa desempenha um papel fundamental no fortalecimento das startups e na condução das atividades da Incubadora Tecnológica do Campus Natal Zona-Norte.</p>
+                   </div>
+               </div>
+            </section>
+
+            <section class="equipe container">
+                <div class="title">
+                    <h2>Nossa equipe</h2>
+                    <p>Profissionais experientes dedicados a apoiar o crescimento das startups incubadas</p>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <img src="../../static/imgs/sobre/membros.png" alt="Foto do membro">
+                        <div class="flex coluna">
+                            <h3>Vanessa Desidério</h3>
+                            <b>Orientadora do projeto</b>
+                            <p>Formada em Administração, com ampla experiência na área de gestão e desenvolvimento de negócios. Sua atuação é marcada pelo compromisso em promover o aprendizado prático e estratégico, orientando os incubados na aplicação de ferramentas de planejamento, organização e tomada de decisão.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="title">
+                    <h2>Nossa equipe</h2>
+                    <p>Profissionais experientes dedicados a apoiar o crescimento das startups incubadas</p>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <img src="../../static/imgs/sobre/membros.png" alt="Foto do membro">
+                        <div class="flex coluna">
+                            <h3>Vanessa Desidério</h3>
+                            <b>Orientadora do projeto</b>
+                            <p>Formada em Administração, com ampla experiência na área de gestão e desenvolvimento de negócios. Sua atuação é marcada pelo compromisso em promover o aprendizado prático e estratégico, orientando os incubados na aplicação de ferramentas de planejamento, organização e tomada de decisão.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="../../static/imgs/sobre/membros.png" alt="Foto do membro">
+                        <div class="flex coluna">
+                            <h3>Prof. Dr. Carlos Silva</h3>
+                            <b>Coordenador Técnico</b>
+                            <p>Doutor em Ciência da Computação com 15 anos de experiência em desenvolvimento tecnológico. Especialista em orientação de projetos de inovação e transformação digital.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="../../static/imgs/sobre/membros.png" alt="Foto do membro">
+                        <div class="flex coluna">
+                            <h3>Ana Paula Costa</h3>
+                            <b>Mentora de Negócios</b>
+                            <p>Empreendedora serial e consultora de negócios com mais de 20 startups assessoradas. Especialista em modelagem de negócios e captação de recursos.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="../../static/imgs/sobre/membros.png" alt="Foto do membro">
+                        <div class="flex coluna">
+                            <h3>Ricardo Mendes</h3>
+                            <b>Mentor Técnico</b>
+                            <p>Desenvolvedor sênior e arquiteto de software com vasta experiência em desenvolvimento de MVPs e produtos escaláveis para startups.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pilares container">
+                <div class="flex coluna">
+                    <h2>Nosso Pilares</h2>
+                    <p>Conheça as etapas que sua startup percorrerá durante o programa</p>
+                </div>
+                <div class="card-pilar">
+                    <div class="icon-title flex alinhar-extremidades">
+                        <div class="icon">
+                            <img src="../../static/imgs/sobre/documento.svg" alt="Imagem de um documento">
+                        </div>
+                        <span class="number">01</span>
+                    </div>
+                    <div class="flex coluna">
+                        <b>Inscrição e Seleção</b>
+                        <p>Candidatos submetem suas propostas através de edital. A equipe avalia o potencial inovador, viabilidade técnica e alinhamento com os objetivos da incubadora.</p>
+                    </div>
+                </div>
+                <div class="card-pilar">
+                    <div class="icon-title flex alinhar-extremidades">
+                        <div class="icon">
+                            <img src="../../static/imgs/sobre/documento.svg" alt="Imagem de um documento">
+                        </div>
+                        <span class="number">01</span>
+                    </div>
+                    <div class="flex coluna">
+                        <b>Inscrição e Seleção</b>
+                        <p>Candidatos submetem suas propostas através de edital. A equipe avalia o potencial inovador, viabilidade técnica e alinhamento com os objetivos da incubadora.</p>
+                    </div>
+                </div>
+                <div class="card-pilar">
+                    <div class="icon-title flex alinhar-extremidades">
+                        <div class="icon">
+                            <img src="../../static/imgs/sobre/documento.svg" alt="Imagem de um documento">
+                        </div>
+                        <span class="number">01</span>
+                    </div>
+                    <div class="flex coluna">
+                        <b>Inscrição e Seleção</b>
+                        <p>Candidatos submetem suas propostas através de edital. A equipe avalia o potencial inovador, viabilidade técnica e alinhamento com os objetivos da incubadora.</p>
+                    </div>
+                </div>
+                <div class="card-pilar">
+                    <div class="icon-title flex alinhar-extremidades">
+                        <div class="icon">
+                            <img src="../../static/imgs/sobre/documento.svg" alt="Imagem de um documento">
+                        </div>
+                        <span class="number">01</span>
+                    </div>
+                    <div class="flex coluna">
+                        <b>Inscrição e Seleção</b>
+                        <p>Candidatos submetem suas propostas através de edital. A equipe avalia o potencial inovador, viabilidade técnica e alinhamento com os objetivos da incubadora.</p>
+                    </div>
+                </div>
+            </section>
         </section>
-
-        <section class="sobre-cards">
-            <article class="sobre-card">
-                <img src="../../static/imgs/base/itzn brand.svg" alt="ITZN" />
-                <h2>O que fazemos</h2>
-                <p>Oferecemos orientação técnica, apoio à prototipagem, cursos e conexão com o mercado para transformar projetos em negócios sustentáveis.</p>
-            </article>
-
-            <article class="sobre-card">
-                <img src="../../static/imgs/base/location-pin_svgrepo.com.svg" alt="Local" />
-                <h2>Onde estamos</h2>
-                <p>IFRN - Campus Natal Zona Norte. Atuamos com parceiros regionais para ampliar o alcance dos projetos.</p>
-            </article>
-
-            <article class="sobre-card">
-                <img src="../../static/imgs/base/WhatsApp.svg" alt="Contato" />
-                <h2>Contato</h2>
-                <p>Entre em contato via telefone ou redes sociais para saber como participar e apresentar seu projeto.</p>
-            </article>
-        </section>
-
     </main>
     {% endblock %}
 
 </body>
+
 </html>
