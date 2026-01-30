@@ -74,26 +74,17 @@ main section .equipe {
 }
 
 main section .equipe .title {
-    gap: 16px;
     margin-bottom: 80px;
 }
 
-main section .equipe .title h2 {
-    font-size: 24px;
-    font-weight: 700;
-    font-family: Ubuntu;
-    color: #0052FB;
-    margin: 0px;
-}
-
 main section .equipe .title p {
-    color: var(--gray-800, #333);
+    color: #4B4B4B;
     text-align: center;
     font-family: Lato;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 160%p;
+    margin: 0px;
 }
 
 main section .equipe .cards {
@@ -153,7 +144,7 @@ main section .pilares {
     margin-top: 40px;
 }
 
-main section .pilares h2 {
+main section h2 {
     color: #0052FB;
     font-family: Ubuntu;
     font-size: 24px;
@@ -173,6 +164,7 @@ main section .pilares div p {
     margin-top: 16px;
     text-align: center;
     max-width: 600px;
+    margin: 0px;
 }
 main section .pilares .cards-pilar {
     gap: 32px;
@@ -224,11 +216,6 @@ main section .processo-incubacao {
     margin: 120px 0px;
 }
 
-main section .processo-incubacao h2 {
-    color: #0052FB;
-    font-family: Ubuntu;
-    font-weight: 700;
-}
 
 main section .processo-incubacao p {
     color: #333;
@@ -243,6 +230,8 @@ main section .processo-incubacao .etapas .card {
     padding: 24px;
     max-width: 280px;
     border-radius: 15px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+    height: 238px;
 }
 
 main section .processo-incubacao .etapas .card .icon {
@@ -291,4 +280,8 @@ main section .processo-incubacao .etapas .card .line {
 main section .processo-incubacao .etapas {
     gap: 28px;
     flex-wrap: wrap;
+    margin-top: 56px;
 }
+
+
+
