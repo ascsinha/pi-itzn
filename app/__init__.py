@@ -2,13 +2,13 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
+from flask_login import LoginManager
 
 db = SQLAlchemy()
-
 migrate = Migrate()
-# login = LoginManager()
-# login.login_view = 'auth.login'
-# login.login_message = 'Você deve estar logado para acessar esta página.'
+login_manager = LoginManager()
+login_manager.login_view = 'auth.login'
+login_manager.login_message = 'Você deve estar logado para acessar esta página.'
 
 def create_app():
     app = Flask(__name__)
@@ -16,7 +16,7 @@ def create_app():
     
     db.init_app(app)
     migrate.init_app(app, db)
-    # login.init_app(app)
+    login_manager.init_app(app)
     
     from .routes.auth import auth
     app.register_blueprint(auth)

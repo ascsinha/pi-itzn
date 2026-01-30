@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from app import db
 
 index_bp = Blueprint('index_bp', __name__)
 
