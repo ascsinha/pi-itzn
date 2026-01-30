@@ -220,3 +220,75 @@ main section .pilares .card-pilar p, li {
     line-height: 160%
 }
 
+main section .processo-incubacao {
+    margin: 120px 0px;
+}
+
+main section .processo-incubacao h2 {
+    color: #0052FB;
+    font-family: Ubuntu;
+    font-weight: 700;
+}
+
+main section .processo-incubacao p {
+    color: #333;
+    font-family: Lato;
+    line-height: 160%;
+    font-size: 16px;
+    margin: 0px;
+}
+
+main section .processo-incubacao .etapas .card {
+    background-color: #F1F6FF;
+    padding: 24px;
+    max-width: 280px;
+    border-radius: 15px;
+}
+
+main section .processo-incubacao .etapas .card .icon {
+    background-color: #0052FB;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+
+main section .processo-incubacao .etapas .card span {
+    color: #5781D9;
+    font-size: 36px;
+    font-weight: 400;
+    font-family: Lato;
+}
+
+main section .processo-incubacao .etapas .card h3 {
+    color: #174199;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 16px 0px 8px 0px;
+}
+
+main section .processo-incubacao .etapas .card p {
+    color: #4B4B4B;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+    margin: 0px;
+}
+
+main section .processo-incubacao .etapas .card .line {
+    position: relative;
+    display: block;
+    background-color: #BEDBFF;
+    bottom: 116px;
+    width: 32px;
+    height: 4px;
+    left: 288px;
+}
+
+main section .processo-incubacao .etapas {
+    gap: 28px;
+    flex-wrap: wrap;
+}
