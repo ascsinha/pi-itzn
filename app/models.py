@@ -20,9 +20,13 @@ class Generos(enum.Enum):
 class TiposUsuario(enum.Enum):
     __tablename__ = 'tipousuario'
     USUARIO = 'Usuário'
-    EMPRESA = 'Empresa'
     ADMIN = 'Admin'
-    PROFESSOR = 'Professor'
+    
+class Status(enum.Enum):
+    __tablename__ = 'status_agendamento'
+    EM_ANALISE = 'Em análise'
+    ACEITO = 'Agendado'
+    NEGADO = 'Negado'
 
 class Usuario(UserMixin, db.Model):
     __tablename__ = 'usuario'
@@ -36,6 +40,8 @@ class Usuario(UserMixin, db.Model):
     tipo_usuario: so.Mapped[TiposUsuario] = so.mapped_column(sa.Enum(TiposUsuario), nullable = False, default = TiposUsuario.USUARIO)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     
+    agendamentos: so.WriteOnlyMapped['Agendamento'] = so.relationship('Agendamento', back_populates = 'usuario', cascade = 'all, delete-orphan')
+    
     def __repr__(self):
         return f'<Usuário {self.nome}>'
     
@@ -43,28 +49,50 @@ class Usuario(UserMixin, db.Model):
         self.password_hash = generate_password_hash(senha)
         
     def checar_senha(self, senha):
-        return check_password_hash(self.password_hash, senha)
+        return check_password_hash(self.password_hash, senha) 
     
-class Empresa(Usuario):
-    id: so.Mapped[int] = so.mapped_column(sa.ForeignKey("usuario.id"), primary_key = True)
-    nome_empresa: so.Mapped[str] = so.mapped_column(sa.String(128), nullable = False)
-    id_empresa: so.Mapped[int] = so.mapped_column(sa.Integer)
-    cnpj: so.Mapped[str] = so.mapped_column(sa.String(14), nullable = False)
-    
-    def __repr__(self):
-        return f'<Empresa {self.nome_empresa}>'
-    
-class Professor(Usuario):
-    id: so.Mapped[int] = so.mapped_column(sa.ForeignKey("usuario.id"), primary_key = True)
-    id_professor: so.Mapped[int] = so.mapped_column(sa.Integer)
-    matricula: so.Mapped[int] = so.mapped_column(sa.Integer, nullable = False)
-    
-    def __repr__(self):
-        return f'<Professor {self.nome}>'
+    def agendFeito(self, agendamento):
+        query = self.agendamentos.select().where(Agendamento.id == agendamento.id)
+        return db.session.scalar(query)
     
 class Admin(Usuario):
-    id: so.Mapped[int] = so.mapped_column(sa.ForeignKey("usuario.id"), primary_key = True)
+    id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'), primary_key = True)
     id_admin: so.Mapped[int] = so.mapped_column(sa.Integer)
+        
+    def agendAceito(self, agendamento):
+        if self.agendFeito(agendamento):
+            self.agendamentos.add(agendamento)
+        return agendamento.validacao == 'Agendado'
+            
+    def em_analise(self, agendamento):
+        if self.agendFeito(agendamento):
+            return agendamento.validacao == 'Em análise'
+    
+    def negado(self, agendamento):
+        if self.agendFeito(agendamento):
+            self.agendamentos.remove(agendamento)
+        return agendamento.validacao == 'Negado'
     
     def __repr__(self):
         return f'<Administrador {self.nome}>'
+    
+class Estacao(db.Model):
+    __tablename__ = 'estacao'
+    id_estacao: so.Mapped[int] = so.mapped_column(sa.Integer, primary_key = True)
+    descricao: so.Mapped[str] = so.mapped_column(sa.String(256), nullable = True)
+    status: so.Mapped[bool] = so.mapped_column(sa.ForeignKey('agendamento.validacao'), nullable = False)
+    
+    def __repr__(self):
+        return f'<Administrador {self.id_estacao}>'
+    
+class Agendamento(db.Model):
+    __tablename__ = 'agendamento'
+    id_agendamento: so.Mapped[int] = so.mapped_column(primary_key = True)
+    id_usuario: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'), nullable = False)
+    hora_inicial: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
+    hora_final: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
+    validacao: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False)
+    id_estacao: so.Mapped[int] = so.mapped_column(sa.ForeignKey('estacao.id_estacao'), nullable = False)
+            
+    def __repr__(self):
+        return f'<Agendamento {self.id_agendamento}>'
