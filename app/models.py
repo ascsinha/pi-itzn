@@ -38,7 +38,8 @@ class Usuario(UserMixin, db.Model):
     telefone: so.Mapped[str] = so.mapped_column(sa.String(11), unique = True, index = True)
     genero: so.Mapped[Generos] = so.mapped_column(sa.Enum(Generos), nullable = False)
     tipo_usuario: so.Mapped[TiposUsuario] = so.mapped_column(sa.Enum(TiposUsuario), nullable = False, default = TiposUsuario.USUARIO)
-    password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
+    e_admin: so.Mapped[bool] = so.mapped_column(sa.Boolean, default = False)
+    password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256), nullable = False)
     
     agendamentos: so.WriteOnlyMapped['Agendamento'] = so.relationship('Agendamento', back_populates = 'usuario', cascade = 'all, delete-orphan')
     
@@ -52,8 +53,7 @@ class Usuario(UserMixin, db.Model):
         return check_password_hash(self.password_hash, senha) 
     
     def agendFeito(self, agendamento):
-        query = self.agendamentos.select().where(Agendamento.id == agendamento.id)
-        return db.session.scalar(query)
+        return agendamento in self.agendamentos
     
 class Admin(Usuario):
     id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'), primary_key = True)
@@ -61,16 +61,20 @@ class Admin(Usuario):
         
     def agendAceito(self, agendamento):
         if self.agendFeito(agendamento):
-            self.agendamentos.add(agendamento)
+            agendamento.validacao == 'Agendado'
+            db.session.commit()
         return agendamento.validacao == 'Agendado'
             
     def em_analise(self, agendamento):
         if self.agendFeito(agendamento):
-            return agendamento.validacao == 'Em análise'
+            agendamento.validacao == 'Em análise'
+            db.session.commit()
+        return agendamento.validacao == 'Em análise'
     
     def negado(self, agendamento):
         if self.agendFeito(agendamento):
-            self.agendamentos.remove(agendamento)
+            agendamento.validacao == 'Negado'
+            db.session.commit()
         return agendamento.validacao == 'Negado'
     
     def __repr__(self):
@@ -80,8 +84,8 @@ class Estacao(db.Model):
     __tablename__ = 'estacao'
     id_estacao: so.Mapped[int] = so.mapped_column(sa.Integer, primary_key = True)
     descricao: so.Mapped[str] = so.mapped_column(sa.String(256), nullable = True)
-    status: so.Mapped[bool] = so.mapped_column(sa.ForeignKey('agendamento.validacao'), nullable = False)
-    
+    status: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False)
+      
     def __repr__(self):
         return f'<Administrador {self.id_estacao}>'
     
@@ -93,6 +97,9 @@ class Agendamento(db.Model):
     hora_final: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     validacao: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False)
     id_estacao: so.Mapped[int] = so.mapped_column(sa.ForeignKey('estacao.id_estacao'), nullable = False)
+    
+    usuario: so.Mapped['Usuario'] = so.relationship('Usuario', back_populates = 'agendamentos')
+    estacao: so.Mapped['Estacao'] = so.relationship('Estacao', back_populates = 'agendamentos')
             
     def __repr__(self):
         return f'<Agendamento {self.id_agendamento}>'
