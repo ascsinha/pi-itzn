@@ -25,7 +25,6 @@ main section .inicio p {
 
 main section .inicio {
     flex-wrap: wrap;
-
 }
 
 main section .apresentacao {
@@ -41,6 +40,7 @@ main section .apresentacao .container {
 main section .apresentacao img {
     border-radius: 8px;
 }
+
 main section .apresentacao div h2 {
     font-size: 24px;
     font-weight: 700;
@@ -283,5 +283,13 @@ main section .processo-incubacao .etapas {
     margin-top: 56px;
 }
 
-
+main section .cards {
+    gap: 24px;
+}
+main section .cards .parceiros {
+    padding: 12px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
 
