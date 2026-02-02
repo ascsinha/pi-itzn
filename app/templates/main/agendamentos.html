@@ -1,114 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="../../static/css/agendamentos.css">
     <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
     <title>{{ title }}</title>
 </head>
+
 <body>
-    
+
     {% extends 'base.html' %}
 
     {% block content %}
     <main>
-        <section class="container">
-            <div>
-                <div>
-                    <div>
-                        <div>
-                            <button>
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-                            <h3>Janeiro</h3>
-                            <button>
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
-                        </div>
-                        <div>
-                            <span>Dom</span>
-                            <span>Seg</span>
-                            <span>Ter</span>
-                            <span>Qua</span>
-                            <span>Qui</span>
-                            <span>Sex</span>
-                            <span>Sab</span>
-                        </div>
-                    </div>
-                    <div></div>
-                </div>
-                <div>
-                    <div>
-                        <h4></h4>
-                        <div>
-                            <i class="bi bi-filter"></i>
-                            <p>Filter</p>
-                            <i class="fa-regular fa-chevron-down"></i>
-                        </div>
-                        <span></span>
-                    </div>
-                    <div>
-                        <div>
-                            <div>
-                                <h4>Agendamento da sala - Coworking</h4>
-                                <span>Segunda-feira, das 14:00  às 16:00</span>
-                                <span>Data: 14/07/2026</span>
-                            </div>
-                            <div>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h4>Agendamento da sala - Coworking</h4>
-                                <span>Segunda-feira, das 14:00  às 16:00</span>
-                                <span>Data: 14/07/2026</span>
-                            </div>
-                            <div>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h4>Agendamento da sala - Coworking</h4>
-                                <span>Segunda-feira, das 14:00  às 16:00</span>
-                                <span>Data: 14/07/2026</span>
-                            </div>
-                            <div>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h4>Agendamento da sala - Coworking</h4>
-                                <span>Segunda-feira, das 14:00  às 16:00</span>
-                                <span>Data: 14/07/2026</span>
-                            </div>
-                            <div>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h4>Agendamento da sala - Coworking</h4>
-                                <span>Segunda-feira, das 14:00  às 16:00</span>
-                                <span>Data: 14/07/2026</span>
-                            </div>
-                            <div>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <nav id="sidebar" class="flex coluna">
+            <div id="sidebar_content" class="flex coluna alinhar-extremidades">
+                <ul id="side_items" class="flex coluna">
+                    <li class="side-item active">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-regular fa-calendar fa-xl"></i>
+                            <span class="item-descricao">Agendamentos</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-regular fa-file-lines fa-xl"></i>
+                            <span class="item-descricao">Editais</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-solid fa-book fa-xl"></i>
+                            <span class="item-descricao">Materiais</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul id="side_items" class="config flex coluna">
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-solid fa-gear fa-xl"></i>
+                            <span class="item-descricao">Configurações</span>
+                        </a>
+                    </li>
+                    <li class="side-item" id="logout">
+                        <a id="logout_btn" class="flex meio-vertical">
+                            <i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>
+                            <span class="item-descricao">Sair</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <select name="" id="">
-                
-            </select>
+            <button id="open_btn">
+                <img src="../../static/imgs/base/menu.svg" alt="abrir menu" id="open_btn_icon">
+            </button>
+        </nav>
+        <section>
+            
         </section>
     </main>
     {% endblock %}
 
 </body>
+
 </html>
