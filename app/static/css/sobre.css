@@ -1,3 +1,6 @@
+body {
+    background-color:#FAFAFA; 
+}
 main section {
     margin-top: 100px;
 }
@@ -22,7 +25,6 @@ main section .inicio p {
 
 main section .inicio {
     flex-wrap: wrap;
-
 }
 
 main section .apresentacao {
@@ -38,6 +40,7 @@ main section .apresentacao .container {
 main section .apresentacao img {
     border-radius: 8px;
 }
+
 main section .apresentacao div h2 {
     font-size: 24px;
     font-weight: 700;
@@ -65,3 +68,228 @@ main section .apresentacao div p {
     line-height: 160%; 
     margin-top: 28px;
 }
+
+main section .equipe {
+    margin: 80px 0px;
+}
+
+main section .equipe .title {
+    margin-bottom: 80px;
+}
+
+main section .equipe .title p {
+    color: #4B4B4B;
+    text-align: center;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0px;
+}
+
+main section .equipe .cards {
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+main section .equipe .card {
+    padding: 32px;
+    background-color: #fff;
+    border-radius: 14px;
+    background: #FFF;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+    max-width: 580px;
+    gap: 23px;
+}
+
+main section .equipe .card img {
+    border-radius: 8px;
+    margin-bottom: 16px;
+    height: 126px;
+}
+
+main section .equipe .card h3 {
+    font-weight: 700;
+    font-family: Ubuntu;
+    color: #000;
+    margin: 0px;
+    color: #0052FB;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+
+}
+
+main section .equipe .card b {
+    font-weight: 400;
+    font-family: Ubuntu;
+    margin: 6px 0px;
+    color: #0052FB;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+}
+
+main section .equipe .card p {
+    color: #4B4B4B;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    margin: 0px;
+}
+
+main section .pilares {
+    margin-top: 40px;
+}
+
+main section h2 {
+    color: #0052FB;
+    font-family: Ubuntu;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0px;
+}
+
+main section .pilares div p {
+    color: #4B4B4B;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-top: 16px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0px;
+}
+main section .pilares .cards-pilar {
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+main  section .pilares .card-pilar {
+    background-color: #0052FB;
+    color: #FFF;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 385px;
+    width: 100%;
+}
+
+main section .pilares .card-pilar .icon {
+    margin-bottom: 16px;
+    background-color: #fff;
+    width: 64px;
+    height: 64px;
+    border: 15px;
+    border-radius: 50%;
+    padding: 12px;
+}
+
+main section .pilares .card-pilar p {
+    color: #FFF;
+}
+
+main section .pilares .card-pilar h3 {
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    margin: 0px;
+}
+main section .pilares .card-pilar p, li {
+    text-align: left;
+    font-family: Lato;
+    color: #DBEAFE;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%
+}
+
+main section .processo-incubacao {
+    margin: 120px 0px;
+}
+
+
+main section .processo-incubacao p {
+    color: #333;
+    font-family: Lato;
+    line-height: 160%;
+    font-size: 16px;
+    margin: 0px;
+}
+
+main section .processo-incubacao .etapas .card {
+    background-color: #F1F6FF;
+    padding: 24px;
+    max-width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+    height: 238px;
+}
+
+main section .processo-incubacao .etapas .card .icon {
+    background-color: #0052FB;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+
+main section .processo-incubacao .etapas .card span {
+    color: #5781D9;
+    font-size: 36px;
+    font-weight: 400;
+    font-family: Lato;
+}
+
+main section .processo-incubacao .etapas .card h3 {
+    color: #174199;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 16px 0px 8px 0px;
+}
+
+main section .processo-incubacao .etapas .card p {
+    color: #4B4B4B;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+    margin: 0px;
+}
+
+main section .processo-incubacao .etapas .card .line {
+    position: relative;
+    display: block;
+    background-color: #BEDBFF;
+    bottom: 116px;
+    width: 32px;
+    height: 4px;
+    left: 288px;
+}
+
+main section .processo-incubacao .etapas {
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 56px;
+}
+
+main section .cards {
+    gap: 24px;
+}
+main section .cards .parceiros {
+    padding: 12px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
+
