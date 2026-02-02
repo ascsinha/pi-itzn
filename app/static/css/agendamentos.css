@@ -7,7 +7,7 @@
 
 .n-agendamentos {
     background-color: #fff;
-    padding: 72px;
+    padding: 32px;
     width: 50%;
     border-right: 1px solid #DDD;
 }
@@ -60,7 +60,7 @@
     font-size: 18px;
 }
 
-.n-agendamentos .formulario form input, .n-agendamentos .formulario form select {
+.n-agendamentos .formulario form input, .n-agendamentos .formulario form select, textarea {
     border: 1px solid #DDD;
     padding: 12px;
     border-radius: 12px;
@@ -70,14 +70,14 @@
     outline: none;
 }
 
-.n-agendamentos .formulario form input:hover, .n-agendamentos .formulario form select:hover {
+.n-agendamentos .formulario form input:hover, .n-agendamentos .formulario form select:hover, textarea:hover {
     background-color: #F2F6FF;
     transition: all .6s;
     border: 1px solid #83ACFF;
     cursor: pointer;
 }
 
-.n-agendamentos .formulario form input:focus, .n-agendamentos .formulario form select:focus {
+.n-agendamentos .formulario form input:focus, .n-agendamentos .formulario form select:focus, textarea:focus {
     transition: all .5s;
     border: 2px solid var(--blue-400, #4980F2);
     box-shadow: 0 0 10px 0 #0052FB
@@ -91,3 +91,119 @@
     width: 80%;
     height: 80%;
 }
+
+.main .formulario form .cards-estacoes {
+    flex-wrap: wrap;
+}
+
+.main .formulario form .cards-estacoes .card-estacoes:not(.active) {
+    padding: 12px;
+    border: 1px solid #DDD;
+    transition: all 0.6s ease;
+    width: 45%;
+    border-radius: 12px;
+}
+.card-estacoes.active {
+    border: #0052FB 1px solid;
+    padding: 12px;
+    transition: all 0.6s ease;
+    width: 45%;
+    border-radius: 12px;
+}
+
+.main .formulario form .cards-estacoes .card-estacoes:hover {
+    border: #0052FB 1px solid;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.main .formulario form .cards-estacoes .card-estacoes h3{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.main .formulario form .cards-estacoes .card-estacoes p {
+    font-size: 14px;
+}
+
+.main .formulario form .cards-estacoes .card-estacoes #disponivel {
+    font-size: 12px;
+    color: #4AC97B;
+    background-color: #E2FFED;
+    padding: 4px;
+    border-radius: 8px;
+    height: 24px;
+}
+
+.main .formulario form .cards-estacoes .card-estacoes #indisponivel {
+    font-size: 12px;
+    color: #FF0707;
+    background-color: #FFDDDD;
+    padding: 4px;
+    border-radius: 8px;
+    height: 24px;
+}
+
+#deactive {
+    opacity: 0.7;
+}
+
+#deactive:hover {
+    transform: none;
+    transition: none;
+    border: 1px solid #DDD;
+    cursor: auto;
+}
+
+.mensagem {
+    height: 30%;
+}
+
+.aviso {
+    background-color: #DBEAFE;
+    padding: 8px;
+    border-radius: 8px;
+    border: #0052FB 1px solid;
+    margin-bottom: 12px;
+}
+.aviso p {
+    color: #0052FB;
+    font-size: 16px;
+    font-family: Lato;
+}
+
+form .cancelar {
+    border: 1px solid #333;
+    background-color: transparent;
+    padding: 8px;
+    border-radius: 12px ;
+    width: 50%;
+    color: #333;
+    font-family: Lato;
+    font-size: 16px;
+}
+
+form .cancelar:hover {
+    background-color: #DDD;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+form .agendar {
+    border:none;
+    background-color: #0052FB;
+    padding: 8px;
+    border-radius: 12px ;
+    width: 50%;
+    color: #fff;
+    font-family: Lato;
+    font-size: 16px;
+}
+
+form .agendar:hover {
+    background-color: #3376FF;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+

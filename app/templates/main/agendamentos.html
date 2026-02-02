@@ -91,7 +91,13 @@
                                     <i class="fa-regular fa-clock"></i>
                                     <label for="">Horário de início</label>
                                 </div>
-                                <input type="time">
+                                <select name="hora" id="">
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                </select>
                             </div>
                             <div class="horario-final flex coluna">
                                 <div class="flex meio-vertical">
@@ -104,8 +110,6 @@
                                     <option value="14">14:00</option>
                                     <option value="15">15:00</option>
                                     <option value="16">16:00</option>
-                                    
-
                                 </select>
                             </div>
                         </div>
@@ -113,50 +117,86 @@
                             <i class="fa-solid fa-display"></i>
                             <label for="">Estações - Coworking</label>
                         </div>
-                        <div class="cards-estacoes">
-                            <div class="card-estacoes flex centralizar selecionado">
-                                <div class="flex coluna">
+                        <div class="cards-estacoes flex alinhar-extremidades">
+                            <div class="card-estacoes flex coluna active">
+                                <div class="flex alinhar-extremidades" id="active">
                                     <h3>Estação 1</h3>
-                                    <p>Notebook</p>
+                                    <span id="disponivel">Disponível</span>
                                 </div>
-                                <div class="status flex centralizar">
-                                    <span>Disponível</span>
-                                </div>
+                                <p>Notebook</p>
                             </div>
-                            <div class="card-estacoes flex centralizar">
-                                <div class="flex coluna">
-                                    <h3>Estação 1</h3>
-                                    <p>Notebook</p>
+                            <div class="card-estacoes flex 
+                            coluna">
+                                <div class="flex alinhar-extremidades" id="active">
+                                    <h3>Estação 2</h3>
+                                    <span id="disponivel">Disponível</span>
                                 </div>
-                                <div class="status flex centralizar">
-                                    <span>Disponível</span>
-                                </div>
+                                <p>Notebook</p>
                             </div>
-                            <div class="card-estacoes flex centralizar">
-                                <div class="flex coluna">
-                                    <h3>Estação 1</h3>
-                                    <p>Notebook</p>
+                            <div class="card-estacoes flex coluna" id="deactive">
+                                <div class="flex alinhar-extremidades">
+                                    <h3>Estação 3</h3>
+                                    <span id="indisponivel">Indisponível</span>
                                 </div>
-                                <div class="status flex centralizar">
-                                    <span>Disponível</span>
-                                </div>
+                                <p>Notebook</p>
                             </div>
-                            <div class="card-estacoes flex centralizar">
-                                <div class="flex coluna">
-                                    <h3>Estação 1</h3>
-                                    <p>Notebook</p>
+                            <div class="card-estacoes flex coluna" id="active">
+                                <div class="flex alinhar-extremidades">
+                                    <h3>Estação 4</h3>
+                                    <span id="disponivel">Disponível</span>
                                 </div>
-                                <div class="status flex centralizar">
-                                    <span>Disponível</span>
-                                </div>
+                                <p>Notebook</p>
                             </div>
+                        </div>
+
+                        <div class="mensagem flex coluna">
+                            <label for="">Descrição / Observações?</label>
+                            <textarea placeholder="Adicione informações relevantes sobre o agendamento..."></textarea>
+                        </div>
+                        <div class="aviso">
+                            <p><b>Informação:</b>  Seu agendamento será enviado para análise e você receberá uma confirmação por e-mail dentro de 24 horas.</p>
+                        </div>
+                        <div class="flex alinhar-extremidades">
+                            <button type="reset" class="cancelar">Cancelar</button>
+                            <button type="submit" class="agendar">Agendar</button>
                         </div>
                     </form>
                 </div>
             </section>
-            <div class="flex centralizar"><img src="../../static/imgs/agendamentos/undraw_online-meetings_zutp.svg" alt=""></div>
+            <div class="flex centralizar"><img src="../../static/imgs/agendamentos/undraw_online-meetings_zutp.svg"
+                    alt=""></div>
         </section>
     </main>
+
+      <script>
+        document.getElementById('open_btn').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('open-sidebar');
+        });
+
+
+        const selected = document.querySelector('.select-selected');
+        const items = document.querySelector('.select-items');
+        const options = items.querySelectorAll('div');
+
+        selected.addEventListener('click', (e) => {
+            e.stopPropagation(); // evita fechar imediatamente
+            items.classList.toggle('show');
+            selected.classList.toggle('active');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                selected.textContent = option.textContent;
+                items.classList.remove('show');
+                selected.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            items.classList.remove('show');
+            selected.classList.remove('active');
+        });
+    </script>
     {% endblock %}
 
 </body>
