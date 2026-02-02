@@ -62,21 +62,99 @@
                 <img src="../../static/imgs/base/menu.svg" alt="abrir menu" id="open_btn_icon">
             </button>
         </nav>
-        <section class="n-agendamentos">
-            <div class="voltar">
-                <a href="#" class="flex meio-vertical">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Voltar</span>
-                </a>
-            </div>
-            <div class="title">
-                <h1>Novo Agendamento</h1>
-                <h3>Selecione a data, horário e estação (computador) para para seu agendamento</h3>
-            </div>
-        </section>
 
-        <section>
 
+        <section class="flex main">
+            <section class="n-agendamentos">
+                <div class="voltar">
+                    <a href="#" class="flex meio-vertical">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Voltar</span>
+                    </a>
+                </div>
+                <div class="formulario">
+                    <div class="title-f flex coluna">
+                        <h1>Novo Agendamento</h1>
+                        <p>Preencha os dados abaixo para reservar a sala de coworking com notebooks.</p>
+                    </div>
+                    <form action="" class="flex coluna">
+                        <div class="date flex coluna">
+                            <div class="flex meio-vertical">
+                                <i class="fa-regular fa-calendar"></i>
+                                <label for="">Data do agendamento:</label>
+                            </div>
+                            <input type="date" name="">
+                        </div>
+                        <div class="horarios flex alinhar-extremidades">
+                            <div class="horario-inicio flex coluna">
+                                <div class="flex meio-vertical">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <label for="">Horário de início</label>
+                                </div>
+                                <input type="time">
+                            </div>
+                            <div class="horario-final flex coluna">
+                                <div class="flex meio-vertical">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <label for="">Horário de término</label>
+                                </div>
+                                <select name="hora" id="">
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="estacao">
+                            <i class="fa-solid fa-display"></i>
+                            <label for="">Estações - Coworking</label>
+                        </div>
+                        <div class="cards-estacoes">
+                            <div class="card-estacoes flex centralizar selecionado">
+                                <div class="flex coluna">
+                                    <h3>Estação 1</h3>
+                                    <p>Notebook</p>
+                                </div>
+                                <div class="status flex centralizar">
+                                    <span>Disponível</span>
+                                </div>
+                            </div>
+                            <div class="card-estacoes flex centralizar">
+                                <div class="flex coluna">
+                                    <h3>Estação 1</h3>
+                                    <p>Notebook</p>
+                                </div>
+                                <div class="status flex centralizar">
+                                    <span>Disponível</span>
+                                </div>
+                            </div>
+                            <div class="card-estacoes flex centralizar">
+                                <div class="flex coluna">
+                                    <h3>Estação 1</h3>
+                                    <p>Notebook</p>
+                                </div>
+                                <div class="status flex centralizar">
+                                    <span>Disponível</span>
+                                </div>
+                            </div>
+                            <div class="card-estacoes flex centralizar">
+                                <div class="flex coluna">
+                                    <h3>Estação 1</h3>
+                                    <p>Notebook</p>
+                                </div>
+                                <div class="status flex centralizar">
+                                    <span>Disponível</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <div class="flex centralizar"><img src="../../static/imgs/agendamentos/undraw_online-meetings_zutp.svg" alt=""></div>
         </section>
     </main>
     {% endblock %}

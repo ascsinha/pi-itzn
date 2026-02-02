@@ -117,7 +117,10 @@ main .left .container .login .info .form a {
     text-decoration: none;
 }
 
-
+main .left .container .login .info .form a:hover {
+    color: #4980F2;
+    transition: all 0.3s;
+}
 
 main .left .container .login .info button {
     background-color: #0052FB;
@@ -143,6 +146,7 @@ main .left .container .login h4 a {
     font-style: normal;
     font-weight: 400;
     text-decoration: none;
+    transition: all .5s;
 }
 
 main .left .container .login h4 a:hover {
