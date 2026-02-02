@@ -1,6 +1,6 @@
 venv
 __pycache__
-migrations
+migrations/
 *.pyc
 .git
 .gitignore
