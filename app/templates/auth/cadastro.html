@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
     <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
 </head>
+
 <body>
     <main>
         <section class="left flex centralizar">
@@ -21,11 +23,21 @@
                         <div class="form flex coluna">
                             <div class="flex coluna">
                                 <label name="nome" for="">Nome:</label>
-                                <input type="text" placeholder="Digite seu nome">
+                                <input type="text" placeholder="Digite seu nome completo">
                             </div>
                             <div class="flex coluna">
                                 <label name="CPF" for="">CPF:</label>
-                                <input type="text" placeholder="00/00/0000">
+                                <input type="text" placeholder="000.000.000-00">
+                            </div>
+                            <div class="flex gap">
+                                <div class="flex coluna">
+                                    <label name="data" for="">Data de nascimento:</label>
+                                    <input type="text" placeholder="00/00/00">
+                                </div>
+                                <div class="flex coluna">
+                                    <label name="telefone" for="">Telefone</label>
+                                    <input type="tel" name="telefone" placeholder="(11) 99999-9999">
+                                </div>
                             </div>
                             <div class="flex coluna">
                                 <label name="email" for="">E-mail:</label>
@@ -35,14 +47,18 @@
                                 <label name="senha" for="">Senha:</label>
                                 <input type="password" placeholder="Digite sua senha">
                             </div>
+                            <div class="flex coluna">
+                                <label name="confirmar-senha" for="">Confirmar senha:</label>
+                                <input type="password" placeholder="Confirme a sua senha">
+                            </div>
                         </div>
                         <button type="submit">Entrar</button>
-                    </form>
-                    <h4>Já tem uma conta? <a href="{{ url_for('auth.login') }}">Login</a></h4>
+                </form>
+                <h4>Já tem uma conta? <a href="{{ url_for('auth.login') }}">Login</a></h4>
                 </div>
             </section>
-            <img src="../../static/imgs/cadastro/Frame 7.svg" alt="">
         </section>
     </main>
 </body>
+
 </html>
