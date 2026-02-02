@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import current_user, login_user, login_required
+from ..models import Agendamento
 from app import db
 
 main = Blueprint('main', __name__)
@@ -11,4 +12,5 @@ def agendamentos():
 
 @main.route('/dashboard')
 def dashboard():
-    return render_template('main/dashboard.html', title = "Dashboard")
+    agendamentos = Agendamento.query.order_by(Agendamento.data_reserva.desc()).all()
+    return render_template('main/dashboard.html', title = "Dashboard", agendamentos = agendamentos)
