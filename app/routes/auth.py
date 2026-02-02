@@ -8,7 +8,7 @@ from app import db
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login')
+@auth.route('/login', methods = ['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('main.agendamentos'))
@@ -22,15 +22,19 @@ def login():
         return redirect(url_for('index_bp.index'))
     return render_template('auth/login.html', title = 'Log In', form = form)
 
-@auth.route('/cadastro')
+@auth.route('/cadastro', methods = ['GET', 'POST'])
 def cadastro():
     if current_user.is_authenticated:
         return redirect(url_for('auth.login'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        usuario =  Usuario(nome = form.nome.data, cpf = form.cpf.data, data_nascimento = form.data_nascimento.data, email = form.email.data, senha = form.senha.data)
-        usuario.criar_senha(form.senha.data)
-        db.session.commit(usuario)
+        nome = request.form.get('nome')
+        data_nascimento = request.form.get('data_nascimento')
+        cpf = request.form.get('cpf')
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        Usuario.criar_senha(form.senha.data)
+        db.session.commit(nome, data_nascimento, cpf, email, senha)
         db.session.add()
         flash('Parabéns, você é um usuário cadastrado!')
         redirect(url_for('auth.login'))
