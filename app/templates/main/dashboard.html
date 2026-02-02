@@ -8,125 +8,186 @@
     <link rel="stylesheet" href="../../static/css/base.css">
     <link rel="stylesheet" href="../../static/css/dashboard.css">
     <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>{{ title }}</title>
 </head>
 
 <body>
-
     {% extends 'base.html' %}
     {% block content %}
-    <main>
-        <section class="flex">
-            <aside class="flex coluna alinhar-extremidades">
+    <main class="flex">
+        <nav id="sidebar" class="flex coluna">
+            <div id="sidebar_content" class="flex coluna alinhar-extremidades">
+                <ul id="side_items" class="flex coluna">
+                    <li class="side-item active">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-regular fa-calendar fa-xl"></i>
+                            <span class="item-descricao">Agendamentos</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-regular fa-file-lines fa-xl"></i>
+                            <span class="item-descricao">Editais</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-solid fa-book fa-xl"></i>
+                            <span class="item-descricao">Materiais</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul id="side_items" class="config flex coluna">
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-solid fa-gear fa-xl"></i>
+                            <span class="item-descricao">Configurações</span>
+                        </a>
+                    </li>
+                    <li class="side-item" id="logout">
+                        <a id="logout_btn" class="flex meio-vertical">
+                            <i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>
+                            <span class="item-descricao">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button id="open_btn">
+                <img src="../../static/imgs/base/menu.svg" alt="abrir menu" id="open_btn_icon">
+            </button>
+        </nav>
 
-                <nav class="menu flex coluna centralizar" id="menu">
-                    <a href="#" class="active flex centralizar" data-text="Agendamentos">
-                        <img src="../../static/imgs/dashboard/calendario.svg" alt="Agendamentos">
-                    </a>
-
-                    <a href="#" data-text="Editais" class="flex centralizar">
-                        <img src="../../static/imgs/dashboard/paper.svg" alt="Editais">
-                    </a>
-
-                    <a href="#" data-text="Materiais" class="flex centralizar">
-                        <img src="../../static/imgs/dashboard/book.svg" alt="Materiais">
-                    </a>
-
-                    <div class="config flex coluna">
-                        <a href=""><img src="../../static/imgs/dashboard/config.svg" alt=""></a>
-                        <a href=""><img src="../../static/imgs/dashboard/logout.svg" alt=""></a>
+        <section class="dashboard-content flex container">
+            <div class="agenda flex coluna">
+                <div class="calendario flex coluna">
+                    <!-- Cabeçalho dinâmico com mês e ano -->
+                    <div class="calendario-header flex meio-vertical alinhar-extremidades" id="mes-ano">
+                        <i class="fa-solid fa-angle-left"></i>
+                        <span>Carregando...</span>
+                        <i class="fa-solid fa-angle-right"></i>
                     </div>
-                </nav>
-            </aside>
+                    <!-- Dias da semana -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dom</th>
+                                <th>Seg</th>
+                                <th>Ter</th>
+                                <th>Qua</th>
+                                <th>Qui</th>
+                                <th>Sex</th>
+                                <th>Sáb</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dias serão inseridos aqui dinamicamente com o JS - @ASCAGAMEPLAYS -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal flex coluna">
+                    <h3>Deseja agendar para esta semana?</h3>
+                    <a href="#" class="flex centralizar">Agendar</a>
+                </div>
+            </div>
 
-            <section>
-                <div class="agenda">
-                    <div class="calendario">
-                        <!-- Cabeçalho dinâmico com mês e ano -->
-                        <div class="calendario-header" id="mes-ano">
-                            Carregando...
-                        </div>
-                        <!-- Dias da semana -->
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Dom</th>
-                                    <th>Seg</th>
-                                    <th>Ter</th>
-                                    <th>Qua</th>
-                                    <th>Qui</th>
-                                    <th>Sex</th>
-                                    <th>Sáb</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Dias serão inseridos aqui dinamicamente com o JS - @ASCAGAMEPLAYS -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal">
-                        <h3>Deseja agendar para esta semana?</h3>
-                        <a href="#">Agendar</a>
+            <section class="agendamentos flex coluna">
+                <div class="title flex coluna">
+                    <div class="m-title flex alinhar-extremidades meio-vertical">
+                        <h2>AGENDAMENTOS RECENTES</h2>
+                        <a href="#" class="flex centralizar">+ Novo Agendamento</a>
+                        <form class="filter" id="filtroStatus">
+                            <img src="../../static/imgs/dashboard/filter.svg" alt="Filtrar">
+
+                            <div class="custom-select">
+                                <div class="select-selected">Todos</div>
+                                <div class="select-items">
+                                    <div data-status="todos">Todos</div>
+                                    <div data-status="agendado">Agendado</div>
+                                    <div data-status="analise">Em análise</div>
+                                    <div data-status="negado">Negado</div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-                <section class="agendamentos">
-                    <div class="title">
-                        <div>
-                            <h2>AGENDAMENTOS RECENTES</h2>
-                            <a href="">+ Novo Agendamento</a>
-                            <div class="filter">
-                                <img src="../../static/imgs/dashboard/filter.svg" alt="filtro">
-                                <span>Filtrar</span>
-                                <img src="../../static/imgs/dashboard/seta-para-baixo.svg" alt="">
-                            </div>
-                            <div class="linha"></div>
+                <div class="cards-agendamentos flex coluna">
+                    <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
+                        <div class="detalhe"></div>
+                        <div class="flex coluna">
+                            <h3>Agendamento da sala - Coworking</h3>
+                            <p>Data: 15/09/2024</p>
+                            <p>Hora: 14:00 - 15:00</p>
+                        </div>
+                        <div class="status">
+                            <span id="confirmado">Agendado</span>
                         </div>
                     </div>
-                    <div class="cards-agendamentos">
-                        <div class="card-agendamentos">
-                            <div>
-                                <h3>Agendamento da sala - Coworking</h3>
-                                <p>Data: 15/09/2024</p>
-                                <p>Hora: 14:00 - 15:00</p>
-                            </div>
-                            <div class="status">
-                                <span class="confirmado">Confirmado</span>
-                            </div>
+                    <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
+                        <div class="detalhe-reuniao"></div>
+                        <div class="flex coluna">
+                            <h3>Reunião com Vanesssa</h3>
+                            <p>Data: 15/09/2024</p>
+                            <p>Hora: 14:00 - 15:00</p>
                         </div>
-                        <div class="card-agendamentos">
-                            <div>
-                                <h3>Reunião com Vanessa Desidério</h3>
-                                <p>Data: 18/09/2024</p>
-                                <p>Hora: 10:00 - 11:00</p>
-                            </div>
-                            <div class="status">
-                                <span class="pendente">Pendente</span>
-                            </div>
-                        </div>
-                        <div class="card-agendamentos">
-                            <div>
-                                <h3>Agendamento da sala</h3>
-                                <p>Data: 20/09/2024</p>
-                                <p>Hora: 09:00 - 12:00</p>
-                            </div>
-                            <div class="status">
-                                <span class="confirmado">Confirmado</span>
-                            </div>
+                        <div class="status">
+                            <span id="analise">Em análise</span>
                         </div>
                     </div>
-                    <div class="paginacao">
-                        <button class="seta-izq"><img src="../../static/imgs/dashboard/seta-esquerda.svg" alt="Anterior"></button>
-                        <button class="number ativo">1</button>
-                        <button class="number">2</button>
-                        <button class="number">3</button>
-                        <button class="seta-dir"><img src="../../static/imgs/dashboard/seta-direita.svg" alt="Próximo"></button>
+                    <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
+                        <div class="detalhe"></div>
+                        <div class="flex coluna">
+                            <h3>Agendamento da sala - Coworking</h3>
+                            <p>Data: 15/09/2024</p>
+                            <p>Hora: 14:00 - 15:00</p>
+                        </div>
+                        <div class="status">
+                            <span id="negado" class="flex centralizar">Negado</span>
+                        </div>
                     </div>
-                </section>
+                </div>
+                <div class="paginacao flex direita">
+                    <button class="seta-esq"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class="number ativo">1</button>
+                    <button class="number">2</button>
+                    <button class="number">3</button>
+                    <button class="seta-dir"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
             </section>
         </section>
+        </section>
     </main>
+    <script>
+        document.getElementById('open_btn').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('open-sidebar');
+        });
 
+
+        const selected = document.querySelector('.select-selected');
+        const items = document.querySelector('.select-items');
+        const options = items.querySelectorAll('div');
+
+        selected.addEventListener('click', (e) => {
+            e.stopPropagation(); // evita fechar imediatamente
+            items.classList.toggle('show');
+            selected.classList.toggle('active');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                selected.textContent = option.textContent;
+                items.classList.remove('show');
+                selected.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            items.classList.remove('show');
+            selected.classList.remove('active');
+        });
+    </script>
 </body>
 
 {% endblock %}

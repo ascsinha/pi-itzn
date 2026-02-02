@@ -30,7 +30,6 @@ def create_app():
     from .routes.index_bp import index_bp
     app.register_blueprint(index_bp)
     
-    from .routes.agendamentos import agendamentos
-    app.register_blueprint(agendamentos)
+    
     
     return app 
