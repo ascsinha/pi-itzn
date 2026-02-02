@@ -33,4 +33,7 @@ def create_app():
     from .routes.agendamentos import agendamentos
     app.register_blueprint(agendamentos)
     
+    from .routes.uploads import uploads
+    app.register_blueprint(uploads) 
+    
     return app 
