@@ -52,7 +52,7 @@ main .left .container .cadastro div h3 {
 }
 
 main .left .cadastro .info {
-    gap: 36px;
+    gap: 20px;
 }
 
 main .left .cadastro .info .form {
@@ -72,12 +72,16 @@ main .left .container .cadastro .info .form input {
     color: #83ACFF;
     outline: none;
     padding: 12px 14px 12px 14px;
-    width: 298px;
 }
 
 main .left .container .cadastro .info .form input:hover {
     background: #F2F6FF;
     border: 1px solid #83ACFF;
+    transition: all .6s;
+}
+
+.gap {
+    gap: 12px;
 }
 
 main .left .container .cadastro .info .form input:focus {

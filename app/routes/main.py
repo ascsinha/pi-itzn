@@ -6,7 +6,6 @@ from app import db
 main = Blueprint('main', __name__)
 
 @main.route('/agendamentos')
-@login_required
 def agendamentos():
     return render_template('main/agendamentos.html', title = "Agendamentos")
 

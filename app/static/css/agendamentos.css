@@ -1,0 +1,93 @@
+* {
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Lato;
+}
+
+.n-agendamentos {
+    background-color: #fff;
+    padding: 72px;
+    width: 50%;
+    border-right: 1px solid #DDD;
+}
+
+.main {
+    width: 100%;
+}
+
+.n-agendamentos  .voltar a {
+    color: #272727;
+    gap: 14px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.n-agendamentos  .voltar a:hover, .n-agendamentos .voltar a i:hover{
+    color: #4980F2;
+    transition: all .3s;
+    padding: 8px;
+    transition: all 0.5s;
+}
+
+.n-agendamentos .formulario {
+    margin: 32px;
+}
+
+.n-agendamentos .formulario .title-f {
+    gap: 8px;
+    color: #333;
+}
+
+.n-agendamentos .formulario .title-f h1 {
+    font-size: 24px;
+    font-family: ubuntu;
+    color: #0052fb;
+}
+
+.n-agendamentos .formulario .title-f p {
+    font-size: 16px;
+}
+
+.n-agendamentos .formulario form {
+    margin-top: 24px;
+     gap: 24px;
+}
+
+.n-agendamentos .formulario form div {
+    gap: 8px;
+    color: #333;
+    font-size: 18px;
+}
+
+.n-agendamentos .formulario form input, .n-agendamentos .formulario form select {
+    border: 1px solid #DDD;
+    padding: 12px;
+    border-radius: 12px;
+    color: #666;
+    font-size: 14px;
+    font-family: Lato;
+    outline: none;
+}
+
+.n-agendamentos .formulario form input:hover, .n-agendamentos .formulario form select:hover {
+    background-color: #F2F6FF;
+    transition: all .6s;
+    border: 1px solid #83ACFF;
+    cursor: pointer;
+}
+
+.n-agendamentos .formulario form input:focus, .n-agendamentos .formulario form select:focus {
+    transition: all .5s;
+    border: 2px solid var(--blue-400, #4980F2);
+    box-shadow: 0 0 10px 0 #0052FB
+}
+
+.n-agendamentos .formulario form .horarios .horario-inicio, .n-agendamentos .formulario form .horarios .horario-final {
+    width: 250px;
+}
+
+.main img {
+    width: 80%;
+    height: 80%;
+}
