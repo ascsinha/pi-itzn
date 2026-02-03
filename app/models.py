@@ -33,11 +33,9 @@ class Usuario(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key = True)
     nome: so.Mapped[str] = so.mapped_column(sa.String(64), nullable = False, unique = True, index = True)
     email: so.Mapped[str] = so.mapped_column(sa.String(128), nullable = False, unique = True, index = True)
-    cpf: so.Mapped[str] = so.mapped_column(sa.String(11), unique = True)
+    cpf: so.Mapped[str] = so.mapped_column(sa.String(14), unique = True, nullable = False)
     data_nascimento: so.Mapped[dt.date] = so.mapped_column(sa.Date, nullable = False)
-    telefone: so.Mapped[str] = so.mapped_column(sa.String(11), unique = True, index = True)
-    genero: so.Mapped[Generos] = so.mapped_column(sa.Enum(Generos), nullable = False)
-    tipo_usuario: so.Mapped[TiposUsuario] = so.mapped_column(sa.Enum(TiposUsuario), nullable = False, default = TiposUsuario.USUARIO)
+    telefone: so.Mapped[str] = so.mapped_column(sa.String(13), unique = True, index = True)
     e_admin: so.Mapped[bool] = so.mapped_column(sa.Boolean, default = False)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256), nullable = False)
     
@@ -93,13 +91,15 @@ class Agendamento(db.Model):
     __tablename__ = 'agendamento'
     id_agendamento: so.Mapped[int] = so.mapped_column(primary_key = True)
     id_usuario: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'), nullable = False)
+    data_reserva: so.Mapped[dt.time] = so.mapped_column(sa.Date, nullable = False)
     hora_inicial: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     hora_final: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     validacao: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False)
     id_estacao: so.Mapped[int] = so.mapped_column(sa.ForeignKey('estacao.id_estacao'), nullable = False)
+    observacao: so.Mapped[str] = so.mapped_column(sa.String(140))
     
     usuario: so.Mapped['Usuario'] = so.relationship('Usuario', back_populates = 'agendamentos')
-    estacao: so.Mapped['Estacao'] = so.relationship('Estacao', back_populates = 'agendamentos')
+    estacao: so.Mapped['Estacao'] = so.relationship('Estacao', backref = 'agendamentos')
             
     def __repr__(self):
         return f'<Agendamento {self.id_agendamento}>'
