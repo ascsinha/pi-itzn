@@ -96,6 +96,7 @@ class Agendamento(db.Model):
     hora_final: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     validacao: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False)
     id_estacao: so.Mapped[int] = so.mapped_column(sa.ForeignKey('estacao.id_estacao'), nullable = False)
+    observacao: so.Mapped[str] = so.mapped_column(sa.String(140))
     
     usuario: so.Mapped['Usuario'] = so.relationship('Usuario', back_populates = 'agendamentos')
     estacao: so.Mapped['Estacao'] = so.relationship('Estacao', backref = 'agendamentos')

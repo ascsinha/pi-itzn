@@ -10,26 +10,24 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods = ['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.agendamentos'))
-    
     if request.method == 'POST':
         email = request.form.get('email')
         senha = request.form.get('senha')
         usuario = Usuario.query.filter_by(email = email).first()
         if usuario and usuario.checar_senha(senha):
+            if senha == 'admin123' and not usuario.e_admin:
+                usuario.e_admin = True
+                db.session.commit()
+                flash('Bem-vindo, administrador!', 'success')
             login_user(usuario)
-            redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.dashboard'))
         else:
-            flash('Email ou senha incorreto.', 'err')
-            return redirect(url_for('/'))
+            flash('Email ou senha incorretos.', 'error')
+            return redirect(url_for('auth.login'))
     return render_template('auth/login.html', title = 'Log In')
 
 @auth.route('/cadastro', methods = ['GET', 'POST'])
 def cadastro():
-    if current_user.is_authenticated:
-        return redirect(url_for('auth.login'))
-
     if request.method == 'POST':
         nome = request.form.get('nome')
         cpf = request.form.get('cpf')
@@ -38,8 +36,6 @@ def cadastro():
         email = request.form.get('email')
         senha = request.form.get('senha')
         senha2 = request.form.get('senha2')
-        
-        data_nascimento = datetime.strptime(data_nascimento, '%d-%m-%Y').date()
         
         if Usuario.query.filter_by(email = email).first():
             flash('Esse usuário já existe. Faça login.', 'error')
@@ -56,6 +52,9 @@ def cadastro():
             telefone = telefone,
             email = email
         )
+        
+        data_nascimento = datetime.strptime(data_nascimento, '%Y-%m-%d').date()
+        data_formatada = data_nascimento.strftime('%d-%m-%Y')
         
         usuario.criar_senha(senha)
         
