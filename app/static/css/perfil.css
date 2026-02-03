@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: lato;
+}
+
+.profile {
+    margin: 72px;
+}
+section h1 {
+    font-family: ubuntu;
+    color: #0052FB;
+    font-size: 32px;
+}
+
+.card-profile {
+    margin-top: 32px;
+}
+
+section div p {
+    color: #333;
+    font-size: 18px;
+}
+
+.gap {
+    gap: 12px;
+}
+
+.card-profile {
+    width: 100%;
+}
+
+section .card-profile .header {
+    background: linear-gradient(90deg, #3c6fd4 0%, #052566 100%);
+    width: 800px;
+    height: 150px;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.foto {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+}
+
+.foto img {
+    width: 100px;
+}
+
+.card-profile button {
+    position: absolute;
+    right: 32px;
+    top: 28px;
+    padding: 8px;
+    color: #0052FB;
+    background-color: #fff;
+    border: #fff 1px solid;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.card-profile button:hover {
+    background-color:#dee7fa;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.title-p {
+    margin-top: 54px;
+}
+
+.title-p h2 {
+    font-size:24px;
+    font-weight: 500;
+}
+
+.title-p p {
+    color: #333;
+    font-size: 16px;
+    list-style: circle;
+    margin-bottom: 24px;
+}
+
+.card-p {
+    background-color: #fff;
+    border-left: #DDD 1px solid;
+    padding-left: 42px;
+    border-bottom: #DDD solid 1px;
+    border-right: solid 1px #DDD;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px ;
+    padding-bottom: 48px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
+
+.informacoes .caract .icon {
+    background-color: #DBEAFE;
+    padding: 6px;
+    border-radius: 4px;
+    color: #0052FB;
+    height: 30px;
+}
+
+.informacoes .caract h4 {
+    color: #666;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.informacoes .caract span {
+    color: #333;
+    font-size: 16px;
+}
+
+.gap-2 {
+    gap: 6px;
+}
+
+.gap-3 {
+    gap:32px
+}
+

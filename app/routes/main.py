@@ -11,3 +11,7 @@ def agendamentos():
 @main.route('/dashboard')
 def dashboard():
     return render_template('main/dashboard.html', title = "Dashboard")
+
+@main.route('/perfil')
+def perfil():
+    return render_template('main/perfil.html', title ="Perfil")
