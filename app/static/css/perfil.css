@@ -6,7 +6,7 @@
 }
 
 .profile {
-    margin: 72px;
+    margin: 50px;
 }
 section h1 {
     font-family: ubuntu;
@@ -101,7 +101,7 @@ section .card-profile .header {
     padding: 6px;
     border-radius: 4px;
     color: #0052FB;
-    height: 30px;
+    height: 40px;
 }
 
 .informacoes .caract h4 {

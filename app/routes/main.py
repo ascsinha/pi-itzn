@@ -18,3 +18,7 @@ def dashboard():
 def perfil():
     return render_template('main/perfil.html', title ="Perfil")
 
+@main.route('/perfil_edit')
+def perfil_edit():
+    return render_template('main/perfil_edit.html', title ="Perfil")
+

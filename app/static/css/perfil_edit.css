@@ -1,0 +1,146 @@
+* {
+    font-family: Lato;
+}
+
+.profile {
+    margin: 50px;
+}
+
+section h1 {
+    font-family: ubuntu;
+    color: #0052FB;
+    font-size: 32px;
+}
+
+section p {
+    color: #333;
+    font-size: 18px;
+}
+
+.card-profile {
+    margin-top: 32px;
+}
+
+.card-profile .header {
+    background: linear-gradient(90deg, #3c6fd4 0%, #052566 100%);
+    width: 800px;
+    height: 150px;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.foto {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+}
+
+.foto img {
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.upload-foto {
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+    background-color: #0052FB;
+    color: #fff;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.title-p {
+    margin-top: 54px;
+    gap: 6px;
+    margin-bottom: 32px;
+}
+
+.card-p {
+    background-color: #fff;
+    border-left: #DDD 1px solid;
+    border-right: solid 1px #DDD;
+    border-bottom: solid 1px #DDD;
+    border-radius: 0 0 12px 12px;
+    padding: 42px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.caract h4 {
+    color: #666;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.caract .icon {
+    background-color: #DBEAFE;
+    padding: 6px;
+    border-radius: 4px;
+    color: #0052FB;
+    height: 40px;
+}
+
+.caract input {
+    border: 1px solid #DDD;
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: #333;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.caract input:focus {
+    border-color: #0052FB;
+}
+
+.caract input[disabled] {
+    background-color: #f9f9f9;
+    color: #666;
+}
+
+/* Botões */
+.acoes {
+    margin-top: 32px;
+}
+
+.btn-salvar {
+    background-color: #0052FB;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-salvar:hover {
+    background-color: #003dd1;
+}
+
+.btn-cancelar {
+    border: solid 1px #333;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn-cancelar:hover {
+    background-color: #ccc;
+}
+
+.gap {
+    gap: 12px;
+}
+
+.gap-3 {
+    gap: 32px;
+}
+    

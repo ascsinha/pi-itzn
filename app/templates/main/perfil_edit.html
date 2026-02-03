@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../../static/css/global.css">
     <link rel="stylesheet" href="../../static/css/base.css">
     <link rel="stylesheet" href="../../static/css/dashboard.css">
-    <link rel="stylesheet" href="../../static/css/perfil.css">
+    <link rel="stylesheet" href="../../static/css/perfil_edit.css">
     <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>{{ title }}</title>
+    <title>Editar Perfil</title>
 </head>
 
 <body>
@@ -61,63 +61,72 @@
             </button>
         </nav>
 
+        <!-- Conteúdo principal -->
         <section class="profile flex coluna">
             <div class="flex coluna gap">
-                <h1>Perfil</h1>
-                <p>Visualize e edite suas informações pessoais</p>
+                <h1>Editar Perfil</h1>
+                <p>Atualize suas informações pessoais</p>
             </div>
 
             <div class="card-profile">
                 <div class="header">
                     <div class="foto">
                         <img src="../../static/imgs/base/default-user.png" alt="">
+                        <label for="upload-foto" class="upload-foto">
+                            <i class="fa-solid fa-camera"></i>
+                        </label>
+                        <input type="file" id="upload-foto" hidden>
                     </div>
-                    <button class="edit-profile flex centralizar gap">
-                        <i class="fa-solid fa-pen"></i>
-                        <span>Editar</span>
-                    </button>
                 </div>
             </div>
-            <div class="card-p">
+
+            <form class="card-p" method="POST">
                 <div class="title-p flex coluna">
                     <h2>Fulano de tal</h2>
                     <p>Empresa</p>
                 </div>
+
                 <div class="informacoes flex gap-3">
                     <div class="flex coluna gap-3">
                         <div class="caract flex gap">
                             <div class="icon flex centralizar"><i class="fa-regular fa-envelope fa-xl"></i></div>
                             <div class="description flex coluna gap-2">
                                 <h4>Email</h4>
-                                <span>fulanodetal@gmail.com</span>
+                                <input type="email" name="email" value="fulanodetal@gmail.com">
                             </div>
                         </div>
-                        <div class="caract  gap flex">
+                        <div class="caract flex gap">
                             <div class="icon flex centralizar"><i class="fa-regular fa-calendar fa-xl"></i></div>
                             <div class="description flex coluna gap-2">
                                 <h4>Data de nascimento</h4>
-                                <span>12/08/1997</span>
+                                <input type="date" name="nascimento" value="1997-08-12">
                             </div>
                         </div>
                     </div>
-                    <div class="flex gap-3 coluna">
-                        <div class="caract  gap flex ">
+
+                    <div class="flex coluna gap-3">
+                        <div class="caract flex gap">
                             <div class="icon flex centralizar"><i class="fa-solid fa-phone fa-xl"></i></div>
-                            <div class="description flex gap-2 coluna">
+                            <div class="description flex coluna gap-2">
                                 <h4>Telefone</h4>
-                                <span>(11) 99999-9999</span>
+                                <input type="tel" name="telefone" value="(11) 99999-9999">
                             </div>
                         </div>
-                        <div class="caract gap flex">
+                        <div class="caract flex gap">
                             <div class="icon flex centralizar"><i class="fa-solid fa-calendar-day fa-xl"></i></div>
-                            <div class="description gap-2 flex coluna">
+                            <div class="description flex coluna gap-2">
                                 <h4>Data de inscrição</h4>
-                                <span>07/03/2026</span>
+                                <input type="text" name="cadastro" value="07/03/2026" disabled>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="acoes flex gap">
+                    <button type="submit" class="btn-salvar">Salvar alterações</button>
+                    <a href="perfil.html" class="btn-cancelar">Cancelar</a>
+                </div>
+            </form>
         </section>
     </main>
 
@@ -126,33 +135,8 @@
             document.getElementById('sidebar').classList.toggle('open-sidebar');
         });
 
-
-        const selected = document.querySelector('.select-selected');
-        const items = document.querySelector('.select-items');
-        const options = items.querySelectorAll('div');
-
-        selected.addEventListener('click', (e) => {
-            e.stopPropagation(); // evita fechar imediatamente
-            items.classList.toggle('show');
-            selected.classList.toggle('active');
-        });
-
-        options.forEach(option => {
-            option.addEventListener('click', () => {
-                selected.textContent = option.textContent;
-                items.classList.remove('show');
-                selected.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', () => {
-            items.classList.remove('show');
-            selected.classList.remove('active');
-        });
     </script>
-
     {% endblock %}
-
 </body>
 
 </html>
