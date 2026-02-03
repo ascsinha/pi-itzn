@@ -11,13 +11,10 @@ def agendamentos():
 
 @main.route('/dashboard')
 def dashboard():
-<<<<<<< HEAD
-    return render_template('main/dashboard.html', title = "Dashboard")
+    agendamentos = Agendamento.query.order_by(Agendamento.data_reserva.desc()).all()
+    return render_template('main/dashboard.html', title = "Dashboard", agendamentos = agendamentos)
 
 @main.route('/perfil')
 def perfil():
     return render_template('main/perfil.html', title ="Perfil")
-=======
-    agendamentos = Agendamento.query.order_by(Agendamento.data_reserva.desc()).all()
-    return render_template('main/dashboard.html', title = "Dashboard", agendamentos = agendamentos)
->>>>>>> acsa
+
