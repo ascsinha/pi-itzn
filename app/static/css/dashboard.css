@@ -162,11 +162,11 @@ main section .calendario {
 }
 
 main section .agenda .calendario-header span {
-  color: var(--gray-800, #333);
-  font-family: Lato;
+  color: #333;
+  font-family: ubuntu;
   font-size: 20px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
 }
 
