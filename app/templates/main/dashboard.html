@@ -17,6 +17,7 @@
 <body>
     {% extends 'base.html' %}
     {% block content %}
+<<<<<<< HEAD
     <section class="dashboard-content flex container">
         <div class="agenda flex coluna">
             <section class="calendario flex coluna">
@@ -92,6 +93,83 @@
                 <button class="number">3</button>
                 <button class="seta-dir"><i class="fa-solid fa-angle-right"></i></button>
             </div>
+=======
+        <section class="dashboard-content flex container">
+            <div class="agenda flex coluna">
+                <div class="calendario flex coluna">
+                    <!-- Cabeçalho dinâmico com mês e ano -->
+                    <div class="calendario-header flex meio-vertical alinhar-extremidades" id="mes-ano">
+                        <i class="fa-solid fa-angle-left"></i>
+                        <span>Carregando...</span>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <!-- Dias da semana -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dom</th>
+                                <th>Seg</th>
+                                <th>Ter</th>
+                                <th>Qua</th>
+                                <th>Qui</th>
+                                <th>Sex</th>
+                                <th>Sáb</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="modal flex coluna">
+                    <h3>Deseja agendar para esta semana?</h3>
+                    <a href="{{ url_for('agendamento.criarAgendamento') }}" class="flex centralizar">Agendar</a>
+                </div>
+            </div>
+
+            <section class="agendamentos flex coluna">
+                <div class="title flex coluna">
+                    <div class="m-title flex alinhar-extremidades meio-vertical">
+                        <h2>AGENDAMENTOS RECENTES</h2>
+                        <a href="{{ url_for('agendamento.criarAgendamento') }}" class="flex centralizar">+ Novo Agendamento</a>
+                        <form class="filter" id="filtroStatus">
+                            <img src="../../static/imgs/dashboard/filter.svg" alt="Filtrar">
+
+                            <div class="custom-select">
+                                <div class="select-selected">Todos</div>
+                                <div class="select-items">
+                                    <div data-status="todos">Todos</div>
+                                    <div data-status="agendado">Agendado</div>
+                                    <div data-status="analise">Em análise</div>
+                                    <div data-status="negado">Negado</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="cards-agendamentos flex coluna">
+                    {% for agendamento in agendamentos %}
+                    <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
+                        <div class="detalhe"></div>
+                        <div class="flex coluna">
+                            <h3>Agendamento da sala - Coworking</h3>
+                            <p>Data: 15/09/2024</p>
+                            <p>Hora: 14:00 - 15:00</p>
+                        </div>
+                        <div class="status">
+                            <span id="negado" class="flex centralizar">Negado</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="paginacao flex direita">
+                    <button class="seta-esq"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class="number ativo">1</button>
+                    <button class="number">2</button>
+                    <button class="number">3</button>
+                    <button class="seta-dir"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+            </section>
+        </section>
+>>>>>>> main
         </section>
     </section>
     </section>
