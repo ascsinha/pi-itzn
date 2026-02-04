@@ -19,7 +19,7 @@
                         <h1>Cadastro</h1>
                         <h3>Preencha com os seus dados</h3>
                     </div>
-                    {% with messages = get_flashed_messages() %}
+                    {% with messages = get_flashed_messages(with_categories = True) %}
                     {% if messages %}
                     <ul class="flashes">
                         <li>{{ messages[0] }}</li>
