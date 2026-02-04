@@ -4,116 +4,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais - ITZN</title>
     <link rel="stylesheet" href="../../static/css/global.css">
     <link rel="stylesheet" href="../../static/css/base.css">
     <link rel="stylesheet" href="../../static/css/dashboard.css">
     <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Materiais - ITZN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        .materiais-content {
-            margin: 64px;
-            width: 100%;
+        body {
+            background-color: #f5f7fb;
+            color: #333;
+            font-family: 'Lato', sans-serif;
         }
 
-        .materiais-header {
+        main {
+            display: flex;
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        .materiais-area {
+            flex: 1;
+            padding: 48px 64px;
+        }
+
+        .materiais-topo {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
         }
 
-        .materiais-header h2 {
-            color: #333;
-            font-size: 20px;
+        .materiais-topo h2 {
+            font-size: 24px;
+            color: #002b9b;
             font-weight: 700;
             text-transform: uppercase;
         }
 
-        .filtros {
+        /* --- FILTROS --- */
+        .filtro-container {
             display: flex;
+            align-items: center;
             gap: 16px;
-        }
-
-        .filtros select,
-        .filtros input {
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px solid #CCC;
             background-color: #fff;
-            font-family: Lato;
-            font-size: 14px;
-        }
-
-        .grid-materiais {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .card-material {
-            background: #fff;
             border: 1px solid #E0E0E0;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            border-radius: 12px;
+            padding: 10px 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        .card-material:hover {
+        .filtro-container img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        .filtro-container select,
+        .filtro-container input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .filtro-container input {
+            width: 160px;
+        }
+
+        /* --- GRID DE MATERIAIS --- */
+        .materiais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .material-card {
+            background: linear-gradient(180deg, #ffffff 60%, #e8f0ff 120%);
+            border: 1px solid #E0E0E0;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .material-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
 
-        .card-material h3 {
+        .material-card h3 {
             color: #0052fb;
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 8px;
         }
 
-        .card-material p {
+        .material-card p {
             color: #555;
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-
-        .card-material .tag {
-            display: inline-block;
-            background-color: #E8F0FF;
-            color: #0052fb;
-            font-size: 12px;
-            padding: 5px 10px;
-            border-radius: 16px;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
-
-        .card-material button {
-            background-color: #0052fb;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 8px 14px;
-            cursor: pointer;
             font-size: 14px;
-            transition: all 0.3s ease;
+            margin-bottom: 16px;
         }
 
-        .card-material button:hover {
-            background-color: #003ec7;
+        .material-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
         }
 
-        .hide {
-            opacity: 0;
-            transform: scale(0.95);
-            pointer-events: none;
+        .material-card .tag {
+            background: #E8F0FF;
+            color: #0052FB;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .material-card button {
+            background-color: #0052fb;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            padding: 10px 16px;
+            font-size: 14px;
+            cursor: pointer;
             transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .material-card button:hover {
+            background-color: #003EC7;
+            transform: scale(1.05);
         }
 
         .fade-in {
@@ -125,11 +151,16 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
         }
     </style>
 </head>
@@ -137,7 +168,7 @@
 <body>
     {% extends 'base.html' %}
     {% block content %}
-    <main class="flex">
+    <main>
         <nav id="sidebar" class="flex coluna">
             <div id="sidebar_content" class="flex coluna alinhar-extremidades">
                 <ul id="side_items" class="flex coluna">
@@ -180,91 +211,96 @@
             </button>
         </nav>
 
-        <section class="materiais-content">
-            <div class="materiais-header">
-                <h2>Materiais Educacionais</h2>
-                <div class="filtros">
-                    <select id="filtroCategoria">
+        <section class="materiais-area">
+            <div class="materiais-topo">
+                <h2>Biblioteca de Materiais</h2>
+
+                <form class="filtro-container" id="filtroMateriais">
+                    <img src="../../static/imgs/dashboard/filter.svg" alt="Filtro">
+                    <select id="categoriaFiltro">
                         <option value="">Categoria</option>
                         <option value="empreendedorismo">Empreendedorismo</option>
                         <option value="tecnologia">Tecnologia</option>
                         <option value="gestao">Gestão</option>
                     </select>
-                    <select id="filtroNivel">
+                    <select id="nivelFiltro">
                         <option value="">Nível</option>
                         <option value="medio">Ensino Médio</option>
                         <option value="tecnico">Técnico</option>
                         <option value="superior">Superior</option>
                     </select>
-                    <input type="text" id="pesquisaMaterial" placeholder="Buscar material...">
-                </div>
+                    <input type="text" id="buscaMaterial" placeholder="Buscar material...">
+                </form>
             </div>
 
-            <div class="grid-materiais" id="materiaisGrid">
-                <div class="card-material fade-in" data-categoria="empreendedorismo" data-nivel="superior">
+            <div class="materiais-grid" id="materiaisGrid">
+                <div class="material-card fade-in" data-categoria="empreendedorismo" data-nivel="superior">
                     <h3>Introdução ao Empreendedorismo</h3>
-                    <p>Conceitos básicos de inovação e criação de startups.</p>
-                    <span class="tag">Empreendedorismo</span>
+                    <p>Conceitos fundamentais sobre startups e inovação.</p>
+                    <div class="tags">
+                        <span class="tag">Empreendedorismo</span>
+                        <span class="tag">Superior</span>
+                    </div>
                     <button>Baixar PDF</button>
                 </div>
 
-                <div class="card-material fade-in" data-categoria="tecnologia" data-nivel="tecnico">
+                <div class="material-card fade-in" data-categoria="tecnologia" data-nivel="tecnico">
                     <h3>Lógica de Programação</h3>
-                    <p>Conteúdo fundamental para iniciantes em TI.</p>
-                    <span class="tag">Tecnologia</span>
+                    <p>Conceitos essenciais para quem está iniciando na área de TI.</p>
+                    <div class="tags">
+                        <span class="tag">Tecnologia</span>
+                        <span class="tag">Técnico</span>
+                    </div>
                     <button>Baixar PDF</button>
                 </div>
 
-                <div class="card-material fade-in" data-categoria="gestao" data-nivel="medio">
+                <div class="material-card fade-in" data-categoria="gestao" data-nivel="medio">
                     <h3>Gestão de Projetos</h3>
-                    <p>Fundamentos da gestão ágil e organização de equipes.</p>
-                    <span class="tag">Gestão</span>
+                    <p>Aprenda sobre metodologias ágeis e coordenação de equipes.</p>
+                    <div class="tags">
+                        <span class="tag">Gestão</span>
+                        <span class="tag">Médio</span>
+                    </div>
                     <button>Baixar PDF</button>
                 </div>
             </div>
+
         </section>
     </main>
 
     <script>
-        // Abrir/fechar sidebar
-        document.getElementById('open_btn').addEventListener('click', () => {
+        document.getElementById('open_btn').addEventListener('click', function () {
             document.getElementById('sidebar').classList.toggle('open-sidebar');
         });
 
-        const categoriaSelect = document.getElementById('filtroCategoria');
-        const nivelSelect = document.getElementById('filtroNivel');
-        const pesquisaInput = document.getElementById('pesquisaMaterial');
-        const cards = document.querySelectorAll('.card-material');
+        const categoriaSelect = document.getElementById('categoriaFiltro');
+        const nivelSelect = document.getElementById('nivelFiltro');
+        const buscaInput = document.getElementById('buscaMaterial');
+        const cards = document.querySelectorAll('.material-card');
 
         function filtrarMateriais() {
             const categoria = categoriaSelect.value.toLowerCase();
             const nivel = nivelSelect.value.toLowerCase();
-            const pesquisa = pesquisaInput.value.toLowerCase();
+            const busca = buscaInput.value.toLowerCase();
 
             cards.forEach(card => {
-                const cardCategoria = card.dataset.categoria;
-                const cardNivel = card.dataset.nivel;
-                const titulo = card.querySelector('h3').textContent.toLowerCase();
-                const descricao = card.querySelector('p').textContent.toLowerCase();
+                const cat = card.dataset.categoria;
+                const niv = card.dataset.nivel;
+                const texto = card.textContent.toLowerCase();
 
-                const corresponde =
-                    (!categoria || cardCategoria === categoria) &&
-                    (!nivel || cardNivel === nivel) &&
-                    (titulo.includes(pesquisa) || descricao.includes(pesquisa));
-
-                card.classList.toggle('hide', !corresponde);
+                const visivel = (!categoria || cat === categoria) && (!nivel || niv === nivel) && texto.includes(busca);
+                card.style.display = visivel ? 'flex' : 'none';
             });
         }
 
         categoriaSelect.addEventListener('change', filtrarMateriais);
         nivelSelect.addEventListener('change', filtrarMateriais);
-        pesquisaInput.addEventListener('input', filtrarMateriais);
+        buscaInput.addEventListener('input', filtrarMateriais);
 
-        // Animação de entrada dos cards
+        // animação inicial
         window.addEventListener('load', () => {
-            const cards = document.querySelectorAll('.card-material');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.15}s`;
+            document.querySelectorAll('.material-card').forEach((card, i) => {
+                card.style.animationDelay = `${i * 0.1}s`;
                 card.classList.add('fade-in');
             });
         });
