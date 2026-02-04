@@ -14,12 +14,54 @@
     <header>
         <section class="flex alinhar-extremidades meio-vertical">
             <img src="../../static/imgs/base/itzn brand.svg" alt="Logo ITZN">
-            <div class="perfil flex">
+            <a href="{{ url_for('main.perfil') }}" class="perfil flex">
                 <img src="../../static/imgs/base/default-user.png" alt="perfil de usuario">
-            </div>
+            </a>
         </section>
     </header>
 
+    <main class="flex">
+        <nav id="sidebar" class="flex coluna">
+            <div id="sidebar_content" class="flex coluna alinhar-extremidades">
+                <ul id="side_items" class="flex coluna">
+                    <li class="side-item active">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-regular fa-calendar fa-xl"></i>
+                            <span class="item-descricao">Agendamentos</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-regular fa-file-lines fa-xl"></i>
+                            <span class="item-descricao">Editais</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-solid fa-book fa-xl"></i>
+                            <span class="item-descricao">Materiais</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul id="side_items" class="config flex coluna">
+                    <li class="side-item">
+                        <a href="#" class="flex meio-vertical">
+                            <i class="fa-solid fa-gear fa-xl"></i>
+                            <span class="item-descricao">Configurações</span>
+                        </a>
+                    </li>
+                    <li class="side-item" id="logout">
+                        <a href="{{ url_for('auth.logout') }}" id="logout_btn" class="flex meio-vertical">
+                            <i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>
+                            <span class="item-descricao">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button id="open_btn">
+                <img src="../../static/imgs/base/menu.svg" alt="abrir menu" id="open_btn_icon">
+            </button>
+        </nav>
 
     {% block content %}{% endblock %}
 </body>

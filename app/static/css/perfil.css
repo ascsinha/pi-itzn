@@ -50,7 +50,7 @@ section .card-profile .header {
     width: 100px;
 }
 
-.card-profile button {
+.card-profile .edit-profile {
     position: absolute;
     right: 32px;
     top: 28px;
@@ -60,9 +60,10 @@ section .card-profile .header {
     border: #fff 1px solid;
     border-radius: 8px;
     font-size: 18px;
+    text-decoration: none;
 }
 
-.card-profile button:hover {
+.card-profile .edit-profile:hover {
     background-color:#dee7fa;
     cursor: pointer;
     transition: all 0.5s;

@@ -17,49 +17,6 @@
 <body>
     {% extends 'base.html' %}
     {% block content %}
-    <main class="flex">
-        <nav id="sidebar" class="flex coluna">
-            <div id="sidebar_content" class="flex coluna alinhar-extremidades">
-                <ul id="side_items" class="flex coluna">
-                    <li class="side-item active">
-                        <a href="#" class="flex meio-vertical">
-                            <i class="fa-regular fa-calendar fa-xl"></i>
-                            <span class="item-descricao">Agendamentos</span>
-                        </a>
-                    </li>
-                    <li class="side-item">
-                        <a href="#" class="flex meio-vertical">
-                            <i class="fa-regular fa-file-lines fa-xl"></i>
-                            <span class="item-descricao">Editais</span>
-                        </a>
-                    </li>
-                    <li class="side-item">
-                        <a href="#" class="flex meio-vertical">
-                            <i class="fa-solid fa-book fa-xl"></i>
-                            <span class="item-descricao">Materiais</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul id="side_items" class="config flex coluna">
-                    <li class="side-item">
-                        <a href="#" class="flex meio-vertical">
-                            <i class="fa-solid fa-gear fa-xl"></i>
-                            <span class="item-descricao">Configurações</span>
-                        </a>
-                    </li>
-                    <li class="side-item" id="logout">
-                        <a id="logout_btn" class="flex meio-vertical">
-                            <i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>
-                            <span class="item-descricao">Sair</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <button id="open_btn">
-                <img src="../../static/imgs/base/menu.svg" alt="abrir menu" id="open_btn_icon">
-            </button>
-        </nav>
-
         <section class="dashboard-content flex container">
             <div class="agenda flex coluna">
                 <div class="calendario flex coluna">
@@ -114,28 +71,7 @@
                     </div>
                 </div>
                 <div class="cards-agendamentos flex coluna">
-                    <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
-                        <div class="detalhe"></div>
-                        <div class="flex coluna">
-                            <h3>Agendamento da sala - Coworking</h3>
-                            <p>Data: 15/09/2024</p>
-                            <p>Hora: 14:00 - 15:00</p>
-                        </div>
-                        <div class="status">
-                            <span id="confirmado">Agendado</span>
-                        </div>
-                    </div>
-                    <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
-                        <div class="detalhe-reuniao"></div>
-                        <div class="flex coluna">
-                            <h3>Reunião com Vanesssa</h3>
-                            <p>Data: 15/09/2024</p>
-                            <p>Hora: 14:00 - 15:00</p>
-                        </div>
-                        <div class="status">
-                            <span id="analise">Em análise</span>
-                        </div>
-                    </div>
+                    {% for agend in agendamentos %}
                     <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
                         <div class="detalhe"></div>
                         <div class="flex coluna">
@@ -147,6 +83,7 @@
                             <span id="negado" class="flex centralizar">Negado</span>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
                 <div class="paginacao flex direita">
                     <button class="seta-esq"><i class="fa-solid fa-angle-left"></i></button>
