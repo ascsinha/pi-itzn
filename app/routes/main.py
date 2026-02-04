@@ -5,10 +5,6 @@ from app import db
 
 main = Blueprint('main', __name__)
 
-@main.route('/agendamentos')
-def agendamentos():
-    return render_template('main/agendamentos.html', title = "Agendamentos")
-
 @main.route('/dashboard')
 def dashboard():
     agendamentos = Agendamento.query.order_by(Agendamento.data_reserva.desc()).all()
