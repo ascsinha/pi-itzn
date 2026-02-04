@@ -54,8 +54,8 @@ class Usuario(UserMixin, db.Model):
         return agendamento in self.agendamentos
     
 class Admin(Usuario):
-    id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'), primary_key = True)
-    id_admin: so.Mapped[int] = so.mapped_column(sa.Integer)
+    id_admin: so.Mapped[int] = so.mapped_column(primary_key = True)
+    id_usuario: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'))
         
     def agendAceito(self, agendamento):
         if self.agendFeito(agendamento):
