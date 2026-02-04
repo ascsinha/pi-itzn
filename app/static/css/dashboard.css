@@ -1,13 +1,13 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Lato;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Lato;
 }
 
 body {
-    background-color: #fafafa;
-    min-height: 100vh;
+  background-color: #fafafa;
+  min-height: 100vh;
 }
 
 main #sidebar {
@@ -34,7 +34,7 @@ main ul {
 main #side_items .side-item a {
   text-decoration: none;
   justify-content: center;
-  color:#666;
+  color: #666;
 }
 
 main #side_items .side-item li {
@@ -43,7 +43,8 @@ main #side_items .side-item li {
 
 }
 
-main #side_items .side-item a:hover, #logout_btn:hover {
+main #side_items .side-item a:hover,
+#logout_btn:hover {
   background-color: #f5f5f5;
   padding: 8px;
   border-radius: 8px;
@@ -65,7 +66,7 @@ main #side_items .side-item.active a i {
 }
 
 
-main #side_items .side-item  i:hover:not(.active) {
+main #side_items .side-item i:hover:not(.active) {
   color: #666;
   background-color: #f5f5f5;
 }
@@ -73,7 +74,7 @@ main #side_items .side-item  i:hover:not(.active) {
 main #logout_btn {
   background: none;
   border: none;
-  color:#666;
+  color: #666;
   cursor: pointer;
 }
 
@@ -120,7 +121,7 @@ main .config .side-item #logout_btn {
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: 14px;
-  transition:  width .6s;
+  transition: width .6s;
 }
 
 #sidebar.open-sidebar {
@@ -132,10 +133,9 @@ main .config .side-item #logout_btn {
   height: auto;
 }
 
-#sidebar.open-sidebar .side-item a  {
+#sidebar.open-sidebar .side-item a {
   justify-content: flex-start;
   gap: 8px
-  
 }
 
 main #sidebar button img {
@@ -153,40 +153,70 @@ main .agenda {
   gap: 32px;
 }
 
-main section .calendario {
+.calendario {
   gap: 12px;
-  padding: 15px;
+  padding: 16px;
   background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 4px 2px rgba(102, 102, 102, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 480px;
 }
 
-main section .agenda .calendario-header span {
-  color: var(--gray-800, #333);
-  font-family: Lato;
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendario-header span {
+  color: #333;
   font-size: 20px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
 }
 
-main section .agenda .calendario-header i {
-  color:#666;
+.calendario-header i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.calendario-header i:hover {
+  color: #003ec7;
+  transform: scale(1.2);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  color: #666;
+  font-size: 13px;
+  padding: 8px;
+}
+
+td {
+  height: 48px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  color: #333;
   cursor: pointer;
 }
 
-main section table {
-  width: 100%;
+td:hover {
+  background-color: #e8f0ff;
 }
 
-main section table th {
-  color: #666;
-  font-family: Lato;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding: 12px;
+td.hoje {
+  background-color: #0052fb;
+  color: #fff;
+  font-weight: bold;
+}
+
+td.inativo {
+  color: #bbb;
 }
 
 main section .agenda .modal {
@@ -230,7 +260,7 @@ main section .title {
   margin-bottom: 24px;
 }
 
-main section .agendamentos .title h2{
+main section .agendamentos .title h2 {
   color: var(--gray-600, #666);
   font-family: Lato;
   font-size: 16px;
@@ -243,7 +273,7 @@ main section .agendamentos .title h2{
 main section .agendamentos .title a {
   padding: 10px 8px;
   text-decoration: none;
-  color:#fff;
+  color: #fff;
   background-color: #0052fb;
   border-radius: 12px;
   font-size: 14px;
@@ -347,7 +377,8 @@ main section .agendamentos .title a:hover {
 .cards-agendamentos .card-agendamentos {
   background-color: #fff;
   padding: 18px 22px;
-  position: relative;border-radius: 8px;
+  position: relative;
+  border-radius: 8px;
   border: 1px solid var(--gray-300, #CCC);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
 
@@ -376,7 +407,7 @@ main section .agendamentos .title a:hover {
   border-bottom-left-radius: 8px;
 }
 
-.cards-agendamentos .card-agendamentos #confirmado  {
+.cards-agendamentos .card-agendamentos #confirmado {
   background-color: #E2FFED;
   border: 1px solid #4AC97B;
   color: #4AC97B;
@@ -424,10 +455,13 @@ main section .agendamentos .title a:hover {
   font-weight: 400;
   line-height: normal;
 }
+
 .paginacao {
   margin-top: 32px;
 }
-.paginacao .seta-esq, .paginacao .seta-dir {
+
+.paginacao .seta-esq,
+.paginacao .seta-dir {
   background-color: #0052fb;
   color: #fff;
   border: #fff solid 1px;
@@ -436,7 +470,8 @@ main section .agendamentos .title a:hover {
   height: 32px;
 }
 
-.paginacao .seta-esq, .paginacao .seta-dir:hover {
+.paginacao .seta-esq,
+.paginacao .seta-dir:hover {
   background-color: #4985FF;
 }
 
@@ -454,4 +489,3 @@ main section .agendamentos .title a:hover {
   color: #0052fb;
   border: 1px solid #0052fb;
 }
-

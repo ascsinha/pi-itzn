@@ -17,84 +17,84 @@
 <body>
     {% extends 'base.html' %}
     {% block content %}
-        <section class="dashboard-content flex container">
-            <div class="agenda flex coluna">
-                <div class="calendario flex coluna">
-                    <!-- Cabeçalho dinâmico com mês e ano -->
-                    <div class="calendario-header flex meio-vertical alinhar-extremidades" id="mes-ano">
-                        <i class="fa-solid fa-angle-left"></i>
-                        <span>Carregando...</span>
-                        <i class="fa-solid fa-angle-right"></i>
-                    </div>
-                    <!-- Dias da semana -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Dom</th>
-                                <th>Seg</th>
-                                <th>Ter</th>
-                                <th>Qua</th>
-                                <th>Qui</th>
-                                <th>Sex</th>
-                                <th>Sáb</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Dias serão inseridos aqui dinamicamente com o JS - @ASCAGAMEPLAYS -->
-                        </tbody>
-                    </table>
+    <section class="dashboard-content flex container">
+        <div class="agenda flex coluna">
+            <section class="calendario flex coluna">
+                <div class="calendario-header flex meio-vertical alinhar-extremidades" id="mes-ano">
+                    <i class="fa-solid fa-angle-left" id="prevMes"></i>
+                    <span id="tituloMes">Carregando...</span>
+                    <i class="fa-solid fa-angle-right" id="proxMes"></i>
                 </div>
-                <div class="modal flex coluna">
-                    <h3>Deseja agendar para esta semana?</h3>
-                    <a href="#" class="flex centralizar">Agendar</a>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dom</th>
+                            <th>Seg</th>
+                            <th>Ter</th>
+                            <th>Qua</th>
+                            <th>Qui</th>
+                            <th>Sex</th>
+                            <th>Sáb</th>
+                        </tr>
+                    </thead>
+                    <tbody id="diasContainer">
+                        <!-- Dias gerados dinamicamente -->
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="modal flex coluna">
+                <h3>Deseja agendar para esta semana?</h3>
+                <a href="#" class="flex centralizar">Agendar</a>
+            </div>
+        </div>
+
+        <section class="agendamentos flex coluna">
+            <div class="title flex coluna">
+                <div class="m-title flex alinhar-extremidades meio-vertical">
+                    <h2>AGENDAMENTOS RECENTES</h2>
+                    <a href="#" class="flex centralizar">+ Novo Agendamento</a>
+                    <form class="filter" id="filtroStatus">
+                        <img src="../../static/imgs/dashboard/filter.svg" alt="Filtrar">
+
+                        <div class="custom-select">
+                            <div class="select-selected">Todos</div>
+                            <div class="select-items">
+                                <div data-status="todos">Todos</div>
+                                <div data-status="agendado">Agendado</div>
+                                <div data-status="analise">Em análise</div>
+                                <div data-status="negado">Negado</div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <section class="agendamentos flex coluna">
-                <div class="title flex coluna">
-                    <div class="m-title flex alinhar-extremidades meio-vertical">
-                        <h2>AGENDAMENTOS RECENTES</h2>
-                        <a href="#" class="flex centralizar">+ Novo Agendamento</a>
-                        <form class="filter" id="filtroStatus">
-                            <img src="../../static/imgs/dashboard/filter.svg" alt="Filtrar">
-
-                            <div class="custom-select">
-                                <div class="select-selected">Todos</div>
-                                <div class="select-items">
-                                    <div data-status="todos">Todos</div>
-                                    <div data-status="agendado">Agendado</div>
-                                    <div data-status="analise">Em análise</div>
-                                    <div data-status="negado">Negado</div>
-                                </div>
-                            </div>
-                        </form>
+            <div class="cards-agendamentos flex coluna">
+                {% for agend in agendamentos %}
+                <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
+                    <div class="detalhe"></div>
+                    <div class="flex coluna">
+                        <h3>Agendamento da sala - Coworking</h3>
+                        <p>Data: 15/09/2024</p>
+                        <p>Hora: 14:00 - 15:00</p>
+                    </div>
+                    <div class="status">
+                        <span id="negado" class="flex centralizar">Negado</span>
                     </div>
                 </div>
-                <div class="cards-agendamentos flex coluna">
-                    {% for agend in agendamentos %}
-                    <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
-                        <div class="detalhe"></div>
-                        <div class="flex coluna">
-                            <h3>Agendamento da sala - Coworking</h3>
-                            <p>Data: 15/09/2024</p>
-                            <p>Hora: 14:00 - 15:00</p>
-                        </div>
-                        <div class="status">
-                            <span id="negado" class="flex centralizar">Negado</span>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="paginacao flex direita">
-                    <button class="seta-esq"><i class="fa-solid fa-angle-left"></i></button>
-                    <button class="number ativo">1</button>
-                    <button class="number">2</button>
-                    <button class="number">3</button>
-                    <button class="seta-dir"><i class="fa-solid fa-angle-right"></i></button>
-                </div>
-            </section>
+                {% endfor %}
+            </div>
+            <div class="paginacao flex direita">
+                <button class="seta-esq"><i class="fa-solid fa-angle-left"></i></button>
+                <button class="number ativo">1</button>
+                <button class="number">2</button>
+                <button class="number">3</button>
+                <button class="seta-dir"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
         </section>
-        </section>
+    </section>
+    </section>
     </main>
     <script>
         document.getElementById('open_btn').addEventListener('click', function () {
@@ -124,6 +124,80 @@
             items.classList.remove('show');
             selected.classList.remove('active');
         });
+
+        const tituloMes = document.getElementById('tituloMes');
+        const diasContainer = document.getElementById('diasContainer');
+        const prevMes = document.getElementById('prevMes');
+        const proxMes = document.getElementById('proxMes');
+
+        let dataAtual = new Date();
+
+        const meses = [
+            "Janeiro", "Fevereiro", "Março", "Abril",
+            "Maio", "Junho", "Julho", "Agosto",
+            "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
+
+        function renderizarCalendario() {
+            const ano = dataAtual.getFullYear();
+            const mes = dataAtual.getMonth();
+
+            tituloMes.textContent = `${meses[mes]} de ${ano}`;
+
+            const primeiroDia = new Date(ano, mes, 1);
+            const ultimoDia = new Date(ano, mes + 1, 0);
+
+            const primeiroDiaSemana = primeiroDia.getDay();
+            const diasNoMes = ultimoDia.getDate();
+
+            diasContainer.innerHTML = "";
+
+            let linha = document.createElement("tr");
+
+            // Dias do mês anterior (em cinza)
+            for (let i = 0; i < primeiroDiaSemana; i++) {
+                const td = document.createElement("td");
+                td.textContent = new Date(ano, mes, i - primeiroDiaSemana + 1).getDate();
+                td.classList.add("inativo");
+                linha.appendChild(td);
+            }
+
+            // Dias do mês atual
+            for (let dia = 1; dia <= diasNoMes; dia++) {
+                const td = document.createElement("td");
+                td.textContent = dia;
+
+                const hoje = new Date();
+                if (
+                    dia === hoje.getDate() &&
+                    mes === hoje.getMonth() &&
+                    ano === hoje.getFullYear()
+                ) {
+                    td.classList.add("hoje");
+                }
+
+                linha.appendChild(td);
+
+                if ((primeiroDiaSemana + dia) % 7 === 0) {
+                    diasContainer.appendChild(linha);
+                    linha = document.createElement("tr");
+                }
+            }
+
+            diasContainer.appendChild(linha);
+        }
+
+        prevMes.addEventListener("click", () => {
+            dataAtual.setMonth(dataAtual.getMonth() - 1);
+            renderizarCalendario();
+        });
+
+        proxMes.addEventListener("click", () => {
+            dataAtual.setMonth(dataAtual.getMonth() + 1);
+            renderizarCalendario();
+        });
+
+        renderizarCalendario();
     </script>
 </body>
 
