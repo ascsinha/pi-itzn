@@ -22,3 +22,7 @@ def perfil():
 def perfil_edit():
     return render_template('main/perfil_edit.html', title ="Perfil")
 
+
+@main.route('/materiais')
+def materiais():
+    return render_template('main/materiais.html', title = "Materiais")
