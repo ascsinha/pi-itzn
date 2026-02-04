@@ -44,7 +44,7 @@
                 </div>
                 <div class="modal flex coluna">
                     <h3>Deseja agendar para esta semana?</h3>
-                    <a href="#" class="flex centralizar">Agendar</a>
+                    <a href="{{ url_for('agendamento.criarAgendamento') }}" class="flex centralizar">Agendar</a>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                 <div class="title flex coluna">
                     <div class="m-title flex alinhar-extremidades meio-vertical">
                         <h2>AGENDAMENTOS RECENTES</h2>
-                        <a href="#" class="flex centralizar">+ Novo Agendamento</a>
+                        <a href="{{ url_for('agendamento.criarAgendamento') }}" class="flex centralizar">+ Novo Agendamento</a>
                         <form class="filter" id="filtroStatus">
                             <img src="../../static/imgs/dashboard/filter.svg" alt="Filtrar">
 
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="cards-agendamentos flex coluna">
-                    {% for agend in agendamentos %}
+                    {% for agendamento in agendamentos %}
                     <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
                         <div class="detalhe"></div>
                         <div class="flex coluna">

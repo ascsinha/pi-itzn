@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 from ..models import Agendamento
+from wtforms.validators import ValidationError
 from ..forms.agendamentos import CriarAgendamento, EditarAgendamento
+from datetime import date
 from app import db
 
 agendamentos = Blueprint('agendamentos', __name__, url_prefix = '/agendamentos')
@@ -9,15 +11,27 @@ agendamentos = Blueprint('agendamentos', __name__, url_prefix = '/agendamentos')
 @agendamentos.route('/criar-agendamento', methods = ['GET', 'POST'])
 @login_required
 def criarAgendamento():
-    if current_user.is_authenticated:
-        form = CriarAgendamento()
-        if form.validate_on_submit():
-            novo_agendamento = Agendamento(data_reserva = form.data_reserva.data, hora_inicial = form.hora_inicial.data, hora_final = form.hora_final.data)
-            db.session.add(novo_agendamento)
-            db.session.commit()
-            flash('Agendamento criado com sucesso!', 'success')
-            return redirect(url_for('.verAgendamento'))
-    return render_template('agendamento/criar-agendamento.html', form = form)
+    if request.method == 'POST':
+        data_reserva = request.form.get('data_reserva')
+        hora_inicial = request.form.get('hora_inicial')
+        hora_final = request.form.get('hora_final')
+        observacao = request.form.get('observacao')
+        
+        novo_agendamento = Agendamento(
+            data_reserva = data_reserva,
+            hora_inicial = hora_inicial,
+            hora_final = hora_final,
+            observacao = observacao
+        )
+        
+        if data_reserva.data < date.today():
+            raise ValidationError('Você não pode colocar um dia anterior ao de hoje.')
+        
+        db.session.add(novo_agendamento)
+        db.session.commit()
+        flash('Agendamento criado com sucesso!', 'success')
+        return redirect(url_for('.verAgendamento'))
+    return render_template('main/agendamentos.html')
         
 @agendamentos.route('/atualizar-agendamento/<int:id>', methods = ['GET', 'POST'])
 @login_required
@@ -35,7 +49,7 @@ def atualizarAgendamento():
             form.data_reserva.data = Agendamento.data_reserva
             form.hora_inicial.data = Agendamento.hora_inicial
             form.hora_final.data = Agendamento.hora_final
-        return render_template('agendamento/criar-agendamento.html', form = form)
+        return render_template('main/agendamentos.html', form = form)
 
 @agendamentos.route('/ver-agendamento/<int:id>', methods = ['GET'])
 @login_required
