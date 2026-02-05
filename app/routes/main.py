@@ -30,3 +30,7 @@ def admin():
 @main.route('/modal-agendamentos')
 def modal():
     return render_template('main/modal-agendamentos.html', title = "Agendamentos")
+
+@main.route('/configuracoes')
+def configuracoes():
+    return render_template('main/configuracoes.html', title= "Configuracao")
