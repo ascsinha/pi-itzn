@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    {% if agendamento %}
     <div id="modalAgendamento" class="agmodal-backdrop">
         <div class="agmodal">
             <div class="agmodal-header">
@@ -23,24 +24,24 @@
             </div>
 
             <div class="agmodal-content">
-                <p><strong>Data:</strong> {{ agendamento_recente.data_reserva.strftime('%d/%m/%Y') if
-                    agendamento_recente else '—' }}</p>
-                <p><strong>Horário:</strong> {{ agendamento_recente.hora_inicial if agendamento_recente else '' }} às {{
-                    agendamento_recente.hora_final if agendamento_recente else '' }}</p>
-                <p><strong>Estação:</strong> {{ agendamento_recente.estacao if agendamento_recente else '' }}</p>
+                <p><strong>Data:</strong> {{ agendamento.data_reserva if
+                    agendamento else '—' }}</p>
+                <p><strong>Horário:</strong> {{ agendamento.hora_inicial if agendamento else '' }} às {{
+                    agendamento.hora_final if agendamento else '' }}</p>
+                <p><strong>Estação:</strong> {{ agendamento.estacao if agendamento else '' }}</p>
 
                 <p><strong>Descrição / Observação:</strong></p>
                 <textarea
-                    readonly>{{ agendamento_recente.observacao if agendamento_recente else 'Nenhuma observação adicionada.' }}</textarea>
+                    readonly>{{ agendamento.observacao if agendamento else 'Nenhuma observação adicionada.' }}</textarea>
             </div>
 
             <div class="agmodal-actions">
-                <form action="{{ url_for('agendamentos.atualizarAgendamento', id=agendamento_recente.id) }}"
+                <form action="{{ url_for('agendamentos.atualizarAgendamento', id=id_agendamento.id) }}"
                     method="GET">
                     <button type="submit" class="btn-salvar">Editar</button>
                 </form>
 
-                <form action="{{ url_for('agendamentos.apagarAgendamento', id=agendamento_recente.id) }}" method="POST">
+                <form action="{{ url_for('agendamentos.apagarAgendamento', id=id_agendamento.id) }}" method="POST">
                     <button type="submit" class="btn-excluir">Excluir</button>
                 </form>
 
@@ -48,23 +49,33 @@
             </div>
         </div>
     </div>
+    {% endif %}
 
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById('modalAgendamento');
         const fecharModal = document.getElementById('fecharModal');
         const voltarModal = document.getElementById('voltarModal');
 
-        if (fecharModal) fecharModal.addEventListener('click', () => modal.style.display = 'none');
-        if (voltarModal) voltarModal.addEventListener('click', () => modal.style.display = 'none');
-        if (modal) modal.addEventListener('click', (e) => {
-            if (e.target === modal) modal.style.display = 'none';
-        });
-
-        {% if agendamento_recente %}
-        window.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('modalAgendamento').style.display = 'flex';
-        });
+        {% if agendamento %}
+        if (modal) {
+            modal.style.display = 'flex';
+        }
         {% endif %}
+
+        const fechar = () => {
+            if (modal) modal.style.display = 'none';
+        };
+
+        if (fecharModal) fecharModal.addEventListener('click', fechar);
+        if (voltarModal) voltarModal.addEventListener('click', fechar);
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) fechar();
+            });
+        }
+    });
     </script>
 
 </body>

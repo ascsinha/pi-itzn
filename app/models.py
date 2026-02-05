@@ -74,10 +74,10 @@ class Agendamento(db.Model):
     __tablename__ = 'agendamento'
     id_agendamento: so.Mapped[int] = so.mapped_column(primary_key = True)
     id_usuario: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'), nullable = False)
-    data_reserva: so.Mapped[dt.date] = so.mapped_column(sa.Date, nullable = False)
+    data_reserva: so.Mapped[dt.time] = so.mapped_column(sa.Date, nullable = False)
     hora_inicial: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     hora_final: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
-    validacao: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False, default = Status.EM_ANALISE)
+    validacao: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False)
     id_estacao: so.Mapped[int] = so.mapped_column(sa.Integer, nullable = False)
     observacao: so.Mapped[str] = so.mapped_column(sa.String(140), nullable = True)
     

@@ -17,9 +17,6 @@ def criarAgendamento():
         id_estacao = request.form.get('id_estacao')
         observacao = request.form.get('observacao')
         
-        hora_inicial_time = datetime.strptime(hora_inicial, '%H:%M').time()
-        hora_final_time = datetime.strptime(hora_final, '%H:%M').time()
-        
         data_reserva_dt = datetime.strptime(data_reserva, '%Y-%m-%d').date()
         if data_reserva_dt < date.today():
             flash('Você não pode colocar um dia anterior ao de hoje.')
@@ -41,43 +38,44 @@ def criarAgendamento():
         return redirect(url_for('main.dashboard'))
     return render_template('main/agendamentos.html', title = 'Agendar')
         
-# @agendamentos.route('/atualizar-agendamento/<int:id>', methods = ['GET', 'POST'])
-# @login_required
-# def atualizarAgendamento(id):
-#     if request.method == 'POST':
-#         agendamento = Agendamento.query.get(id)
-#         agendamento.data_reserva = request.form.get('data_reserva')
-#         agendamento.hora_inicial = request.form.get('hora_inicial')
-#         agendamento.hora_final = request.form.get('hora_final')
-#         agendamento.observacao = request.form.get('observacao')
+@agendamentos.route('/atualizar-agendamento/<int:id>', methods = ['GET', 'POST'])
+@login_required
+def atualizarAgendamento(id):
+    if request.method == 'POST':
+        agendamento = Agendamento.query.get(id)
+        agendamento.data_reserva = request.form.get('data_reserva')
+        agendamento.hora_inicial = request.form.get('hora_inicial')
+        agendamento.hora_final = request.form.get('hora_final')
+        agendamento.observacao = request.form.get('observacao')
         
-#         db.session.add(agendamento)
-#         db.session.commit()
-#         flash('Suas modificações foram salvas!', 'success')
-#         redirect(url_for('.verAgendamento'))
+        db.session.add(agendamento)
+        db.session.commit()
+        flash('Suas modificações foram salvas!', 'success')
+        redirect(url_for('.verAgendamento'))
         
-#     elif request.method == 'GET':
-#         data_reserva = agendamento.data_reserva
-#         form.hora_inicial.data = Agendamento.hora_inicial
-#         form.hora_final.data = Agendamento.hora_final
-#     return render_template('main/agendamentos.html', title = 'Editar Agendamento', agendamento = agendamento)
+    elif request.method == 'GET':
+        data_reserva = agendamento.data_reserva
+        hora_inicial = agendamento.hora_inicial
+        hora_final = agendamento.hora_final
+        
+    return render_template('main/agendamentos.html', title = 'Editar Agendamento', agendamento = agendamento, data_reserva=data_reserva, hora_inicial=hora_inicial, hora_final=hora_final)
 
-# @agendamentos.route('/ver-agendamento/<int:id>', methods = ['GET'])
-# @login_required
-# def verAgendamento(id):
-#     if request.method == 'GET':
-#         query = Agendamento.query.filter_by(id_agendamento = id).first()
-#         return render_template('agendamentos/detalhes.html', query = query, title = 'Detalhes do Agendamento')
+@agendamentos.route('/ver-agendamento/<int:id>', methods = ['GET'])
+@login_required
+def verAgendamento(id):
+    if request.method == 'GET':
+        agendamento = Agendamento.query.filter_by(id_agendamento = id).first()
+    return render_template('main/dashboard.html', agendamento = agendamento, title = 'Detalhes do Agendamento')
 
-# @agendamentos.route('/apagar-agendamento/<int:id>', methods = ['POST'])
-# @login_required
-# def apagarAgendamento(id):
-#     if request.method == 'POST':
-#         agendamento = Agendamento.query.get(id)
-#         if agendamento is not None:
-#             db.session.delete(agendamento)
-#             db.session.commit()
-#             flash('Agendamento apagado com sucesso!', 'success')
-#         else:
-#             flash('O agendamento não foi encontrado', 'danger') 
-#         return redirect(url_for('.'))
+@agendamentos.route('/apagar-agendamento/<int:id>', methods = ['POST'])
+@login_required
+def apagarAgendamento(id):
+    if request.method == 'POST':
+        agendamento = Agendamento.query.get(id)
+        if agendamento is not None:
+            db.session.delete(agendamento)
+            db.session.commit()
+            flash('Agendamento apagado com sucesso!', 'success')
+        else:
+            flash('O agendamento não foi encontrado', 'danger') 
+        return redirect(url_for('main.dashboard'))

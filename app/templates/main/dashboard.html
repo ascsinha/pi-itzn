@@ -72,7 +72,7 @@
             </div>
             <div class="cards-agendamentos flex coluna">
                 {% for agendamento in agendamentos %}
-                <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
+                <a href="{{ url_for('agendamentos.verAgendamento', id = agendamento.id_agendamento) }}" class="card-agendamentos flex alinhar-extremidades meio-vertical" onclick="modal()">
                     <div class="detalhe"></div>
                     <div class="flex coluna">
                         <h3>Agendamento da sala - Coworking</h3>
@@ -81,20 +81,30 @@
                     </div>
                     {% if agendamento.validacao %}
                     <div class="status">
-                        <span id="negado" class="flex centralizar">{{ agendamento.validacao }}</span>
+                        <span id="negado" class="flex centralizar">{{ agendamento.validacao.value }}</span>
                     </div>
-                </div>
+                </a>
                 {% else %}
                 <p>Nenhum agendamento encontrado.</p>
                 {% endif %}
                 {% endfor %}
             </div>
             <div class="paginacao flex direita">
-                <button class="seta-esq"><i class="fa-solid fa-angle-left"></i></button>
+                {% if prev_url %}
+                <a href="{{ prev_url }}" class="seta-esq"><i class="fa-solid fa-angle-left"></i></a>
+                {% else %}
+                <button class="seta-esq" disabled><i class="fa-solid fa-angle-left"></i></button>
+                {% endif %}
+
                 <button class="number ativo">1</button>
                 <button class="number">2</button>
                 <button class="number">3</button>
-                <button class="seta-dir"><i class="fa-solid fa-angle-right"></i></button>
+
+                {% if next_url %}
+                <a href="{{ next_url }}" class="seta-dir"><i class="fa-solid fa-angle-right"></i></a>
+                {% else %}
+                <button class="seta-dir" disabled><i class="fa-solid fa-angle-right"></i></button>
+                {% endif %}
             </div>
         </section>
         <script>
