@@ -20,6 +20,7 @@
     {% extends 'base.html' %}
 
     {% block content %}
+<<<<<<< HEAD
         <section class="flex main">
             <section class="n-agendamentos">
                 <div class="voltar">
@@ -27,18 +28,41 @@
                         <i class="fa-solid fa-arrow-left"></i>
                         <span>Voltar</span>
                     </a>
+=======
+    <section class="flex main">
+        <section class="n-agendamentos">
+            <div class="voltar">
+                <a href="#" class="flex meio-vertical">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Voltar</span>
+                </a>
+            </div>
+            <div class="formulario">
+                <div class="title-f flex coluna">
+                    <h1>Novo Agendamento</h1>
+                    <p>Preencha os dados abaixo para reservar a sala de coworking com notebooks.</p>
+>>>>>>> main
                 </div>
-                <div class="formulario">
-                    <div class="title-f flex coluna">
-                        <h1>Novo Agendamento</h1>
-                        <p>Preencha os dados abaixo para reservar a sala de coworking com notebooks.</p>
+                <form action="" class="flex coluna">
+                    <div class="date flex coluna">
+                        <div class="flex meio-vertical">
+                            <i class="fa-regular fa-calendar"></i>
+                            <label for="">Data do agendamento:</label>
+                        </div>
+                        <input type="date" name="" required>
                     </div>
+<<<<<<< HEAD
                     <form action="{{ url_for('agendamento.criarAgendamento') }}" class="flex coluna" method="post">
                         <div class="date flex coluna">
+=======
+                    <div class="horarios flex alinhar-extremidades">
+                        <div class="horario-inicio flex coluna">
+>>>>>>> main
                             <div class="flex meio-vertical">
-                                <i class="fa-regular fa-calendar"></i>
-                                <label for="">Data do agendamento:</label>
+                                <i class="fa-regular fa-clock"></i>
+                                <label for="">Horário de início</label>
                             </div>
+<<<<<<< HEAD
                             <input type="date" name="data_reserva" required>
                         </div>
                         <div class="horarios flex alinhar-extremidades">
@@ -102,9 +126,32 @@
                                     <span id="disponivel">Disponível</span>
                                 </div>
                                 <p>Notebook</p>
-                            </div>
+=======
+                            <select name="hora" id="" required>
+                                <option value="13">13:00</option>
+                                <option value="14">14:00</option>
+                                <option value="14">14:00</option>
+                                <option value="15">15:00</option>
+                                <option value="16">16:00</option>
+                            </select>
                         </div>
+                        <div class="horario-final flex coluna">
+                            <div class="flex meio-vertical">
+                                <i class="fa-regular fa-clock"></i>
+                                <label for="">Horário de término</label>
+>>>>>>> main
+                            </div>
+                            <select name="hora" id="" required>
+                                <option value="13">13:00</option>
+                                <option value="14">14:00</option>
+                                <option value="14">14:00</option>
+                                <option value="15">15:00</option>
+                                <option value="16">16:00</option>
+                            </select>
+                        </div>
+                    </div>
 
+<<<<<<< HEAD
                         <div class="mensagem flex coluna">
                             <label for="">Descrição / Observações?</label>
                             <textarea placeholder="Adicione informações relevantes sobre o agendamento..." name="observacao"></textarea>
@@ -121,10 +168,73 @@
             </section>
             <div class="flex centralizar"><img src="../../static/imgs/agendamentos/undraw_online-meetings_zutp.svg"
                     alt=""></div>
+=======
+
+
+                    <div class="estacao">
+                        <i class="fa-solid fa-display"></i>
+                        <label for="">Estações - Coworking</label>
+                    </div>
+                    <div class="cards-estacoes flex alinhar-extremidades">
+                        <label class="card-estacoes flex coluna">
+                            <input type="radio" name="estacao" value="Estação 1" hidden>
+                            <div class="flex alinhar-extremidades">
+                                <h3>Estação 1</h3>
+                                <span id="disponivel">Disponível</span>
+                            </div>
+                            <p>Notebook</p>
+                        </label>
+
+                        <label class="card-estacoes flex coluna">
+                            <input type="radio" name="estacao" value="Estação 2" hidden>
+                            <div class="flex alinhar-extremidades">
+                                <h3>Estação 2</h3>
+                                <span id="disponivel">Disponível</span>
+                            </div>
+                            <p>Notebook</p>
+                        </label>
+
+                        <label class="card-estacoes flex coluna" id="deactive">
+                            <input type="radio" name="estacao" value="Estação 3" disabled hidden>
+                            <div class="flex alinhar-extremidades">
+                                <h3>Estação 3</h3>
+                                <span id="indisponivel">Indisponível</span>
+                            </div>
+                            <p>Notebook</p>
+                        </label>
+
+                        <label class="card-estacoes flex coluna">
+                            <input type="radio" name="estacao" value="Estação 4" hidden>
+                            <div class="flex alinhar-extremidades">
+                                <h3>Estação 4</h3>
+                                <span id="disponivel">Disponível</span>
+                            </div>
+                            <p>Notebook</p>
+                        </label>
+                    </div>
+
+                    <div class="mensagem flex coluna">
+                        <label for="">Descrição / Observações?</label>
+                        <textarea placeholder="Adicione informações relevantes sobre o agendamento..."></textarea>
+                    </div>
+                    <div class="aviso">
+                        <p><b>Informação:</b> Seu agendamento será enviado para análise e você receberá uma confirmação
+                            por e-mail dentro de 24 horas.</p>
+                    </div>
+                    <div class="flex alinhar-extremidades">
+                        <button type="reset" class="cancelar">Cancelar</button>
+                        <button type="submit" class="agendar">Agendar</button>
+                    </div>
+                </form>
+            </div>
+>>>>>>> main
         </section>
+        <div class="flex centralizar"><img src="../../static/imgs/agendamentos/undraw_online-meetings_zutp.svg" alt="">
+        </div>
+    </section>
     </main>
 
-      <script>
+    <script>
         document.getElementById('open_btn').addEventListener('click', function () {
             document.getElementById('sidebar').classList.toggle('open-sidebar');
         });
