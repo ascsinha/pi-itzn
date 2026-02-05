@@ -51,7 +51,7 @@ def atualizarAgendamento(id):
         db.session.add(agendamento)
         db.session.commit()
         flash('Suas modificações foram salvas!', 'success')
-        redirect(url_for('.verAgendamento'))
+        return redirect(url_for('.verAgendamento'))
         
     elif request.method == 'GET':
         data_reserva = agendamento.data_reserva

@@ -29,7 +29,7 @@
                     <div class="foto">
                         <img src="../../static/imgs/base/default-user.png" alt="">
                     </div>
-                    <a href="{{ url_for('main.perfil_edit') }}" class="edit-profile flex centralizar gap">
+                    <a href="{{ url_for('main.perfil_edit', id = usuario.id) }}" class="edit-profile flex centralizar gap">
                         <i class="fa-solid fa-pen"></i>
                         <span>Editar</span>
                     </a>
@@ -37,8 +37,12 @@
             </div>
             <div class="card-p">
                 <div class="title-p flex coluna">
-                    <h2>Fulano de tal</h2>
-                    <p>Empresa</p>
+                    <h2>{{ usuario.nome }}</h2>
+                    {% if usuario.e_admin == False %}
+                    <p>Visitante</p>
+                    {% else %}
+                    <p>Administrador</p>
+                    {% endif %}
                 </div>
                 <div class="informacoes flex gap-3">
                     <div class="flex coluna gap-3">
@@ -46,14 +50,14 @@
                             <div class="icon flex centralizar"><i class="fa-regular fa-envelope fa-xl"></i></div>
                             <div class="description flex coluna gap-2">
                                 <h4>Email</h4>
-                                <span>fulanodetal@gmail.com</span>
+                                <span>{{ usuario.email }}</span>
                             </div>
                         </div>
                         <div class="caract gap flex">
                             <div class="icon flex centralizar"><i class="fa-regular fa-calendar fa-xl"></i></div>
                             <div class="description flex coluna gap-2">
                                 <h4>Data de nascimento</h4>
-                                <span>12/08/1997</span>
+                                <span>{{ usuario.data_nascimento }}</span>
                             </div>
                         </div>
                     </div>
@@ -62,14 +66,18 @@
                             <div class="icon flex centralizar"><i class="fa-solid fa-phone fa-xl"></i></div>
                             <div class="description flex gap-2 coluna">
                                 <h4>Telefone</h4>
-                                <span>(11) 99999-9999</span>
+                                <span>{{ usuario.telefone }}</span>
                             </div>
                         </div>
                         <div class="caract gap flex">
                             <div class="icon flex centralizar"><i class="fa-solid fa-calendar-day fa-xl"></i></div>
                             <div class="description gap-2 flex coluna">
-                                <h4>Data de inscrição</h4>
-                                <span>07/03/2026</span>
+                                <h4>Permissão do usuário</h4>
+                                {% if usuario.e_admin == False %}
+                                <span>Visitante</span>
+                                {% else %}
+                                <span>Administrador</span>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
