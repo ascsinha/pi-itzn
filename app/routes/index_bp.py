@@ -7,10 +7,6 @@ index_bp = Blueprint('index_bp', __name__)
 def index():
     return render_template('index.html', title = 'Bem-vindo ao ITZN!')
 
-@index_bp.route('/eventos')
-def eventos():
-    return render_template('main/eventos.html', title = 'Eventos')
-
 @index_bp.route('/editais')
 def editais():
     return render_template('main/editais.html', title = 'Editais')

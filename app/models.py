@@ -70,15 +70,6 @@ class Admin(Usuario):
     def __repr__(self):
         return f'<Administrador {self.nome}>'
     
-class Estacao(db.Model):
-    __tablename__ = 'estacao'
-    id_estacao: so.Mapped[int] = so.mapped_column(sa.Integer, primary_key = True)
-    descricao: so.Mapped[str] = so.mapped_column(sa.String(256), nullable = True)
-    status: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False)
-      
-    def __repr__(self):
-        return f'<Administrador {self.id_estacao}>'
-    
 class Agendamento(db.Model):
     __tablename__ = 'agendamento'
     id_agendamento: so.Mapped[int] = so.mapped_column(primary_key = True)
@@ -87,11 +78,10 @@ class Agendamento(db.Model):
     hora_inicial: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     hora_final: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     validacao: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False, default = Status.EM_ANALISE)
-    id_estacao: so.Mapped[int] = so.mapped_column(sa.ForeignKey('estacao.id_estacao'), nullable = False)
+    id_estacao: so.Mapped[int] = so.mapped_column(sa.Integer, nullable = False)
     observacao: so.Mapped[str] = so.mapped_column(sa.String(140), nullable = True)
     
     usuario: so.Mapped['Usuario'] = so.relationship('Usuario', back_populates = 'agendamentos')
-    estacao: so.Mapped['Estacao'] = so.relationship('Estacao', backref = 'agendamentos')
             
     def __repr__(self):
         return f'<Agendamento {self.id_agendamento}>'

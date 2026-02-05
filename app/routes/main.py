@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from flask_login import login_required
+from flask_login import login_required, current_user
 from ..models import Agendamento, Usuario
 from app import db
 
@@ -8,7 +8,7 @@ main = Blueprint('main', __name__)
 @main.route('/dashboard', methods = ['GET'])
 @login_required
 def dashboard():
-    agendamentos = Agendamento.query.order_by(Agendamento.data_reserva.desc()).all()
+    agendamentos = Agendamento.query.filter_by(id_usuario=current_user.id).order_by(Agendamento.data_reserva.desc()).all()
     return render_template('main/dashboard.html', title = "Dashboard", agendamentos = agendamentos)
 
 @main.route('/perfil/<int:id>')
@@ -20,7 +20,7 @@ def perfil(id):
 @main.route('/perfil_edit/<int:id>')
 @login_required
 def perfil_edit(id):
-    return render_template('main/perfil_edit.html', title ="Perfil")
+    return render_template('main/perfil_edit.html', title ="Editar Perfil")
 
 @main.route('/materiais')
 @login_required

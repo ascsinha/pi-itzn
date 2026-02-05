@@ -20,19 +20,10 @@
     {% extends 'base.html' %}
 
     {% block content %}
-<<<<<<< HEAD
-        <section class="flex main">
-            <section class="n-agendamentos">
-                <div class="voltar">
-                    <a href="{{ url_for('main.dashboard') }}" class="flex meio-vertical">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>Voltar</span>
-                    </a>
-=======
     <section class="flex main">
         <section class="n-agendamentos">
             <div class="voltar">
-                <a href="#" class="flex meio-vertical">
+                <a href="{{ url_for('main.dashboard') }}" class="flex meio-vertical">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span>Voltar</span>
                 </a>
@@ -41,134 +32,44 @@
                 <div class="title-f flex coluna">
                     <h1>Novo Agendamento</h1>
                     <p>Preencha os dados abaixo para reservar a sala de coworking com notebooks.</p>
->>>>>>> main
                 </div>
-                <form action="" class="flex coluna">
+                <form action="{{ url_for('agendamentos.criarAgendamento') }}" class="flex coluna" method="post">
                     <div class="date flex coluna">
                         <div class="flex meio-vertical">
                             <i class="fa-regular fa-calendar"></i>
                             <label for="">Data do agendamento:</label>
                         </div>
-                        <input type="date" name="" required>
+                        <input type="date" name="data_reserva" required>
                     </div>
-<<<<<<< HEAD
-                    <form action="{{ url_for('agendamento.criarAgendamento') }}" class="flex coluna" method="post">
-                        <div class="date flex coluna">
-=======
                     <div class="horarios flex alinhar-extremidades">
                         <div class="horario-inicio flex coluna">
->>>>>>> main
                             <div class="flex meio-vertical">
                                 <i class="fa-regular fa-clock"></i>
                                 <label for="">Horário de início</label>
-                            </div>
-<<<<<<< HEAD
-                            <input type="date" name="data_reserva" required>
-                        </div>
-                        <div class="horarios flex alinhar-extremidades">
-                            <div class="horario-inicio flex coluna">
-                                <div class="flex meio-vertical">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <label for="">Horário de início</label>
-                                </div>
-                                <select name="hora_inicial" id="" required>
-                                    <option value="13:00">13:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="17:00">17:00</option>
-                                </select>
-                            </div>
-                            <div class="horario-final flex coluna">
-                                <div class="flex meio-vertical">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <label for="">Horário de término</label>
-                                </div>
-                                <select name="hora_final" id="" required>
-                                    <option value="13:00">13:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="17:00">17:00</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="estacao">
-                            <i class="fa-solid fa-display"></i>
-                            <label for="">Estações - Coworking</label>
-                        </div>
-                        <div class="cards-estacoes flex alinhar-extremidades">
-                            <div class="card-estacoes flex coluna active">
-                                <div class="flex alinhar-extremidades" id="active">
-                                    <h3>Estação 1</h3>
-                                    <span id="disponivel">Disponível</span>
-                                </div>
-                                <p>Notebook</p>
-                            </div>
-                            <div class="card-estacoes flex 
-                            coluna">
-                                <div class="flex alinhar-extremidades" id="active">
-                                    <h3>Estação 2</h3>
-                                    <span id="disponivel">Disponível</span>
-                                </div>
-                                <p>Notebook</p>
-                            </div>
-                            <div class="card-estacoes flex coluna" id="deactive">
-                                <div class="flex alinhar-extremidades">
-                                    <h3>Estação 3</h3>
-                                    <span id="indisponivel">Indisponível</span>
-                                </div>
-                                <p>Notebook</p>
-                            </div>
-                            <div class="card-estacoes flex coluna" id="active">
-                                <div class="flex alinhar-extremidades">
-                                    <h3>Estação 4</h3>
-                                    <span id="disponivel">Disponível</span>
-                                </div>
-                                <p>Notebook</p>
-=======
-                            <select name="hora" id="" required>
-                                <option value="13">13:00</option>
-                                <option value="14">14:00</option>
-                                <option value="14">14:00</option>
-                                <option value="15">15:00</option>
-                                <option value="16">16:00</option>
+                            </div> 
+                            <select name="hora_inicial" id="" required>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
                             </select>
                         </div>
                         <div class="horario-final flex coluna">
                             <div class="flex meio-vertical">
                                 <i class="fa-regular fa-clock"></i>
                                 <label for="">Horário de término</label>
->>>>>>> main
                             </div>
-                            <select name="hora" id="" required>
-                                <option value="13">13:00</option>
-                                <option value="14">14:00</option>
-                                <option value="14">14:00</option>
-                                <option value="15">15:00</option>
-                                <option value="16">16:00</option>
+                            <select name="hora_final" id="" required>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
                             </select>
                         </div>
                     </div>
 
-<<<<<<< HEAD
-                        <div class="mensagem flex coluna">
-                            <label for="">Descrição / Observações?</label>
-                            <textarea placeholder="Adicione informações relevantes sobre o agendamento..." name="observacao"></textarea>
-                        </div>
-                        <div class="aviso">
-                            <p><b>Informação:</b>  Seu agendamento será enviado para análise e você receberá uma confirmação por e-mail dentro de 24 horas.</p>
-                        </div>
-                        <div class="flex alinhar-extremidades">
-                            <button type="reset" class="cancelar">Cancelar</button>
-                            <button type="submit" class="agendar">Agendar</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
-            <div class="flex centralizar"><img src="../../static/imgs/agendamentos/undraw_online-meetings_zutp.svg"
-                    alt=""></div>
-=======
 
 
                     <div class="estacao">
@@ -177,7 +78,7 @@
                     </div>
                     <div class="cards-estacoes flex alinhar-extremidades">
                         <label class="card-estacoes flex coluna">
-                            <input type="radio" name="estacao" value="Estação 1" hidden>
+                            <input type="radio" name="id_estacao" value="1" required>
                             <div class="flex alinhar-extremidades">
                                 <h3>Estação 1</h3>
                                 <span id="disponivel">Disponível</span>
@@ -186,7 +87,7 @@
                         </label>
 
                         <label class="card-estacoes flex coluna">
-                            <input type="radio" name="estacao" value="Estação 2" hidden>
+                            <input type="radio" name="id_estacao" value="2" required>
                             <div class="flex alinhar-extremidades">
                                 <h3>Estação 2</h3>
                                 <span id="disponivel">Disponível</span>
@@ -195,7 +96,7 @@
                         </label>
 
                         <label class="card-estacoes flex coluna" id="deactive">
-                            <input type="radio" name="estacao" value="Estação 3" disabled hidden>
+                            <input type="radio" name="id_estacao" value="3" disabled>
                             <div class="flex alinhar-extremidades">
                                 <h3>Estação 3</h3>
                                 <span id="indisponivel">Indisponível</span>
@@ -204,7 +105,7 @@
                         </label>
 
                         <label class="card-estacoes flex coluna">
-                            <input type="radio" name="estacao" value="Estação 4" hidden>
+                            <input type="radio" name="id_estacao" value="4" required>
                             <div class="flex alinhar-extremidades">
                                 <h3>Estação 4</h3>
                                 <span id="disponivel">Disponível</span>
@@ -215,7 +116,7 @@
 
                     <div class="mensagem flex coluna">
                         <label for="">Descrição / Observações?</label>
-                        <textarea placeholder="Adicione informações relevantes sobre o agendamento..."></textarea>
+                        <textarea placeholder="Adicione informações relevantes sobre o agendamento..." name="observacao"></textarea>
                     </div>
                     <div class="aviso">
                         <p><b>Informação:</b> Seu agendamento será enviado para análise e você receberá uma confirmação
@@ -227,7 +128,6 @@
                     </div>
                 </form>
             </div>
->>>>>>> main
         </section>
         <div class="flex centralizar"><img src="../../static/imgs/agendamentos/undraw_online-meetings_zutp.svg" alt="">
         </div>
