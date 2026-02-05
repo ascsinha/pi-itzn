@@ -73,7 +73,7 @@ class Admin(Usuario):
 class Agendamento(db.Model):
     __tablename__ = 'agendamento'
     id_agendamento: so.Mapped[int] = so.mapped_column(primary_key = True)
-    nome_usuario: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.nome'), nullable = False)
+    id_usuario: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'), nullable = False)
     data_reserva: so.Mapped[dt.time] = so.mapped_column(sa.Date, nullable = False)
     hora_inicial: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     hora_final: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
