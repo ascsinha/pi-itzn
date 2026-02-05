@@ -207,3 +207,13 @@ form .agendar:hover {
     cursor: pointer;
 }
 
+.card-estacoes input[type="radio"]:checked + div,
+.card-estacoes input[type="radio"]:checked ~ p {
+    border-color: #0052FB;
+}
+
+.card-estacoes:has(input[type="radio"]:checked) {
+    border: 1px solid #0052FB;
+    box-shadow: 0 0 8px rgba(0, 82, 251, 0.3);
+    transform: translateY(-3px);
+}

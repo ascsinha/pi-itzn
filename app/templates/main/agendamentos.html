@@ -23,7 +23,7 @@
     <section class="flex main">
         <section class="n-agendamentos">
             <div class="voltar">
-                <a href="#" class="flex meio-vertical">
+                <a href="{{ url_for('main.dashboard')}}" class="flex meio-vertical">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span>Voltar</span>
                 </a>
@@ -72,10 +72,6 @@
 
 
 
-                    <div class="estacao">
-                        <i class="fa-solid fa-display"></i>
-                        <label for="">Estações - Coworking</label>
-                    </div>
                     <div class="cards-estacoes flex alinhar-extremidades">
                         <label class="card-estacoes flex coluna">
                             <input type="radio" name="estacao" value="Estação 1" hidden>
@@ -113,6 +109,7 @@
                             <p>Notebook</p>
                         </label>
                     </div>
+
 
                     <div class="mensagem flex coluna">
                         <label for="">Descrição / Observações?</label>
@@ -162,6 +159,17 @@
             items.classList.remove('show');
             selected.classList.remove('active');
         });
+
+          const cards = document.querySelectorAll('.card-estacoes');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Remove o 'active' de todos
+            cards.forEach(c => c.classList.remove('active'));
+            // Adiciona o 'active' no clicado
+            card.classList.add('active');
+        });
+    });
     </script>
     {% endblock %}
 
