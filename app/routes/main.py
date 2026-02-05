@@ -20,17 +20,26 @@ def dashboard():
 def dashboard_admin():
     return render_template('main/dashboard-admin.html', title = "Dashboard - Admin", page=page, agendamentos = agends_pagina.items, posts=agends_pagina.items, next_url=next_url, prev_url=prev_url)
 
-
 @main.route('/perfil/<int:id>')
 @login_required
 def perfil(id):
-    usuario = Usuario.query.get_or_404(id)
+    usuario = Usuario.query.get(current_user.id)
     return render_template('main/perfil.html', title ="Perfil", usuario = usuario)
 
-@main.route('/perfil_edit/<int:id>')
+@main.route('/perfil_edit/<int:id>', methods = ['GET', 'POST'])
 @login_required
 def perfil_edit(id):
-    return render_template('main/perfil_edit.html', title ="Editar Perfil")
+    usuario = Usuario.query.get(current_user.id)
+    
+    if request.method == 'POST':
+        usuario.email = request.form.get('email')
+        usuario.telefone = request.form.get('telefone')
+        
+        db.session.add(usuario)
+        db.session.commit()
+        flash('Suas modificações foram salvas!', 'success')
+        return redirect(url_for('.perfil', id = usuario.id))
+    return render_template('main/perfil_edit.html', title ="Editar Perfil", usuario = usuario)
 
 @main.route('/materiais')
 @login_required
