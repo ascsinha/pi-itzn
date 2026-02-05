@@ -53,7 +53,7 @@ def atualizarAgendamento():
 
 @agendamentos.route('/ver-agendamento/<int:id>', methods = ['GET'])
 @login_required
-def verAgendamento(id):
+def verAgendamentos(id):
     if current_user.is_authenticated:
         query = Agendamento.query.filter_by(agendamento_id = id).first()
         return render_template('agendamentos/detalhes.html', query = query)
