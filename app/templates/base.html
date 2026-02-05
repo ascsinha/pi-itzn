@@ -43,16 +43,16 @@
                         </a>
                     </li>
                 </ul>
-                <ul id="side_items" class="config flex coluna">
-                    <li class="side-item">
-                        <a href="#" class="flex meio-vertical">
+                <ul id="side_items" class="config flex coluna ">
+                    <li class="side-item {% if request.endpoint == 'main.configuracoes' %}active{% endif %}">
+                        <a href="{{ url_for('main.configuracoes')}}" class="flex meio-vertical">
                             <i class="fa-solid fa-gear fa-xl"></i>
                             <span class="item-descricao">Configurações</span>
                         </a>
                     </li>
                     <li class="side-item" id="logout">
                         <a href="{{ url_for('auth.logout') }}" id="logout_btn" class="flex meio-vertical">
-                            <i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>
+                            <i class="fa-solid fa-arrow-right-from-bracket fa-xl" style="color: rgb(255, 0, 0);"></i>
                             <span class="item-descricao">Sair</span>
                         </a>
                     </li>
