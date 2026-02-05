@@ -53,9 +53,6 @@ def cadastro():
             email = email
         )
         
-        data_reserva_str = request.form.get('data_reserva')
-        data_reserva_dt = datetime.strptime(data_reserva_str, '%Y-%m-%d').date()
-        
         usuario.criar_senha(senha)
         
         db.session.add(usuario)
