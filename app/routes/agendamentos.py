@@ -53,19 +53,19 @@ def atualizarAgendamento(id):
         flash('Suas modificações foram salvas!', 'success')
         return redirect(url_for('.verAgendamento'))
         
-    elif request.method == 'GET':
-        data_reserva = agendamento.data_reserva
-        hora_inicial = agendamento.hora_inicial
-        hora_final = agendamento.hora_final
-        
-    return render_template('main/agendamentos.html', title = 'Editar Agendamento', agendamento = agendamento, data_reserva=data_reserva, hora_inicial=hora_inicial, hora_final=hora_final)
+    return render_template('main/agendamentos.html', title = 'Editar Agendamento', agendamento = agendamento)
 
 @agendamentos.route('/ver-agendamento/<int:id>', methods = ['GET'])
 @login_required
 def verAgendamento(id):
     if request.method == 'GET':
         agendamento = Agendamento.query.filter_by(id_agendamento = id).first()
-    return render_template('main/dashboard.html', agendamento = agendamento, title = 'Detalhes do Agendamento')
+        data_reserva = agendamento.data_reserva
+        hora_inicial = agendamento.hora_inicial
+        hora_final = agendamento.hora_final
+        id_estacao = agendamento.id_estacao
+        observacao = agendamento.observacao
+    return render_template('main/ver_agendamento.html', title = 'Detalhes do Agendamento', agendamento = agendamento, data_reserva=data_reserva, hora_inicial=hora_inicial, hora_final=hora_final, id_estacao=id_estacao, observacao = observacao)
 
 @agendamentos.route('/apagar-agendamento/<int:id>', methods = ['POST'])
 @login_required
