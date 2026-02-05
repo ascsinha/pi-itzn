@@ -15,10 +15,17 @@ def dashboard():
     prev_url = url_for('main.dashboard', page=agends_pagina.prev_num) if agends_pagina.has_prev else None
     return render_template('main/dashboard.html', title = "Dashboard", page=page, agendamentos = agends_pagina.items, posts=agends_pagina.items, next_url=next_url, prev_url=prev_url)
 
-@main.route('/dashboard-admin', methods = ['GET'])
+@main.route('/dashboard-admin/', methods = ['GET'])
 @login_required
-def dashboard_admin():
-    return render_template('main/dashboard-admin.html', title = "Dashboard - Admin", page=page, agendamentos = agends_pagina.items, posts=agends_pagina.items, next_url=next_url, prev_url=prev_url)
+def dashboard_admin(e_admin):
+    usuario = Usuario.query.get(e_admin)
+    
+    if usuario.e_admin == False:
+        return redirect(url_for('main.dashboard'))
+    else:
+        page = request.args.get('page', 1, type=int)
+        agendamentos = db.paginate(current_user.agendamentos(), page=page, per_page=Config.AGENDS_POR_PAGINA, error_out=False)
+        return render_template('main/dashboard-admin.html', title = "Dashboard - Admin", page = page, agendamentos = agendamentos)
 
 @main.route('/perfil/<int:id>')
 @login_required

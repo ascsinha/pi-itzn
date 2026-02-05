@@ -39,8 +39,12 @@
 
             <form action="{{ url_for('main.perfil_edit', id = usuario.id) }}" class="card-p" method="POST">
                 <div class="title-p flex coluna">
-                    <h2>Fulano de tal</h2>
-                    <p>Empresa</p>
+                    <h2>{{ usuario.nome }}</h2>
+                    {% if usuario.e_admin == False %}
+                    <p>Visitante</p>
+                    {% else %}
+                    <p>Administrador</p>
+                    {% endif %}
                 </div>
 
                 <div class="informacoes flex gap-3">
@@ -49,7 +53,7 @@
                             <div class="icon flex centralizar"><i class="fa-regular fa-envelope fa-xl"></i></div>
                             <div class="description flex coluna gap-2">
                                 <h4>Email</h4>
-                                <input type="email" name="email" value="fulanodetal@gmail.com">
+                                <input type="email" name="email" value="{{ usuario.email }}">
                             </div>
                         </div>
                         <div class="caract flex gap">
@@ -66,14 +70,18 @@
                             <div class="icon flex centralizar"><i class="fa-solid fa-phone fa-xl"></i></div>
                             <div class="description flex coluna gap-2">
                                 <h4>Telefone</h4>
-                                <input type="tel" name="telefone" value="(11) 99999-9999">
+                                <input type="tel" name="telefone" value="{{ usuario.telefone }}">
                             </div>
                         </div>
                         <div class="caract flex gap">
                             <div class="icon flex centralizar"><i class="fa-solid fa-calendar-day fa-xl"></i></div>
                             <div class="description flex coluna gap-2">
                                 <h4>Permissão do usuário</h4>
-                                <span>{{ usuario.e_admin }}</span>
+                                {% if usuario.e_admin == False %}
+                                <span>Visitante</span>
+                                {% else %}
+                                <span>Administrador</span>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
