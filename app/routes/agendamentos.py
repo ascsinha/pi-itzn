@@ -41,11 +41,13 @@ def criarAgendamento():
 @agendamentos.route('/atualizar-agendamento/<int:id>', methods = ['GET', 'POST'])
 @login_required
 def atualizarAgendamento(id):
+    agendamento = Agendamento.query.get(id)
+    
     if request.method == 'POST':
-        agendamento = Agendamento.query.get(id)
         agendamento.data_reserva = request.form.get('data_reserva')
         agendamento.hora_inicial = request.form.get('hora_inicial')
         agendamento.hora_final = request.form.get('hora_final')
+        agendamento.id_estacao = request.form.get('id_estacao')
         agendamento.observacao = request.form.get('observacao')
         
         db.session.add(agendamento)
@@ -53,7 +55,7 @@ def atualizarAgendamento(id):
         flash('Suas modificações foram salvas!', 'success')
         return redirect(url_for('.verAgendamento'))
         
-    return render_template('main/agendamentos.html', title = 'Editar Agendamento', agendamento = agendamento)
+    return render_template('main/atualizar_agendamento.html', title = 'Editar Agendamento', agendamento = agendamento)
 
 @agendamentos.route('/ver-agendamento/<int:id>', methods = ['GET'])
 @login_required

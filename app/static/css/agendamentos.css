@@ -196,7 +196,7 @@ form .cancelar:hover {
     cursor: pointer;
 }
 
-form .agendar {
+.editar {
     border:none;
     background-color: #0052FB;
     padding: 8px;
@@ -205,6 +205,7 @@ form .agendar {
     color: #fff;
     font-family: Lato;
     font-size: 16px;
+    text-decoration: none;
 }
 
 form .agendar:hover {

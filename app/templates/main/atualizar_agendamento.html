@@ -35,13 +35,13 @@
                     <h1>Novo Agendamento</h1>
                     <p>Preencha os dados abaixo para reservar a sala de coworking com notebooks.</p>
                 </div>
-                <form action="{{ url_for('agendamentos.atualizarAgendamento', id = agendamento.id_agendamento) }}" class="flex coluna" method="post">
+                <form action="{{ url_for('agendamentos.atualizarAgendamento') }}" class="flex coluna" method="post">
                     <div class="date flex coluna">
                         <div class="flex meio-vertical">
                             <i class="fa-regular fa-calendar"></i>
                             <label for="">Data do agendamento:</label>
                         </div>
-                        {{ agendamento.data_reserva }}
+                        <input type="date" name="data_reserva" value="{{ agendamento.data_reserva }}" required>
                     </div>
                     <div class="horarios flex alinhar-extremidades">
                         <div class="horario-inicio flex coluna">
@@ -49,39 +49,74 @@
                                 <i class="fa-regular fa-clock"></i>
                                 <label for="">Horário de início</label>
                             </div> 
-                            {{ agendamento.hora_inicial }}
+                            <select name="hora_inicial" id="" required>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                            </select>
                         </div>
                         <div class="horario-final flex coluna">
                             <div class="flex meio-vertical">
                                 <i class="fa-regular fa-clock"></i>
                                 <label for="">Horário de término</label>
                             </div>
-                            {{ agendamento.hora_final }}
+                            <select name="hora_final" id="" required>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+
+                            </select>
                         </div>
                     </div>
 
 
+
                     <div class="cards-estacoes flex alinhar-extremidades">
-                        {% if agendamento.id_estacao %}
                         <label class="card-estacoes flex coluna">
-                            <input type="radio" name="id_estacao" value="1" disabled>
+                            <input type="radio" name="id_estacao" value="1" required>
                             <div class="flex alinhar-extremidades">
-                                <h3>Estação {{ agendamento.id_estacao }}</h3>
+                                <h3>Estação 1</h3>
                                 <span id="disponivel">Disponível</span>
                             </div>
                             <p>Notebook</p>
                         </label>
-                        {% endif %}
+
+                        <label class="card-estacoes flex coluna">
+                            <input type="radio" name="id_estacao" value="2" required>
+                            <div class="flex alinhar-extremidades">
+                                <h3>Estação 2</h3>
+                                <span id="disponivel">Disponível</span>
+                            </div>
+                            <p>Notebook</p>
+                        </label>
+
+                        <label class="card-estacoes flex coluna" id="deactive">
+                            <input type="radio" name="id_estacao" value="3" disabled>
+                            <div class="flex alinhar-extremidades">
+                                <h3>Estação 3</h3>
+                                <span id="indisponivel">Indisponível</span>
+                            </div>
+                            <p>Notebook</p>
+                        </label>
+
+                        <label class="card-estacoes flex coluna">
+                            <input type="radio" name="id_estacao" value="4" required>
+                            <div class="flex alinhar-extremidades">
+                                <h3>Estação 4</h3>
+                                <span id="disponivel">Disponível</span>
+                            </div>
+                            <p>Notebook</p>
+                        </label>
                     </div>
 
 
                     <div class="mensagem flex coluna">
                         <label for="">Descrição / Observações?</label>
-                        {% if agendamento.observacao == None %}
-                        <p>Nenhuma observação foi enviada neste agendamento.</p>
-                        {% else %}
-                        <p>{{ agendamento.observacao }}</p>
-                        {% endif %}
+                        <textarea placeholder="Adicione informações relevantes sobre o agendamento..." name="observacao"></textarea>
                     </div>
                     <div class="aviso">
                         <p><b>Informação:</b> Seu agendamento será enviado para análise e você receberá uma confirmação
@@ -89,7 +124,7 @@
                     </div>
                     <div class="flex alinhar-extremidades">
                         <button type="reset" class="cancelar">Cancelar</button>
-                        <a class="editar" href="{{ url_for('agendamentos.atualizarAgendamento', id = agendamento.id_agendamento) }}" class="agendar">Editar</a>
+                        <button type="submit" class="agendar">Agendar</button>
                     </div>
                 </form>
             </div>
