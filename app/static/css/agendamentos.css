@@ -76,8 +76,8 @@
     border: 1px solid #83ACFF;
     cursor: pointer;
 }
-
-.n-agendamentos .formulario form input:focus, .n-agendamentos .formulario form select:focus, textarea:focus {
+    
+.n-agendamentos .formulario form select:focus, textarea:focus {
     transition: all .5s;
     border: 2px solid var(--blue-400, #4980F2);
     box-shadow: 0 0 10px 0 #0052FB

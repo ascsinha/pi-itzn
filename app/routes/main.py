@@ -36,7 +36,6 @@ def perfil_edit(id):
 @login_required
 def materiais():
     return render_template('main/materiais.html', title = "Materiais")
-<<<<<<< HEAD
 
 @main.route('/dashboard-admin')
 def admin():
@@ -49,5 +48,3 @@ def modal():
 @main.route('/configuracoes')
 def configuracoes():
     return render_template('main/configuracoes.html', title= "Configuracao")
-=======
->>>>>>> acsa
