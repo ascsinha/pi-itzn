@@ -35,7 +35,7 @@
                     <h1>Novo Agendamento</h1>
                     <p>Preencha os dados abaixo para reservar a sala de coworking com notebooks.</p>
                 </div>
-                <form action="{{ url_for('agendamentos.atualizarAgendamento') }}" class="flex coluna" method="post">
+                <form action="{{ url_for('agendamentos.atualizarAgendamento', id = agendamento.id_agendamento) }}" class="flex coluna" method="post">
                     <div class="date flex coluna">
                         <div class="flex meio-vertical">
                             <i class="fa-regular fa-calendar"></i>

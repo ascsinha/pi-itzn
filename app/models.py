@@ -80,8 +80,8 @@ class Agendamento(db.Model):
     validacao: so.Mapped[Status] = so.mapped_column(sa.Enum(Status), nullable = False)
     id_estacao: so.Mapped[int] = so.mapped_column(sa.Integer, nullable = False)
     observacao: so.Mapped[str] = so.mapped_column(sa.String(140), nullable = True)
-    
+
     usuario: so.Mapped['Usuario'] = so.relationship('Usuario', back_populates = 'agendamentos')
-            
+                
     def __repr__(self):
         return f'<Agendamento {self.id_agendamento}>'

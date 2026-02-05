@@ -53,15 +53,16 @@ def atualizarAgendamento(id):
         db.session.add(agendamento)
         db.session.commit()
         flash('Suas modificações foram salvas!', 'success')
-        return redirect(url_for('.verAgendamento'))
+        return redirect(url_for('.verAgendamento', id = agendamento.id_agendamento))
         
     return render_template('main/atualizar_agendamento.html', title = 'Editar Agendamento', agendamento = agendamento)
 
 @agendamentos.route('/ver-agendamento/<int:id>', methods = ['GET'])
 @login_required
 def verAgendamento(id):
+    agendamento = Agendamento.query.filter_by(id_agendamento = id).first()
+    
     if request.method == 'GET':
-        agendamento = Agendamento.query.filter_by(id_agendamento = id).first()
         data_reserva = agendamento.data_reserva
         hora_inicial = agendamento.hora_inicial
         hora_final = agendamento.hora_final
