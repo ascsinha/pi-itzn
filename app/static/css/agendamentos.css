@@ -103,6 +103,12 @@
     width: 45%;
     border-radius: 12px;
 }
+
+.card-estacoes:focus {
+    border: 2px solid #4CAF50;
+    background-color: #e0f7e0;
+}
+
 .card-estacoes.active {
     border: #0052FB 1px solid;
     padding: 12px;

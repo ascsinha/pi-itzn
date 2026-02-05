@@ -17,3 +17,4 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False 
     UPLOAD_EXTENSIONS = ['.png', '.jpeg', '.jpg', '.gif', '.webp']
     UPLOAD_PATH = uploads_dir
+    AGENDS_POR_PAGINA = 3

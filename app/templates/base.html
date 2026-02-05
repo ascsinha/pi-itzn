@@ -14,9 +14,11 @@
     <header>
         <section class="flex alinhar-extremidades meio-vertical">
             <img src="../../static/imgs/base/itzn brand.svg" alt="Logo ITZN">
-            <a href="{{ url_for('main.perfil') }}" class="perfil flex">
+            {% if current_user.is_authenticated %}
+            <a href="{{ url_for('main.perfil', id = current_user.id) }}" class="perfil flex">
                 <img src="../../static/imgs/base/default-user.png" alt="perfil de usuario">
             </a>
+            {% endif %}
         </section>
     </header>
 
