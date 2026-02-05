@@ -64,3 +64,19 @@ def modal():
 @main.route('/configuracoes')
 def configuracoes():
     return render_template('main/configuracoes.html', title= "Configuracao")
+
+
+@main.route('/perfil/excluir/<int:id>', methods=['POST'])
+@login_required
+def excluir_conta(id):
+    usuario = Usuario.query.get_or_404(id)
+    
+    if usuario.id != current_user.id:
+        flash('Você não tem permissão para excluir esta conta.', 'error')
+        return redirect(url_for('main.perfil', id=current_user.id))
+ 
+    db.session.delete(usuario)
+    db.session.commit()
+    flash('Conta excluída com sucesso.', 'success')
+    
+    return redirect(url_for('index'))  
