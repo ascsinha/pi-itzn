@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Agendamento</title>
+    <title>{{ title }}</title>
 </head>
 
 <body>
@@ -71,18 +71,22 @@
                 </div>
             </div>
             <div class="cards-agendamentos flex coluna">
-                {% for agend in agendamentos %}
+                {% for agendamento in agendamentos %}
                 <div class="card-agendamentos flex alinhar-extremidades meio-vertical">
                     <div class="detalhe"></div>
                     <div class="flex coluna">
                         <h3>Agendamento da sala - Coworking</h3>
-                        <p>Data: 15/09/2024</p>
-                        <p>Hora: 14:00 - 15:00</p>
+                        <p>Data: {{ agendamento.data_reserva }}</p>
+                        <p>Hora: {{ agendamento.hora_inicial }} - {{ agendamento.hora_final }}</p>
                     </div>
+                    {% if agendamento.validacao %}
                     <div class="status">
-                        <span id="negado" class="flex centralizar">Negado</span>
+                        <span id="negado" class="flex centralizar">{{ agendamento.validacao }}</span>
                     </div>
+                    {% endif %}
                 </div>
+                {% else %}
+                <p>Nenhum agendamento encontrado.</p>
                 {% endfor %}
             </div>
             <div class="paginacao flex direita">

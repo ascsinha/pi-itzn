@@ -53,8 +53,8 @@ def cadastro():
             email = email
         )
         
-        data_nascimento = datetime.strptime(data_nascimento, '%Y-%m-%d').date()
-        data_formatada = data_nascimento.strftime('%d-%m-%Y')
+        data_reserva_str = request.form.get('data_reserva')
+        data_reserva_dt = datetime.strptime(data_reserva_str, '%Y-%m-%d').date()
         
         usuario.criar_senha(senha)
         

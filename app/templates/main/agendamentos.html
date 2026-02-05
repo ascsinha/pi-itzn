@@ -23,7 +23,7 @@
         <section class="flex main">
             <section class="n-agendamentos">
                 <div class="voltar">
-                    <a href="#" class="flex meio-vertical">
+                    <a href="{{ url_for('main.dashboard') }}" class="flex meio-vertical">
                         <i class="fa-solid fa-arrow-left"></i>
                         <span>Voltar</span>
                     </a>
@@ -33,13 +33,13 @@
                         <h1>Novo Agendamento</h1>
                         <p>Preencha os dados abaixo para reservar a sala de coworking com notebooks.</p>
                     </div>
-                    <form action="" class="flex coluna">
+                    <form action="{{ url_for('agendamento.criarAgendamento') }}" class="flex coluna" method="post">
                         <div class="date flex coluna">
                             <div class="flex meio-vertical">
                                 <i class="fa-regular fa-calendar"></i>
                                 <label for="">Data do agendamento:</label>
                             </div>
-                            <input type="date" name="" required>
+                            <input type="date" name="data_reserva" required>
                         </div>
                         <div class="horarios flex alinhar-extremidades">
                             <div class="horario-inicio flex coluna">
@@ -47,12 +47,12 @@
                                     <i class="fa-regular fa-clock"></i>
                                     <label for="">Horário de início</label>
                                 </div>
-                                <select name="hora" id="" required>
-                                    <option value="13">13:00</option>
-                                    <option value="14">14:00</option>
-                                    <option value="14">14:00</option>
-                                    <option value="15">15:00</option>
-                                    <option value="16">16:00</option>
+                                <select name="hora_inicial" id="" required>
+                                    <option value="13:00">13:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
                                 </select>
                             </div>
                             <div class="horario-final flex coluna">
@@ -60,12 +60,12 @@
                                     <i class="fa-regular fa-clock"></i>
                                     <label for="">Horário de término</label>
                                 </div>
-                                <select name="hora" id="" required>
-                                    <option value="13">13:00</option>
-                                    <option value="14">14:00</option>
-                                    <option value="14">14:00</option>
-                                    <option value="15">15:00</option>
-                                    <option value="16">16:00</option>
+                                <select name="hora_final" id="" required>
+                                    <option value="13:00">13:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
                                 </select>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
 
                         <div class="mensagem flex coluna">
                             <label for="">Descrição / Observações?</label>
-                            <textarea placeholder="Adicione informações relevantes sobre o agendamento..."></textarea>
+                            <textarea placeholder="Adicione informações relevantes sobre o agendamento..." name="observacao"></textarea>
                         </div>
                         <div class="aviso">
                             <p><b>Informação:</b>  Seu agendamento será enviado para análise e você receberá uma confirmação por e-mail dentro de 24 horas.</p>

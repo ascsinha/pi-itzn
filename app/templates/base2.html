@@ -18,7 +18,6 @@
                     <a href="{{ url_for('index_bp.index') }}"><img src="../static/imgs/base/itzn brand.svg" alt=""></a>
                     <ul class="flex centralizar">
                         <li><a href="{{ url_for('index_bp.index') }}" class="nav-link {% if request.endpoint and 'index' in request.endpoint %}active{% endif %}">Home</a></li>
-                        <li><a href="{{ url_for('index_bp.eventos') }}" class="nav-link {% if request.endpoint and 'eventos' in request.endpoint %}active{% endif %}">Eventos</a></li>
                         <li><a href="{{ url_for('index_bp.editais') }}" class="nav-link {% if request.endpoint and 'editais' in request.endpoint %}active{% endif %}">Editais</a></li>
                         <li><a href="{{ url_for('index_bp.sobre') }}" class="nav-link {% if request.endpoint and 'sobre' in request.endpoint %}active{% endif %}">Sobre</a></li>
                         <li><a href="{{ url_for('index_bp.contato') }}" class="nav-link {% if request.endpoint and 'contato' in request.endpoint %}active{% endif %}">Contato</a></li>

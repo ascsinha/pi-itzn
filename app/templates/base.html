@@ -14,7 +14,7 @@
     <header>
         <section class="flex alinhar-extremidades meio-vertical">
             <img src="../../static/imgs/base/itzn brand.svg" alt="Logo ITZN">
-            <a href="{{ url_for('main.perfil') }}" class="perfil flex">
+            <a href="{{ url_for('main.perfil', id = usuario.id) }}" class="perfil flex">
                 <img src="../../static/imgs/base/default-user.png" alt="perfil de usuario">
             </a>
         </section>
