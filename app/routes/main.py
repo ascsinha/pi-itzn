@@ -22,3 +22,11 @@ def perfil_edit():
 @main.route('/materiais')
 def materiais():
     return render_template('main/materiais.html', title = "Materiais")
+
+@main.route('/dashboard-admin')
+def admin():
+    return render_template('main/dashboard-admin.html', title = "Dashboard")
+
+@main.route('/modal-agendamentos')
+def modal():
+    return render_template('main/modal-agendamentos.html', title = "Agendamentos")

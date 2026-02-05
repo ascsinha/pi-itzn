@@ -24,20 +24,20 @@
         <nav id="sidebar" class="flex coluna">
             <div id="sidebar_content" class="flex coluna alinhar-extremidades">
                 <ul id="side_items" class="flex coluna">
-                    <li class="side-item active">
-                        <a href="#" class="flex meio-vertical">
+                    <li class="side-item {% if request.endpoint == 'main.dashboard' %}active{% endif %}">
+                        <a href="{{ url_for('main.dashboard') }} " class="flex meio-vertical">
                             <i class="fa-regular fa-calendar fa-xl"></i>
                             <span class="item-descricao">Agendamentos</span>
                         </a>
                     </li>
-                    <li class="side-item">
+                    <li class="side-item {% if request.endpoint == 'index_bp.editais' %}active{% endif %}">
                         <a href="#" class="flex meio-vertical">
                             <i class="fa-regular fa-file-lines fa-xl"></i>
                             <span class="item-descricao">Editais</span>
                         </a>
                     </li>
-                    <li class="side-item">
-                        <a href="#" class="flex meio-vertical">
+                    <li class="side-item {% if request.endpoint == 'main.materiais' %}active{% endif %}">
+                        <a href="{{ url_for('main.materiais') }}" class="flex meio-vertical">
                             <i class="fa-solid fa-book fa-xl"></i>
                             <span class="item-descricao">Materiais</span>
                         </a>
