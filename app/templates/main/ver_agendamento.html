@@ -88,8 +88,8 @@
                             por e-mail dentro de 24 horas.</p>
                     </div>
                     <div class="flex alinhar-extremidades">
-                        <button type="reset" class="cancelar">Cancelar</button>
-                        <a class="editar" href="{{ url_for('agendamentos.atualizarAgendamento', id = agendamento.id_agendamento) }}" class="agendar">Editar</a>
+                        <button type="reset" class="excluir">Excluir</button>
+                        <a class="editar flex centralizar" href="{{ url_for('agendamentos.atualizarAgendamento', id = agendamento.id_agendamento) }}" class="agendar">Editar</a>
                     </div>
                 </form>
             </div>

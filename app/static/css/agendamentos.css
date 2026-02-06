@@ -201,7 +201,7 @@ form .cancelar:hover {
     background-color: #0052FB;
     padding: 8px;
     border-radius: 12px ;
-    width: 50%;
+    width: 100%;
     color: #fff;
     font-family: Lato;
     font-size: 16px;
@@ -223,4 +223,24 @@ form .agendar:hover {
     border: 1px solid #0052FB;
     box-shadow: 0 0 8px rgba(0, 82, 251, 0.3);
     transform: translateY(-3px);
+}
+
+.excluir {
+    padding: 8px;
+    border-radius: 8px;
+    width: 100%;
+    color: #FFF;
+    border: none;
+    background-color: #FF0707;
+}
+
+.excluir:hover {
+     background-color: #ff4b4b;
+     cursor: pointer;
+     transition: all 0.5s;
+}
+
+.editar:hover {
+    background-color: #3679ff;
+    transition: all 0.5s;
 }
