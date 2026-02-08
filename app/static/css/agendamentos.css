@@ -184,7 +184,7 @@ form .cancelar {
     background-color: transparent;
     padding: 8px;
     border-radius: 12px ;
-    width: 50%;
+    width: 100%;
     color: #333;
     font-family: Lato;
     font-size: 16px;
@@ -200,7 +200,7 @@ form .cancelar:hover {
     border:none;
     background-color: #0052FB;
     padding: 8px;
-    border-radius: 12px ;
+    border-radius: 12px;
     width: 100%;
     color: #fff;
     font-family: Lato;
@@ -208,7 +208,7 @@ form .cancelar:hover {
     text-decoration: none;
 }
 
-form .agendar:hover {
+form .editar:hover {
     background-color: #3376FF;
     transition: all 0.5s;
     cursor: pointer;
@@ -226,8 +226,9 @@ form .agendar:hover {
 }
 
 .excluir {
+    font-size: 16px;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 12px;
     width: 100%;
     color: #FFF;
     border: none;
@@ -238,9 +239,4 @@ form .agendar:hover {
      background-color: #ff4b4b;
      cursor: pointer;
      transition: all 0.5s;
-}
-
-.editar:hover {
-    background-color: #3679ff;
-    transition: all 0.5s;
 }

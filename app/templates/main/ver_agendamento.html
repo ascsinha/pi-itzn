@@ -35,7 +35,7 @@
                     <h1>Novo Agendamento</h1>
                     <p>Preencha os dados abaixo para reservar a sala de coworking com notebooks.</p>
                 </div>
-                <form action="{{ url_for('agendamentos.atualizarAgendamento', id = agendamento.id_agendamento) }}" class="flex coluna" method="post">
+                <form action="{{ url_for('agendamentos.ver_apagarAgendamento', id = agendamento.id_agendamento) }}" class="flex coluna" method="post">
                     <div class="date flex coluna">
                         <div class="flex meio-vertical">
                             <i class="fa-regular fa-calendar"></i>
@@ -88,8 +88,8 @@
                             por e-mail dentro de 24 horas.</p>
                     </div>
                     <div class="flex alinhar-extremidades">
-                        <button type="reset" class="excluir">Excluir</button>
-                        <a class="editar flex centralizar" href="{{ url_for('agendamentos.atualizarAgendamento', id = agendamento.id_agendamento) }}" class="agendar">Editar</a>
+                        <button type="submit" class="excluir" name="acao" value="excluir">Excluir</button>
+                        <button type="submit" class="editar flex centralizar" name="acao" value="editar">Editar</button>
                     </div>
                 </form>
             </div>

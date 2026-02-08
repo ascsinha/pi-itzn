@@ -72,7 +72,7 @@
             </div>
             <div class="cards-agendamentos flex coluna">
                 {% for agendamento in agendamentos %}
-                <a href="{{ url_for('agendamentos.verAgendamento', id = agendamento.id_agendamento) }}" class="card-agendamentos flex alinhar-extremidades meio-vertical" onclick="modal()">
+                <a href="{{ url_for('agendamentos.ver_apagarAgendamento', id = agendamento.id_agendamento) }}" class="card-agendamentos flex alinhar-extremidades meio-vertical" onclick="modal()">
                     <div class="detalhe"></div>
                     <div class="flex coluna">
                         <h3>Agendamento da sala - Coworking</h3>

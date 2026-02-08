@@ -37,11 +37,11 @@ def criarAgendamento():
         flash('Agendamento criado com sucesso!', 'success')
         return redirect(url_for('main.dashboard'))
     return render_template('main/agendamentos.html', title = 'Agendar')
-        
+
 @agendamentos.route('/atualizar-agendamento/<int:id>', methods = ['GET', 'POST'])
 @login_required
 def atualizarAgendamento(id):
-    agendamento = Agendamento.query.get(id)
+    agendamento = Agendamento.query.get_or_404(id)
     
     if request.method == 'POST':
         agendamento.data_reserva = request.form.get('data_reserva')
@@ -49,17 +49,17 @@ def atualizarAgendamento(id):
         agendamento.hora_final = request.form.get('hora_final')
         agendamento.id_estacao = request.form.get('id_estacao')
         agendamento.observacao = request.form.get('observacao')
-        
+            
         db.session.add(agendamento)
         db.session.commit()
         flash('Suas modificações foram salvas!', 'success')
         return redirect(url_for('.verAgendamento', id = agendamento.id_agendamento))
-        
+    
     return render_template('main/atualizar_agendamento.html', title = 'Editar Agendamento', agendamento = agendamento)
 
-@agendamentos.route('/ver-agendamento/<int:id>', methods = ['GET'])
+@agendamentos.route('/ver-apagar-agendamento/<int:id>', methods = ['GET', 'POST'])
 @login_required
-def verAgendamento(id):
+def ver_apagarAgendamento(id):
     agendamento = Agendamento.query.filter_by(id_agendamento = id).first()
     
     if request.method == 'GET':
@@ -68,17 +68,15 @@ def verAgendamento(id):
         hora_final = agendamento.hora_final
         id_estacao = agendamento.id_estacao
         observacao = agendamento.observacao
-    return render_template('main/ver_agendamento.html', title = 'Detalhes do Agendamento', agendamento = agendamento, data_reserva=data_reserva, hora_inicial=hora_inicial, hora_final=hora_final, id_estacao=id_estacao, observacao = observacao)
-
-@agendamentos.route('/apagar-agendamento/<int:id>', methods = ['POST'])
-@login_required
-def apagarAgendamento(id):
+        
     if request.method == 'POST':
-        agendamento = Agendamento.query.get(id)
-        if agendamento is not None:
+        if request.form.get('acao') == 'excluir':
             db.session.delete(agendamento)
             db.session.commit()
             flash('Agendamento apagado com sucesso!', 'success')
-        else:
-            flash('O agendamento não foi encontrado', 'danger') 
-        return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.dashboard'))
+    
+        elif request.form.get('acao') == 'editar':
+            return redirect(url_for('.atualizarAgendamento', id = agendamento.id_agendamento))
+        
+    return render_template('main/ver_agendamento.html', title = 'Detalhes do Agendamento', agendamento = agendamento, data_reserva=data_reserva, hora_inicial=hora_inicial, hora_final=hora_final, id_estacao=id_estacao, observacao = observacao)
