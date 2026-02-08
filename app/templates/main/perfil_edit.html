@@ -93,21 +93,23 @@
                 <button type="button" class="btn-excluir" id="openModal">Excluir Conta</button>
 
                 <!-- Modal de Confirmação -->
-                <div id="modalExcluir" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <h3>Tem certeza que deseja excluir sua conta?</h3>
-                        <p>Esta ação não pode ser desfeita.</p>
-                        <div class="flex gap">
-                            <form action="{{ url_for('main.excluir_conta', id=usuario.id) }}" method="POST">
-                                <button type="submit" class="btn-confirmar">Sim, excluir</button>
-                            </form>
-                            <button class="btn-cancelar-modal">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </form>
+
+        <div id="modalExcluir" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Tem certeza que deseja excluir sua conta?</h3>
+                <p>Esta ação não pode ser desfeita.</p>
+                <div class="flex gap">
+                    <form action="{{ url_for('main.excluir_conta', id=usuario.id) }}" method="post">
+                        <button type="submit" class="btn-confirmar">Sim, excluir</button>
+                    </form>
+                    <button class="btn-cancelar-modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        
     </section>
 
     <script>

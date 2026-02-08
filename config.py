@@ -16,5 +16,4 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or f'mysql+pymysql://{db_username}:{db_senha}@{db_host}:{db_port}/{db_database}'
     SQLALCHEMY_TRACK_MODIFICATIONS = False 
     UPLOAD_EXTENSIONS = ['.png', '.jpeg', '.jpg', '.gif', '.webp']
-    UPLOAD_PATH = uploads_dir
     AGENDS_POR_PAGINA = 3

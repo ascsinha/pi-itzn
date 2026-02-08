@@ -31,7 +31,7 @@ class Usuario(UserMixin, db.Model):
     e_admin: so.Mapped[bool] = so.mapped_column(sa.Boolean, default = False)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256), nullable = False)
     
-    agendamentos: so.WriteOnlyMapped['Agendamento'] = so.relationship('Agendamento', back_populates = 'usuario', cascade = 'all, delete-orphan')
+    agendamentos: so.WriteOnlyMapped['Agendamento'] = so.relationship('Agendamento', back_populates = 'usuario', cascade='all, delete-orphan', passive_deletes = True )
     
     def __repr__(self):
         return f'<Usuário {self.nome}>'
@@ -73,7 +73,7 @@ class Admin(Usuario):
 class Agendamento(db.Model):
     __tablename__ = 'agendamento'
     id_agendamento: so.Mapped[int] = so.mapped_column(primary_key = True)
-    id_usuario: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id'), nullable = False)
+    id_usuario: so.Mapped[int] = so.mapped_column(sa.ForeignKey('usuario.id', ondelete = 'CASCADE'), nullable = False)
     data_reserva: so.Mapped[dt.time] = so.mapped_column(sa.Date, nullable = False)
     hora_inicial: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)
     hora_final: so.Mapped[dt.time] = so.mapped_column(sa.Time, nullable = False)

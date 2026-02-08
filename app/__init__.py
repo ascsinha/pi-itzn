@@ -24,16 +24,10 @@ def create_app():
     from .routes.main import main
     app.register_blueprint(main)
     
-    from .routes.usuario import usuario
-    app.register_blueprint(usuario)
-    
     from .routes.index_bp import index_bp
     app.register_blueprint(index_bp)
     
     from .routes.agendamentos import agendamentos
     app.register_blueprint(agendamentos)
-    
-    from .routes.uploads import uploads
-    app.register_blueprint(uploads) 
     
     return app 
