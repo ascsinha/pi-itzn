@@ -22,11 +22,18 @@ def criarAgendamento():
             flash('Você não pode colocar um dia anterior ao de hoje.')
             return redirect(url_for('agendamentos.criarAgendamento'))
         
+        try:
+            hora_inicial_dt = datetime.strptime(hora_inicial, '%H:%M').time()
+            hora_final_dt = datetime.strptime(hora_final, '%H:%M').time()
+        except ValueError:
+            flash('Formato de hora inválido. Use o formato HH:MM.', 'error')
+            return redirect(url_for('agendamentos.criarAgendamento'))
+        
         agendamento = Agendamento(
             id_usuario = current_user.id,
             data_reserva = data_reserva_dt,
-            hora_inicial = hora_inicial,
-            hora_final = hora_final,
+            hora_inicial = hora_inicial_dt,
+            hora_final = hora_final_dt,
             id_estacao = int(id_estacao),
             observacao = observacao,
             validacao = Status.EM_ANALISE

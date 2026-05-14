@@ -31,7 +31,7 @@ def cadastro():
     if request.method == 'POST':
         nome = request.form.get('nome')
         cpf = request.form.get('cpf')
-        data_nascimento = request.form.get('data_nascimento')
+        data_nascimento = datetime.strptime(request.form.get('data_nascimento'), "%Y-%m-%d").date()
         telefone = request.form.get('telefone')
         email = request.form.get('email')
         senha = request.form.get('senha')
