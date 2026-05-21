@@ -1,2 +1,3 @@
 # PI-ITZN
-Integrantes: Acsa Mirella, Andriela Gleice, Gabryela Dayane, Laura Maria e Theresa Letícia.
+Integrantes originais: Acsa Mirella, Andriela Gleice e Theresa Letícia.
+Integrantes adicionados: Gabryela Dayane e Laura Maria.
