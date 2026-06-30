@@ -1,4 +1,6 @@
 import os 
+from dotenv import load_dotenv
+load_dotenv()
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -9,3 +11,6 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False 
     UPLOAD_EXTENSIONS = ['.png', '.jpeg', '.jpg', '.gif', '.webp']
     AGENDS_POR_PAGINA = 3
+    
+    SUAP_CLIENT_ID = os.getenv("SUAP_CLIENT_ID")
+    SUAP_CLIENT_SECRET = os.getenv("SUAP_CLIENT_SECRET")

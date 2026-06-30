@@ -87,3 +87,101 @@ def logout():
 @login_manager.user_loader
 def load_user(user_id):
     return Usuario.query.filter(Usuario.id == int(user_id)).first()
+
+@app.route("/login/suap")
+def login_suap():
+    redirect_uri = url_for(
+        "callback_suap",
+        _external=True
+    )
+
+    return oauth.suap.authorize_redirect(
+        redirect_uri
+    )
+
+@app.route("/oauth/callback")
+def callback_suap():
+    token_data = (
+        oauth.suap
+        .authorize_access_token()
+    )
+
+    access_token = token_data[
+        "access_token"
+    ]
+
+    resposta = requests.get(
+        "https://suap.ifrn.edu.br/api/rh/eu/",
+        headers={
+            "Authorization":
+            f"Bearer {access_token}"
+        }
+    )
+
+    resposta.raise_for_status()
+
+    dados = resposta.json()
+
+    usuario = User.query.filter_by(
+        suap_id=dados["identificacao"]
+    ).first()
+
+    if not usuario:
+
+        usuario = User(
+
+            suap_id=dados[
+                "identificacao"
+            ],
+
+            nome=dados[
+                "nome_usual"
+            ],
+
+            email=dados[
+                "email"
+            ],
+
+            foto=dados.get(
+                "foto"
+            ),
+
+            campus=dados.get(
+                "campus"
+            ),
+
+            tipo_usuario=dados.get(
+                "tipo_usuario"
+            )
+        )
+
+        db.session.add(usuario)
+
+    else:
+
+        usuario.nome = dados[
+            "nome_usual"
+        ]
+
+        usuario.email = dados[
+            "email"
+        ]
+
+        usuario.foto = dados.get(
+            "foto"
+        )
+
+        usuario.campus = dados.get(
+            "campus"
+        )
+
+        usuario.tipo_usuario = dados.get(
+            "tipo_usuario"
+        )
+
+    db.session.commit()
+    login_user(usuario)
+
+    return redirect(
+        url_for("dashboard")
+    )

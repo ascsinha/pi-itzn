@@ -30,6 +30,24 @@ class Usuario(UserMixin, db.Model):
     telefone: so.Mapped[str] = so.mapped_column(sa.String(13), unique = True, index = True)
     e_admin: so.Mapped[bool] = so.mapped_column(sa.Boolean, default = False)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256), nullable = False)
+    suap_id = db.Column(
+        db.String(20),
+        unique=True,
+        nullable=False
+    )
+    foto = db.Column(
+        db.String(500)
+    )
+    campus = db.Column(
+        db.String(20)
+    )
+    tipo_usuario = db.Column(
+        db.String(100)
+    )
+    role = db.Column(
+        db.String(20),
+        default="USER"
+    )
     
     agendamentos: so.WriteOnlyMapped['Agendamento'] = so.relationship('Agendamento', back_populates = 'usuario', cascade='all, delete-orphan', passive_deletes = True )
     
