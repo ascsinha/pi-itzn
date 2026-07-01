@@ -33,7 +33,7 @@ class Usuario(UserMixin, db.Model):
     suap_id = db.Column(
         db.String(20),
         unique=True,
-        nullable=False
+        nullable=True
     )
     foto = db.Column(
         db.String(500)
@@ -48,7 +48,7 @@ class Usuario(UserMixin, db.Model):
         db.String(20),
         default="USER"
     )
-    
+
     agendamentos: so.WriteOnlyMapped['Agendamento'] = so.relationship('Agendamento', back_populates = 'usuario', cascade='all, delete-orphan', passive_deletes = True )
     
     def __repr__(self):

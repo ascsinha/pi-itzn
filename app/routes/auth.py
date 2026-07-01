@@ -3,8 +3,8 @@ from flask_login import current_user, login_user, logout_user, login_required
 from datetime import datetime
 from ..models import Usuario
 import sqlalchemy as sa
-from app import login_manager
-from app import db
+from app import login_manager, db, oauth
+import requests
 
 auth = Blueprint('auth', __name__)
 
@@ -88,10 +88,10 @@ def logout():
 def load_user(user_id):
     return Usuario.query.filter(Usuario.id == int(user_id)).first()
 
-@app.route("/login/suap")
+@auth.route("/login/suap")
 def login_suap():
     redirect_uri = url_for(
-        "callback_suap",
+        "auth.callback_suap",
         _external=True
     )
 
@@ -99,7 +99,7 @@ def login_suap():
         redirect_uri
     )
 
-@app.route("/oauth/callback")
+@auth.route("/oauth/callback")
 def callback_suap():
     token_data = (
         oauth.suap
@@ -122,13 +122,13 @@ def callback_suap():
 
     dados = resposta.json()
 
-    usuario = User.query.filter_by(
+    usuario = Usuario.query.filter_by(
         suap_id=dados["identificacao"]
     ).first()
 
     if not usuario:
 
-        usuario = User(
+        usuario = Usuario(
 
             suap_id=dados[
                 "identificacao"
@@ -183,5 +183,5 @@ def callback_suap():
     login_user(usuario)
 
     return redirect(
-        url_for("dashboard")
+        url_for("main.dashboard")
     )
