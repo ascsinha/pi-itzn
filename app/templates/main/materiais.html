@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais - ITZN</title>
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="../../static/css/base.css">
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
+    <link rel="stylesheet" href="../../static/css/materiais.css">
+    <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <main>
+        <section class="materiais-area">
+            <div class="materiais-topo">
+                <h2>Biblioteca de Materiais</h2>
+
+                <form class="filtro-container" id="filtroMateriais">
+                    <img src="../../static/imgs/dashboard/filter.svg" alt="Filtro">
+                    <select id="categoriaFiltro">
+                        <option value="">Categoria</option>
+                        <option value="empreendedorismo">Empreendedorismo</option>
+                        <option value="tecnologia">Tecnologia</option>
+                        <option value="gestao">Gestão</option>
+                    </select>
+                    <select id="nivelFiltro">
+                        <option value="">Nível</option>
+                        <option value="medio">Ensino Médio</option>
+                        <option value="tecnico">Técnico</option>
+                        <option value="superior">Superior</option>
+                    </select>
+                    <input type="text" id="buscaMaterial" placeholder="Buscar material...">
+                </form>
+            </div>
+
+            <div class="materiais-grid" id="materiaisGrid">
+                <div class="material-card fade-in" data-categoria="empreendedorismo" data-nivel="superior">
+                    <h3>Introdução ao Empreendedorismo</h3>
+                    <p>Conceitos fundamentais sobre startups e inovação.</p>
+                    <div class="tags">
+                        <span class="tag">Empreendedorismo</span>
+                        <span class="tag">Superior</span>
+                    </div>
+                    <button>Baixar PDF</button>
+                </div>
+
+                <div class="material-card fade-in" data-categoria="tecnologia" data-nivel="tecnico">
+                    <h3>Lógica de Programação</h3>
+                    <p>Conceitos essenciais para quem está iniciando na área de TI.</p>
+                    <div class="tags">
+                        <span class="tag">Tecnologia</span>
+                        <span class="tag">Técnico</span>
+                    </div>
+                    <button>Baixar PDF</button>
+                </div>
+
+                <div class="material-card fade-in" data-categoria="gestao" data-nivel="medio">
+                    <h3>Gestão de Projetos</h3>
+                    <p>Aprenda sobre metodologias ágeis e coordenação de equipes.</p>
+                    <div class="tags">
+                        <span class="tag">Gestão</span>
+                        <span class="tag">Médio</span>
+                    </div>
+                    <button>Baixar PDF</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('open_btn').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('open-sidebar');
+        });
+
+        const categoriaSelect = document.getElementById('categoriaFiltro');
+        const nivelSelect = document.getElementById('nivelFiltro');
+        const buscaInput = document.getElementById('buscaMaterial');
+        const cards = document.querySelectorAll('.material-card');
+
+        function filtrarMateriais() {
+            const categoria = categoriaSelect.value.toLowerCase();
+            const nivel = nivelSelect.value.toLowerCase();
+            const busca = buscaInput.value.toLowerCase();
+
+            cards.forEach(card => {
+                const cat = card.dataset.categoria;
+                const niv = card.dataset.nivel;
+                const texto = card.textContent.toLowerCase();
+
+                const visivel = (!categoria || cat === categoria) && (!nivel || niv === nivel) && texto.includes(busca);
+                card.style.display = visivel ? 'flex' : 'none';
+            });
+        }
+
+        categoriaSelect.addEventListener('change', filtrarMateriais);
+        nivelSelect.addEventListener('change', filtrarMateriais);
+        buscaInput.addEventListener('input', filtrarMateriais);
+
+        // animação inicial
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.material-card').forEach((card, i) => {
+                card.style.animationDelay = `${i * 0.1}s`;
+                card.classList.add('fade-in');
+            });
+        });
+    </script>
+    {% endblock %}
+</body>
+
+</html>

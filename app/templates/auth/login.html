@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
+</head>
+
+<body>
+    <main>
+        <section class="left flex centralizar">
+            <section class="container flex meio-vertical alinhar-extremidades">
+                <div class="login flex coluna centralizar">
+                    <div class="titulo flex coluna meio-vertical">
+                        <h1>Login</h1>
+                        <h3>Bem-vindo à Incubadora!</h3>
+                    </div>
+                    {% with messages = get_flashed_messages(with_categories = True) %}
+                    {% if messages %}
+                    <ul class="flashes">
+                        <li>{{ messages[0] }}</li>
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                    <form class="info flex coluna centralizar" action="{{ url_for('auth.login') }}" method="post">
+                        <div class="form flex coluna">
+                            <div class="flex coluna">
+                                <label name="email" for="">E-mail:</label>
+                                <input type="email" name="email" placeholder="email@exemplo.com">
+                                <span>Digite seu e-mail</span>
+                            </div>
+                            <div class="flex coluna">
+                                <label name="senha" for="">Senha:</label>
+                                <input type="password" name="senha" placeholder="senha">
+                                <div class="flex alinhar-extremidades">
+                                    <span>Digite sua senha</span>
+                                    <a href="{{ url_for('auth.esqueciSenha') }}">Esqueceu sua senha?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                    <h4>Não tem uma conta? <a href="{{ url_for('auth.cadastro') }}">Clique aqui</a></h4>
+                    <a href="{{ url_for('auth.login_suap') }}" class="btn-suap">Entrar com SUAP</a>
+
+            </section>
+            <img src="../../static/imgs/cadastro/Frame 7.svg" alt="">
+        </section>
+    </main>
+</body>
+
+</html>

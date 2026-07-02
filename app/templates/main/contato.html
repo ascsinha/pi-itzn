@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="../../static/css/contato.css">
+    <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+ 
+    {% extends 'base2.html' %}
+
+    {% block content %}
+    <main class="flex centralizar">
+        <section class="container flex coluna centralizar">
+            <h1>Contate-nos</h1>
+            <form class="flex coluna centralizar">
+                <div class="info flex alinhar-extremidades coluna">
+                    <div class="l1 flex alinhar-extremidades">
+                        <div class="flex coluna">
+                            <label name="nome" for="">Nome:</label>
+                            <input type="text" placeholder="Nome completo">
+                        </div>
+                        <div class="flex coluna">
+                            <label name="email" for="">E-mail:</label>
+                            <input type="text" placeholder="Insira seu email">
+                        </div>
+                    </div>
+                    <div class="l2 flex alinhar-extremidades">
+                        <div class="flex coluna">
+                            <label name="mensagem" for="">Mensagem:</label>
+                            <textarea name="mensagem" placeholder="Mensagem..." id=""></textarea>
+                        </div>
+                        <div class="col flex coluna">
+                            <div class="flex coluna">
+                                <label name="telefone" for="">Telefone:</label>
+                                <input type="text" placeholder="(XX) XXXXX-XXXX">
+                            </div>
+                            <div class="flex coluna">
+                                <label name="data-nascimento" for="">Data de nascimento:</label>
+                                <input type="text" placeholder="00/00/00">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    {% endblock %}
+
+</body>
+
+</html>

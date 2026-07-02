@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=SUSE:wght@100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.container h1 {
+    color: #0052FB;
+    font-family: Ubuntu;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.container form {
+    border: 1px solid #999999;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    gap: 76px;
+    margin-bottom: 141px;
+    padding: 32px;
+}
+
+.container form .info {
+    gap: 49px;
+}
+
+.container form .info .l1, .l2 {
+    gap: 34px;
+}
+
+.container form .info .l1 div,
+.container form .info .l2 div:nth-child(1),
+.container form .info .l2 div div {
+    gap: 4px;
+}
+
+.container form .info .l2 .col {
+    gap: 38px;
+}
+
+.container form .info label,
+.container form button {
+    font-family: Lato;
+    font-size: 16px;
+}
+
+.container form .info input,
+.container form .info textarea {
+    border: 1px solid #83ACFF;
+    border-radius: 15px;
+    color: #83ACFF;
+    outline: none;
+    padding: 12px 14px 12px 14px;
+    width: 298px;
+}
+
+.container form .info input:hover,
+.container form .info textarea:hover {
+    background: #F2F6FF;
+    border: 1px solid #83ACFF;
+}
+
+.container form .info input:focus,
+.container form .info textarea:focus {
+    border: 2px solid var(--blue-400, #4980F2);
+    box-shadow: 0 0 10px 0 #0052FB;
+}
+
+.container form .info input:invalid,
+.container form .info textarea:invalid {
+    border: 1px solid #FF4646;
+    color: #FF4646;
+}
+
+.container form .info input::-webkit-input-placeholder
+.container form .info textarea::-webkit-input-placeholder {
+    color: #83ACFF;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.container form .info .l2 div:nth-child(1) textarea {
+    height: 100%;
+}
+
+.container form button {
+    background-color: #0052FB;
+    border: none;
+    border-radius: 15px;
+    color: #FFFFFF;
+    height: 36px;
+    width: 139px;
+}
+
+.container form button:hover {
+    background-color: #003FCC;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}

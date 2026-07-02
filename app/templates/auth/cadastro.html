@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
+</head>
+
+<body>
+    <main>
+        <section class="left flex centralizar">
+            <section class="container flex meio-vertical alinhar-extremidades">
+                <div class="cadastro flex coluna centralizar">
+                    <div class="titulo flex coluna meio-vertical">
+                        <h1>Cadastro</h1>
+                        <h3>Preencha com os seus dados</h3>
+                    </div>
+                    {% with messages = get_flashed_messages(with_categories = True) %}
+                    {% if messages %}
+                    <ul class="flashes">
+                        <li>{{ messages[0] }}</li>
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                    <form class="info flex coluna centralizar" action="{{ url_for('auth.cadastro') }}" method="post">
+                        <div class="form flex coluna">
+                            <div class="flex coluna gap">
+                                <label name="nome" for="">Nome:</label>
+                                <input type="text" name="nome" placeholder="Digite seu nome completo" required>
+                            </div>
+                            <div class="flex coluna">
+                                <label name="cpf" for="">CPF:</label>
+                                <input type="text" name="cpf" placeholder="000.000.000-00" required>
+                            </div>
+                            <div class="flex gap">
+                                <div class="flex coluna">
+                                    <label name="data_nascimento" for="">Data de nascimento:</label>
+                                    <input type="date" name="data_nascimento" placeholder="00-00-00" required>
+                                </div>
+                                <div class="flex coluna">
+                                    <label name="telefone" for="">Telefone:</label>
+                                    <input type="tel" name="telefone" placeholder="(11) 99999-9999" required>
+                                </div>
+                            </div>
+                            <div class="flex coluna">
+                                <label name="email" for="">E-mail:</label>
+                                <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                            </div>
+                            <div class="flex coluna">
+                                <label name="senha" for="">Senha:</label>
+                                <input type="password" name="senha" placeholder="Digite sua senha" required>
+                            </div>
+                            <div class="flex coluna">
+                                <label name="senha2" for="">Confirmar sua senha:</label>
+                                <input type="password" name="senha2" placeholder="Confirme a sua senha" required>
+                            </div>
+                        </div>
+                        <div class="flex coluna gap">
+                            <button type="submit">Entrar</button>
+                            <h4>Já tem uma conta? <a href="{{ url_for('auth.login') }}">Login</a></h4>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>

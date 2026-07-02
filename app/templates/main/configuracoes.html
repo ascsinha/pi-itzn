@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - ITZN</title>
+
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="../../static/css/base.css">
+    <link rel="stylesheet" href="../../static/css/configuracoes.css">
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
+    <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <main class="config-page flex coluna centralizar">
+        <div class="config-container">
+            <h1>Configurações</h1>
+            <p class="subtitulo">Gerencie suas preferências de conta e sistema.</p>
+
+            <section class="config-grid">
+                <!-- PERFIL -->
+                <div class="config-card">
+                    <h2><i class="fa-regular fa-user"></i> Perfil</h2>
+                    <form class="flex coluna" action="" method="POST">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" value="{{ current_user.nome }}">
+
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" value="{{ current_user.email }}">
+
+                        <label for="foto">Foto de perfil</label>
+                        <input type="file" id="foto" name="foto">
+
+                        <button type="submit" class="btn-salvar">Salvar alterações</button>
+                    </form>
+                </div>
+
+                <!-- TEMA -->
+                <div class="config-card">
+                    <h2><i class="fa-regular fa-moon"></i> Tema</h2>
+                    <div class="tema-opcoes flex">
+                        <label>
+                            <input type="radio" name="tema" value="claro" checked>
+                            <span>Claro</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="tema" value="escuro">
+                            <span>Escuro</span>
+                        </label>
+                    </div>
+                    <button class="btn-salvar" id="salvarTema">Aplicar tema</button>
+                </div>
+
+                <!-- NOTIFICAÇÕES -->
+                <div class="config-card">
+                    <h2><i class="fa-regular fa-bell"></i> Notificações</h2>
+                    <div class="switches">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Receber notificações por e-mail</span>
+                    </div>
+
+                    <div class="switches">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Alertas de novos editais</span>
+                    </div>
+
+                    <button class="btn-salvar">Salvar preferências</button>
+                </div>
+
+                <!-- SENHA -->
+                <div class="config-card">
+                    <h2><i class="fa-solid fa-lock"></i> Segurança</h2>
+                    <form class="flex coluna" action="" method="POST">
+                        <label for="senha-atual">Senha atual</label>
+                        <input type="password" id="senha-atual" required>
+
+                        <label for="nova-senha">Nova senha</label>
+                        <input type="password" id="nova-senha" required>
+
+                        <label for="confirmar-senha">Confirmar nova senha</label>
+                        <input type="password" id="confirmar-senha" required>
+
+                        <button type="submit" class="btn-salvar">Atualizar senha</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Simulação da troca de tema
+        const radiosTema = document.querySelectorAll('input[name="tema"]');
+        const salvarTema = document.getElementById('salvarTema');
+
+        salvarTema.addEventListener('click', () => {
+            const temaSelecionado = document.querySelector('input[name="tema"]:checked').value;
+            alert(`Tema ${temaSelecionado} aplicado!`);
+        });
+    </script>
+
+    {% endblock %}
+</body>
+
+</html>

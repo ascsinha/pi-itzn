@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="shortcut icon" href="../../static/imgs/favicon/logo-itzn.ico" type="image/x-icon">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+
+    {% extends 'base2.html' %}
+
+    {% block content %}
+    <main class="flex coluna meio-vertical">
+        <div class="herobanner flex meio-horizontal">
+            <section class="container flex alinhar-extremidades">
+                <div class="texto-herobanner flex coluna">
+                    <div class="flex coluna">
+                        <h1>Incubadora Tecnológica do IFRN - Zona Norte</h1>
+                        <h2>Nosso propósito é fomentar o empreendorismo inovador. Um ambiente dedicado ao
+                            desenvolvimento de
+                            startups e empreendimentos de base tecnológica.</h2>
+                    </div>
+                    <a class="flex centralizar" href="{{ url_for('index_bp.sobre') }}">
+                        Saber mais
+                    </a>
+                    <div class="flex">
+                        <img src="../static/imgs/base/logo ifrn.svg" alt="">
+                        <img src="../static/imgs/index/logo-sebrae-transparente-194541244 1.png" alt="">
+                    </div>
+                </div>
+                <div class="homem flex">
+                    <img class="" src="../static/imgs/index/homem.png" alt="">
+                </div>
+            </section>
+        </div>
+
+        <div class="o-que-fazemos flex meio-horizontal">
+            <section class="container flex alinhar-extremidades meio-vertical">
+                <div class="conteudo flex">
+                    <div class="flex coluna">
+                        <h3>O Que Fazemos</h3>
+                        <p>Nosso propósito é fomentar o empreendedorismo inovador, criando um ambiente dinâmico e
+                            colaborativo voltado para o desenvolvimento de startups e empreendimentos de base
+                            tecnológica.
+                            Buscamos impulsionar ideias que transformem realidades, conectando pessoas, recursos e
+                            conhecimento para gerar soluções criativas e sustentáveis. Acreditamos que a inovação é o
+                            motor
+                            do progresso, e, por isso, promovemos iniciativas que estimulem a experimentação, o
+                            aprendizado
+                            contínuo e a troca de experiências entre empreendedores, mentores e instituições parceiras.
+                            Nosso objetivo é contribuir para o fortalecimento do ecossistema de inovação, estimulando o
+                            crescimento econômico, a competitividade e o impacto positivo na sociedade.</p>
+                    </div>
+                    <img class="equipe-itzn" src="../static/imgs/index/WhatsApp Image 2025-10-23 at 17.39.46 3.png"
+                        alt="">
+                </div>
+            </section>
+        </div>
+
+        <section class="container">
+            <div class="espac flex coluna centralizar">
+                <h3>Em que podemos ajudar</h3>
+                <div class="em-que-podemos-ajudar flex">
+                    <div class="card flex coluna centralizar">
+                        <div class="cont flex coluna meio-vertical">
+                            <img src="../static/imgs/index/gestao-negocios.svg" alt="">
+                            <div class="flex coluna centralizar">
+                                <b>Gestão de negócios</b>
+                                <p>Estruturação e planejamento estratégico para sua startup</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card flex coluna centralizar">
+                        <div class="cont flex coluna meio-vertical">
+                            <img src="../static/imgs/index/metodos-ageis.svg" alt="">
+                            <div class="flex coluna centralizar">
+                                <b>Métodos Ágeis</b>
+                                <p>Implementação de métodos ágeis para otimizar processos e aumentar a eficiência</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card flex coluna centralizar">
+                        <div class="cont flex coluna meio-vertical">
+                            <img src="../static/imgs/index/marketing.svg" alt="">
+                            <div class="flex coluna centralizar">
+                                <b>Marketing</b>
+                                <p>Marketing estratégico para fortalecer sua marca e atrair resultados</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card flex coluna centralizar">
+                        <div class="cont flex coluna meio-vertical">
+                            <img src="../static/imgs/index/gestao-financeira.svg" alt="">
+                            <div class="flex coluna centralizar">
+                                <b>Gestão financeira</b>
+                                <p>Gestão financeira e controle de recursos para o futuro da sua startup</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card flex coluna centralizar">
+                        <div class="cont flex coluna meio-vertical">
+                            <img src="../static/imgs/index/gestao-projetos.svg" alt="">
+                            <div class="flex coluna centralizar">
+                                <b>Gestão de projetos</b>
+                                <p>Planejamento e gestão de projetos para transformar ideias em resultados</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container flex meio-horizontal">
+            <div class="etapas flex alinhar-extremidades">
+                <div class="card flex coluna centralizar">
+                    <div class="flex centralizar">
+                        <img src="../static/imgs/index/pre-incubacao.svg" alt="">
+                    </div>
+                    <h3>Pré-incubação</h3>
+                    <p>A pré-incubação, com duração de 3 a 9 meses, inclui capacitação, validação da ideia e elaboração do plano de negócios, com avaliações e orientações periódicas, podendo levar à continuidade, ajuste ou suspensão do projeto.</p>
+                </div>
+                <div class="card flex coluna centralizar">
+                    <div class="flex centralizar">
+                        <img src="../static/imgs/index/incubacao.svg" alt="">
+                    </div>
+                    <h3>Incubação</h3>
+                    <p>A incubação, com duração de 12 a 24 meses, apoia o negócio já validado em sua formalização e crescimento, oferecendo capacitação, acompanhamento contínuo e acesso à estrutura da ITZN.</p>
+                </div>
+                <div class="card flex coluna centralizar">
+                    <div class="flex centralizar">
+                        <img src="../static/imgs/index/graduacao.svg" alt="">
+                    </div>
+                    <h3>Graduação</h3>
+                    <p>A graduação ocorre quando a empresa atinge solidez financeira e consolidação no mercado, liberando o espaço físico (se residente) e iniciando um novo ciclo de acompanhamento pela ITZN. Essa fase dura de 6 meses a 2 anos, com o foco em crescimento e escalabilidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="espac-beneficios flex coluna">
+                <div class="titulos flex coluna centralizar">
+                    <h3>Por que escolher a ITZN?</h3>
+                    <p>Benefícios exclusivos para empreendedores inovadores</p>
+                </div>
+                <div class="lista-beneficios flex alinhar-extremidades">
+                    <div class="beneficio flex">
+                        <div class="flex centralizar">
+                            <img src="../static/imgs/index/inf-comp.svg" alt="">
+                        </div>
+                        <div class="flex coluna">
+                            <h3>Infraestrutura Completa</h3>
+                            <p>Escritórios, laboratórios e equipamentos de ponta à sua disposição</p>
+                        </div>
+                    </div>
+                    <div class="beneficio flex">
+                        <div class="flex centralizar">
+                            <img src="../static/imgs/index/ment-espec.svg" alt="">
+                        </div>
+                        <div class="flex coluna">
+                            <h3>Mentoria Especializada</h3>
+                            <p>Acesso a mentores experientes em tecnologia e negócios</p>
+                        </div>
+                    </div>
+                    <div class="beneficio flex">
+                        <div class="flex centralizar">
+                            <img src="../static/imgs/index/web.svg" alt="">
+                        </div>
+                        <div class="flex coluna">
+                            <h3>Networking</h3>
+                            <p>Conexões com investidores, empresas e outras startups</p>
+                        </div>
+                    </div>
+                    <div class="beneficio flex">
+                        <div class="flex centralizar">
+                            <img src="../static/imgs/index/alvo.svg" alt="">
+                        </div>
+                        <div class="flex coluna">
+                            <h3>Capacitação Contínua</h3>
+                            <p>Workshops, treinamentos e eventos para seu desenvolvimento</p>
+                        </div>
+                    </div>
+                    <div class="beneficio flex">
+                        <div class="flex centralizar">
+                            <img src="../static/imgs/index/cifrao.svg" alt="">
+                        </div>
+                        <div class="flex coluna">
+                            <h3>Apoio Financeiro</h3>
+                            <p>Auxílio na captação de recursos e acesso a editais</p>
+                        </div>
+                    </div>
+                    <div class="beneficio flex">
+                        <div class="flex centralizar">
+                            <img src="../static/imgs/index/lampada.svg" alt="">
+                        </div>
+                        <div class="flex coluna">
+                            <h3>Consultoria Jurídica</h3>
+                            <p>Orientação legal para estruturação do seu negócio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="parcerias flex centralizar coluna">
+                <div class="flex coluna centralizar">
+                    <h3>Projetos e Parcerias (2023 - 2025)</h3>
+                    <p>A atuação da incubadora é fortalecida por uma rede sólida de parceiros:</p>
+                </div>
+                <div class="flex coluna centralizar">
+                    <h3>Empreendimentos 2024</h3>
+                    <div>
+                        <img src="../static/imgs/index/Apresentação IT.ZN-09 1.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    {% endblock %}
+
+</body>
+
+</html>

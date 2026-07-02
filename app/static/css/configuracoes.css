@@ -1,0 +1,168 @@
+body {
+    background-color: #f5f7fb;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+}
+
+.config-page {
+    width: 100%;
+    padding: 48px;
+}
+
+.config-container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.config-container h1 {
+    font-size: 28px;
+    color: #0052fb;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #666;
+    margin-bottom: 36px;
+}
+
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 28px;
+}
+
+.config-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.config-card h2 {
+    color: #0052fb;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.config-card label {
+    font-size: 14px;
+    color: #555;
+}
+
+.config-card input[type="text"],
+.config-card input[type="email"],
+.config-card input[type="password"],
+.config-card input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    transition: 0.2s;
+}
+
+.config-card input:focus {
+    border-color: #0052fb;
+}
+
+/* Tema */
+.tema-opcoes {
+    display: flex;
+    gap: 20px;
+}
+
+.tema-opcoes label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+}
+
+.tema-opcoes input {
+    accent-color: #0052fb;
+}
+
+/* Switch de notificações */
+.switches {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #0052fb;
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+/* Botão */
+.btn-salvar {
+    align-self: flex-start;
+    background: #0052fb;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-salvar:hover {
+    background: #003bb5;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .config-page {
+        padding: 24px;
+    }
+}

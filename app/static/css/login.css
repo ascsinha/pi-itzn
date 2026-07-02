@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+}
+
+main section {
+    gap: 250px;
+}
+
+main .left {
+    background-image: url('/static/imgs/cadastro/fundo3.svg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* mostra tudo sem cortar */
+}
+
+main .left .container .login {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 1px 10px 10px rgba(0, 36, 112, 0.2);
+    padding: 48px 56px;
+    gap: 16px;
+}
+
+main .left .login .titulo {
+    gap: 2px;
+    margin-bottom: 39px;
+}
+
+
+main .left .container .login div h1 {
+    color: #0052FB;
+    font-family: Ubuntu;
+    font-weight: 700;
+}
+
+main .left .container .login div h3 {
+    color: #4D4D4D;
+    font-family: Lato;
+    font-weight: 500;
+}
+
+main .left .login .info {
+    gap: 36px;
+}
+
+main .left .login .info .form {
+    gap: 17px;
+}
+
+main .left .container .login .info label,
+main .left .container .login button {
+    font-family: Lato;
+    font-size: 16px;
+}
+
+main .left .container .login .info button:hover {
+    background-color: #4985FF;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+main .left .container .login .info .form input {
+    border: 1px solid #83ACFF;
+    border-radius: 15px;
+    color: #83ACFF;
+    outline: none;
+    padding: 12px 14px 12px 14px;
+    width: 298px;
+}
+
+main .left .container .login .info .form input:hover {
+    background: #F2F6FF;
+    border: 1px solid #83ACFF;
+}
+
+main .left .container .login .info .form input:focus {
+    border: 2px solid var(--blue-400, #4980F2);
+    box-shadow: 0 0 10px 0 #0052FB;
+}
+
+main .left .container .login .info .form :invalid {
+    border: 1px solid #FF4646;
+    color: #FF4646;
+}
+
+main .left .container .login .info .form input::-webkit-input-placeholder {
+    color: #83ACFF;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+main .left .container .login .info .form span,
+main .left .container .login .info .form a {
+    color: #4D4D4D;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+main .left .container .login .info .form a {
+    color: #1246B2;
+    font-family: Lato;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+main .left .container .login .info .form a:hover {
+    color: #4980F2;
+    transition: all 0.3s;
+}
+
+main .left .container .login .info button {
+    background-color: #0052FB;
+    border: none;
+    border-radius: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 36px;
+    width: 100%;
+}
+
+main .left .container .login h4 {
+    color: #4D4D4D;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+main .left .container .login h4 a {
+    color: #1246B2;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all .5s;
+}
+
+main .left .container .login h4 a:hover {
+    color: #4980F2;
+}
+
+img {
+    height: 518px;
+    width: 335px;
+}
+
+.flashes {
+    padding: 8px;
+    background-color: #ffd6d6;
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #FF4646;
+    font-family: Lato;
+    color: #FF4646;
+    list-style: none;
+  }
+
+.btn-suap {
+    display: block;
+    width: 90%; 
+    padding: 12px;
+    margin-top: 12px;
+
+    background: #f5f9ff; 
+    color: #0b57ff;
+    
+    border: 1px solid #0b57ff;
+    border-radius: 10px;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+
+    transition: 0.25s ease;
+}
+
+.btn-suap:hover {
+    background: #0b57ff;
+    color: white;
+}
